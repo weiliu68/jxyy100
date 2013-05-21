@@ -1,4 +1,4 @@
-var utility = {
+﻿var utility = {
     getWinSize: function () {
         var winWidth = parseInt(document.documentElement.clientWidth || document.body.clientWidth, 10);
         var winHeight = parseInt(document.documentElement.clientHeight || document.body.clientHeight, 10);

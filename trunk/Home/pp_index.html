@@ -1,12 +1,15 @@
-﻿
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>{$title}</title>
 	<meta name="keywords" content="{$keywords}">
 	<meta name="description" content="{$description}">
-	<include file="./Public/tpl/home/header.html" />
+	<link href="/Tpl/jxyy/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/Tpl/jxyy/1.7.2.jquery.min.js"></script>
+    <script type="text/javascript" src="/Tpl/jxyy/lazyLoad.js"></script>
+    <script type="text/javascript" src="/Tpl/jxyy/Common.js"></script>
+	<script language="javascript" src="/Tpl/jxyy/Slide.js" charset="utf-8"></script>
 </head>
 <body>
     <!-- 页首 -->
@@ -21,7 +24,7 @@
                 <div class="feature">
                     <ul class="output">
                       <fflist name="list_slide" id="ppvod">
-                      <li index="1"><a href="{$ppvod.slide_url}">
+                      <li index="{$ppvod.slide_oid}"><a href="{$ppvod.slide_url}">
                             <img src="{$ppvod.slide_pic}" alt="{$ppvod.slide_name}" title="{$ppvod.slide_name}" />
                             <h3 style="cursor: pointer">{$ppvod.slide_name}</h3></a>
                        </li>
@@ -784,9 +787,5 @@
         <div class="history-ctrlBar"><a href="javascript:gHisMenu.clear()">清空历史记录</a>|<a id="his_close" href="javascript:gHisMenu.closeHis()">关闭</a></div>
     </div>
     <!-- end 历史播放记录 -->
-<img src="http://click.wuji.com/j.ashx?action=9" style="display:none;"/>
 </body>
-<script type="text/javascript">    doResize(); loadImage(); </script>
-<script type="text/javascript">    BAIDU_CLB_fillSlot("667115");</script>
 </html>
-<script type="text/javascript" src="http://js.tongji.linezing.com/3058244/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/3058244/tongji.gif"/></a></noscript>
