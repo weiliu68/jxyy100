@@ -1,0 +1,792 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$title}</title>
+	<meta name="keywords" content="{$keywords}">
+	<meta name="description" content="{$description}">
+	<include file="./Public/tpl/home/header.html" />
+</head>
+<body>
+    <!-- 页首 -->
+    <include file="Home:pp_header" />
+    <!-- end 页首 -->
+    <!-- 内容区 -->
+    <div id="container">
+    
+<!-- banner -->
+        <div class="banner">
+            <div class="wrapper">
+                <div class="feature">
+                    <ul class="output">
+                      <fflist name="list_slide" id="ppvod">
+                      <li index="1"><a href="{$ppvod.slide_url}">
+                            <img src="{$ppvod.slide_pic}" alt="{$ppvod.slide_name}" title="{$ppvod.slide_name}" />
+                            <h3 style="cursor: pointer">{$ppvod.slide_name}</h3></a>
+                       </li>
+                      </fflist>
+                    </ul>
+                    <div class="ctrl">
+                        <a class="btn-prev" href="javascript:void(0);">&nbsp;</a> <a class="btn-next" href="javascript:void(0);">
+                            &nbsp;</a>
+                    </div>
+                </div>
+                <div class="recommend">
+                    <div class="mask"></div>
+                    <h2 class="title24 cWhite">最新推荐</h2>
+                    <ul>
+                        <li><a title="青春期2 国语 2011" href="/Vod?mid=832231"><span class="name">青春期2 国语
+                        <span class="cGrey"></span> 2011</span><span class="point">7.2</span></a>
+                        </li>
+                        <li><a title="女蛹 2012" href="/Vod?mid=850041"><span class="name">女蛹
+                        <span class="cGrey"></span> 2012</span><span class="point">6.2</span></a>
+                        </li>
+                        <li><a title="西游降魔篇 国语 2013" href="/Vod?mid=896291"><span class="name">西游降魔篇 国语
+                        <span class="cGrey"></span> 2013</span><span class="point">6.5</span></a>
+                        </li>
+                        <li><a title="爸爸，我怀了你的孩子 国语 全50集" href="/Vod?mid=182892"><span class="name">爸爸，我怀了你的孩子 国语
+                        <span class="cGrey"></span> 全50集</span><span class="point">6.4</span></a>
+                        </li>
+                        <li><a title="X女特工 全42集" href="/Vod?mid=202772"><span class="name">X女特工
+                        <span class="cGrey"></span> 全42集</span><span class="point">7.7</span></a>
+                        </li>
+                        <li><a title="箭在弦上 全42集" href="/Vod?mid=202782"><span class="name">箭在弦上
+                        <span class="cGrey"></span> 全42集</span><span class="point">6.8</span></a>
+                        </li>
+                        <li><a title="枪花 国语 全32集" href="/Vod?mid=207572"><span class="name">枪花 国语
+                        <span class="cGrey"></span> 全32集</span><span class="point">6.3</span></a>
+                        </li>
+                        <li><a title="火影忍者 日语 更新至532集" href="/Vod?mid=151144"><span class="name">火影忍者 日语
+                        <span class="cGrey"></span> 更新至532集</span><span class="point">8.0</span></a>
+                        </li>
+                        <li><a title="愤怒的小鸟 更新至61集" href="/Vod?mid=163134"><span class="name">愤怒的小鸟
+                        <span class="cGrey"></span> 更新至61集</span><span class="point">7.2</span></a>
+                        </li>
+                        <li><a title="小鸡想飞 全1集" href="/Vod?mid=169614"><span class="name">小鸡想飞
+                        <span class="cGrey"></span> 全1集</span><span class="point">7.6</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper" style="margin-top:10px;"><script type="text/javascript">BAIDU_CLB_fillSlot("667116");</script></div>
+        <!--end banner -->
+        <!-- 猜测您喜欢的 -->
+        <div class="wrapper fav clearfix"  style="height:273px; overflow:hidden;">
+            <div class="title-bar">
+                <a href="#" class="ctrl-next">下一组</a>
+                <ul class="ctrl-fav">
+                    <li index="7" class="cur"><a href="#">1</a></li><li index="14"><a href="#">2</a></li><li index="21"><a href="#">3</a></li>
+                </ul>
+                <a href="#" class="ctrl-prev">上一组</a>
+                <h2 class="title24">猜您喜欢看的 <span class="title12">根据您的观看记录为您推荐的，您还可以点击右侧小圆圈换另一组</span></h2>
+            </div>
+            <ul class="imgList1" id="div_favicons">
+            <li index="1" class=""><a title="居高临下看英伦2" class="avatar" href="/Vod?mid=799741">
+                <b class="mask-play"></b><img alt="居高临下看英伦2" src="http://hb.wuji.com/1/l/79974_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2011</span></a>
+                <h4 class="name"><a title="居高临下看英伦2" href="/Vod?mid=799741">居高临下看英伦2</a></h4>
+            </li>
+            <li index="1" class=""><a title="澳门1949" class="avatar" href="/Vod?mid=771381">
+                <b class="mask-play"></b><img alt="澳门1949" src="http://hb.wuji.com/1/i/77138_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2010</span></a>
+                <h4 class="name"><a title="澳门1949" href="/Vod?mid=771381">澳门1949</a></h4>
+            </li>
+            <li index="1" class=""><a title="三人床(上)" class="avatar" href="/Vod?mid=780851">
+                <b class="mask-play"></b><img alt="三人床(上)" src="http://hb.wuji.com/1/u/78085_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2012</span></a>
+                <h4 class="name"><a title="三人床(上)" href="/Vod?mid=780851">三人床(上)</a></h4>
+            </li>
+            <li index="1" class=""><a title="肩上蝶 国语" class="avatar" href="/Vod?mid=680891">
+                <b class="mask-play"></b><img alt="肩上蝶 国语" src="http://hb.wuji.com/1/t/68089_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2011</span></a>
+                <h4 class="name"><a title="肩上蝶 国语" href="/Vod?mid=680891">肩上蝶 国语</a></h4>
+            </li>
+            <li index="1" class=""><a title="银河帝国外传之钢铁的宇宙 日语" class="avatar" href="/Vod?mid=746271">
+                <b class="mask-play"></b><img alt="银河帝国外传之钢铁的宇宙 日语" src="http://hb.wuji.com/1/4/74627_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2011</span></a>
+                <h4 class="name"><a title="银河帝国外传之钢铁的宇宙 日语" href="/Vod?mid=746271">银河帝国外传之钢铁的宇宙 日语</a></h4>
+            </li>
+            <li index="1" class=""><a title="别哭妈妈" class="avatar" href="/Vod?mid=765821">
+                <b class="mask-play"></b><img alt="别哭妈妈" src="http://hb.wuji.com/1/e/76582_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2012</span></a>
+                <h4 class="name"><a title="别哭妈妈" href="/Vod?mid=765821">别哭妈妈</a></h4>
+            </li>
+            <li index="1" class="last"><a title="拳皇 英语" class="avatar" href="/Vod?mid=864931">
+                <b class="mask-play"></b><img alt="拳皇 英语" src="http://hb.wuji.com/1/a/86493_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2010</span></a>
+                <h4 class="name"><a title="拳皇 英语" href="/Vod?mid=864931">拳皇 英语</a></h4>
+            </li>
+            <li index="1" class=""><a title="良方之良方" class="avatar" href="/Vod?mid=799311">
+                <b class="mask-play"></b><img alt="良方之良方" src="http://hb.wuji.com/1/9/79931_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2011</span></a>
+                <h4 class="name"><a title="良方之良方" href="/Vod?mid=799311">良方之良方</a></h4>
+            </li>
+            <li index="1" class=""><a title="与梦平行 国语" class="avatar" href="/Vod?mid=908021">
+                <b class="mask-play"></b><img alt="与梦平行 国语" src="http://hb.wuji.com/1/t/90802_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2012</span></a>
+                <h4 class="name"><a title="与梦平行 国语" href="/Vod?mid=908021">与梦平行 国语</a></h4>
+            </li>
+            <li index="1" class=""><a title="台北&#183;丛林" class="avatar" href="/Vod?mid=794811">
+                <b class="mask-play"></b><img alt="台北&#183;丛林" src="http://hb.wuji.com/1/0/79481_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2011</span></a>
+                <h4 class="name"><a title="台北&#183;丛林" href="/Vod?mid=794811">台北&#183;丛林</a></h4>
+            </li>
+            <li index="1" class=""><a title="我的小公主" class="avatar" href="/Vod?mid=729961">
+                <b class="mask-play"></b><img alt="我的小公主" src="http://hb.wuji.com/1/a/72996_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2011</span></a>
+                <h4 class="name"><a title="我的小公主" href="/Vod?mid=729961">我的小公主</a></h4>
+            </li>
+            <li index="1" class=""><a title="被迫害妄想" class="avatar" href="/Vod?mid=863651">
+                <b class="mask-play"></b><img alt="被迫害妄想" src="http://hb.wuji.com/1/w/86365_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2009</span></a>
+                <h4 class="name"><a title="被迫害妄想" href="/Vod?mid=863651">被迫害妄想</a></h4>
+            </li>
+            <li index="1" class=""><a title="南营洞1985" class="avatar" href="/Vod?mid=814071">
+                <b class="mask-play"></b><img alt="南营洞1985" src="http://hb.wuji.com/1/7/81407_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2012</span></a>
+                <h4 class="name"><a title="南营洞1985" href="/Vod?mid=814071">南营洞1985</a></h4>
+            </li>
+            <li index="1" class="last"><a title="小婷" class="avatar" href="/Vod?mid=829751">
+                <b class="mask-play"></b><img alt="小婷" src="http://hb.wuji.com/1/p/82975_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2011</span></a>
+                <h4 class="name"><a title="小婷" href="/Vod?mid=829751">小婷</a></h4>
+            </li>
+            <li index="1" class=""><a title="贪心鬼见鬼 国语" class="avatar" href="/Vod?mid=772041">
+                <b class="mask-play"></b><img alt="贪心鬼见鬼 国语" src="http://hb.wuji.com/1/x/77204_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2012</span></a>
+                <h4 class="name"><a title="贪心鬼见鬼 国语" href="/Vod?mid=772041">贪心鬼见鬼 国语</a></h4>
+            </li>
+            <li index="1" class=""><a title="别跟狗较劲 国语" class="avatar" href="/Vod?mid=866061">
+                <b class="mask-play"></b><img alt="别跟狗较劲 国语" src="http://hb.wuji.com/1/z/86606_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2010</span></a>
+                <h4 class="name"><a title="别跟狗较劲 国语" href="/Vod?mid=866061">别跟狗较劲 国语</a></h4>
+            </li>
+            <li index="1" class=""><a title="查理和布茨" class="avatar" href="/Vod?mid=748121">
+                <b class="mask-play"></b><img alt="查理和布茨" src="http://hb.wuji.com/1/s/74812_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2009</span></a>
+                <h4 class="name"><a title="查理和布茨" href="/Vod?mid=748121">查理和布茨</a></h4>
+            </li>
+            <li index="1" class=""><a title="夺命金 国语" class="avatar" href="/Vod?mid=843081">
+                <b class="mask-play"></b><img alt="夺命金 国语" src="http://hb.wuji.com/1/8/84308_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2011</span></a>
+                <h4 class="name"><a title="夺命金 国语" href="/Vod?mid=843081">夺命金 国语</a></h4>
+            </li>
+            <li index="1" class=""><a title="龙行四海" class="avatar" href="/Vod?mid=743151">
+                <b class="mask-play"></b><img alt="龙行四海" src="http://hb.wuji.com/1/u/74315_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2011</span></a>
+                <h4 class="name"><a title="龙行四海" href="/Vod?mid=743151">龙行四海</a></h4>
+            </li>
+            <li index="1" class=""><a title="你幸福吗 国语" class="avatar" href="/Vod?mid=681411">
+                <b class="mask-play"></b><img alt="你幸福吗 国语" src="http://hb.wuji.com/1/s/68141_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2012</span></a>
+                <h4 class="name"><a title="你幸福吗 国语" href="/Vod?mid=681411">你幸福吗 国语</a></h4>
+            </li>
+            <li index="1" class="last"><a title="剑风传奇之黄金时代篇Ⅱ：多尔多雷攻略 剧场版 日语" class="avatar" href="/Vod?mid=780091">
+                <b class="mask-play"></b><img alt="剑风传奇之黄金时代篇Ⅱ：多尔多雷攻略 剧场版 日语" src="http://hb.wuji.com/1/v/78009_s.jpg" onerror="OnImgError(this)" />
+                <span class="tip">2012</span></a>
+                <h4 class="name"><a title="剑风传奇之黄金时代篇Ⅱ：多尔多雷攻略 剧场版 日语" href="/Vod?mid=780091">剑风传奇之黄金时代篇Ⅱ：多尔多雷攻略 剧场版 日语</a></h4>
+            </li>
+
+            </ul>
+        </div>
+        <!-- end 猜测您喜欢的 -->
+        <div class="wrapper movie clearfix">
+            <div class="title-bar ui-title">
+                <a href="/List?type=movie" class="more">更多 &gt;</a><h2>电影</h2>
+            </div>
+            <div class="colMainL">
+                <ul class="ctrl-tab clearfix"><li class="cur">最新</li></ul>
+                <ul class="imgList1">
+                    <li><a title="十二生肖 国语" class="avatar" href="/Vod?mid=674801">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="十二生肖 国语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/1/k/67480_s.jpg" />
+                        <span class="tip">2012</span> </a>
+                        <h4 class="name"><a title="十二生肖 国语" href="/Vod?mid=674801">十二生肖 国语</a></h4>
+                    </li>
+                    <li><a title="人再囧途之泰囧 国语" class="avatar" href="/Vod?mid=894511">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="人再囧途之泰囧 国语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/1/d/89451_s.jpg" />
+                        <span class="tip">2012</span> </a>
+                        <h4 class="name"><a title="人再囧途之泰囧 国语" href="/Vod?mid=894511">人再囧途之泰囧 国语</a></h4>
+                    </li>
+                    <li><a title="源代码 英语" class="avatar" href="/Vod?mid=870171">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="源代码 英语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/1/h/87017_s.jpg" />
+                        <span class="tip">2011</span> </a>
+                        <h4 class="name"><a title="源代码 英语" href="/Vod?mid=870171">源代码 英语</a></h4>
+                    </li>
+                    <li><a title="赤焰战场 英语" class="avatar" href="/Vod?mid=795221">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="赤焰战场 英语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/1/z/79522_s.jpg" />
+                        <span class="tip">2010</span> </a>
+                        <h4 class="name"><a title="赤焰战场 英语" href="/Vod?mid=795221">赤焰战场 英语</a></h4>
+                    </li>
+                    <li><a title="狂暴 英语" class="avatar" href="/Vod?mid=926821">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="狂暴 英语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/1/r/92682_s.jpg" />
+                        <span class="tip">2009</span> </a>
+                        <h4 class="name"><a title="狂暴 英语" href="/Vod?mid=926821">狂暴 英语</a></h4>
+                    </li>
+                    <li><a title="一代宗师纪录片之宗师之路 国语" class="avatar" href="/Vod?mid=926791">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="一代宗师纪录片之宗师之路 国语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/1/q/92679_s.jpg" />
+                        <span class="tip">2012</span> </a>
+                        <h4 class="name"><a title="一代宗师纪录片之宗师之路 国语" href="/Vod?mid=926791">一代宗师纪录片之宗师之路 国语</a></h4>
+                    </li>
+                    <li><a title="极度兽性" class="avatar" href="/Vod?mid=926761">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="极度兽性" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/1/v/92676_s.jpg" />
+                        <span class="tip">1998</span> </a>
+                        <h4 class="name"><a title="极度兽性" href="/Vod?mid=926761">极度兽性</a></h4>
+                    </li>
+                    <li><a title="猎捕 国语" class="avatar" href="/Vod?mid=926751">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="猎捕 国语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/1/n/92675_s.jpg" />
+                        <span class="tip">2013</span> </a>
+                        <h4 class="name"><a title="猎捕 国语" href="/Vod?mid=926751">猎捕 国语</a></h4>
+                    </li>
+                    <li><a title="恋爱的温度 韩语" class="avatar" href="/Vod?mid=926741">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="恋爱的温度 韩语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/1/6/92674_s.jpg" />
+                        <span class="tip">2013</span> </a>
+                        <h4 class="name"><a title="恋爱的温度 韩语" href="/Vod?mid=926741">恋爱的温度 韩语</a></h4>
+                    </li>
+                    <li><a title="盛夏年华" class="avatar" href="/Vod?mid=926681">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="盛夏年华" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/1/f/92668_s.jpg" />
+                        <span class="tip">2013</span> </a>
+                        <h4 class="name"><a title="盛夏年华" href="/Vod?mid=926681">盛夏年华</a></h4>
+                    </li>
+                </ul>
+            </div>
+            <div class="colSide">
+                <h3 class="title16">
+                    电影排行榜<span>评分</span></h3>
+                <ol class="rank">
+                    <li class="top1"><a href="/Vod?mid=832231">
+                        <span class="num">1</span><span class="name">青春期2 国语</span><span class="point">7.2</span></a>
+                     </li>                
+                    <li class="top2"><a href="/Vod?mid=896291">
+                        <span class="num">2</span><span class="name">西游降魔篇 国语</span><span class="point">6.5</span></a>
+                     </li>                
+                    <li class="top3"><a href="/Vod?mid=850041">
+                        <span class="num">3</span><span class="name">女蛹</span><span class="point">6.2</span></a>
+                     </li>                
+                    <li class="top4"><a href="/Vod?mid=859071">
+                        <span class="num">4</span><span class="name">都市色戒 韩语</span><span class="point">6.2</span></a>
+                     </li>                
+                    <li class="top5"><a href="/Vod?mid=896001">
+                        <span class="num">5</span><span class="name">上位之第三集 国语</span><span class="point">6.8</span></a>
+                     </li>                
+                    <li class="top6"><a href="/Vod?mid=786081">
+                        <span class="num">6</span><span class="name">前度 国语</span><span class="point">6.5</span></a>
+                     </li>                
+                    <li class="top7"><a href="/Vod?mid=897151">
+                        <span class="num">7</span><span class="name">X 周立鹏版 国语</span><span class="point">6.2</span></a>
+                     </li>                
+                    <li class="top8"><a href="/Vod?mid=839011">
+                        <span class="num">8</span><span class="name">擒爱记</span><span class="point">7.4</span></a>
+                     </li>                
+                    <li class="top9"><a href="/Vod?mid=674801">
+                        <span class="num">9</span><span class="name">十二生肖 国语</span><span class="point">7.3</span></a>
+                     </li>                
+                    <li class="top10"><a href="/Vod?mid=716971">
+                        <span class="num">10</span><span class="name">青春荷尔蒙</span><span class="point">6.9</span></a>
+                     </li>                
+
+                </ol>
+                <ul class="category clearfix">
+                    <li><strong>类型</strong></li>
+                    <li><a href="/List?category=剧情&type=movie">剧情</a></li>
+                    <li><a href="/List?category=喜剧&type=movie">喜剧</a></li>
+                    <li><a href="/List?category=爱情&type=movie">爱情</a></li>
+                    <li><a href="/List?category=家庭&type=movie">家庭</a></li>
+                    <li><a href="/List?category=犯罪&type=movie">犯罪</a></li>
+                    <li><a href="/List?category=动作&type=movie">动作</a></li>
+                    <li><a href="/List?category=恐怖&type=movie">恐怖</a></li>
+                    <li><a href="/List?category=悬疑&type=movie">悬疑</a></li>
+                    <li><a href="/List?category=惊悚&type=movie">惊悚</a></li>
+                    <li><a href="/List?category=战争&type=movie">战争</a></li>
+                    <li><a href="/List?category=冒险&type=movie">冒险</a></li>
+                </ul>
+                <ul class="category clearfix">
+                    <li><strong>地区</strong></li>
+                    <li><a href="/List?region=大陆&type=movie">大陆</a></li>
+                    <li><a href="/List?region=香港&type=movie">香港</a></li>
+                    <li><a href="/List?region=台湾&type=movie">台湾</a></li>
+                    <li><a href="/List?region=日本&type=movie">日本</a></li>
+                    <li><a href="/List?region=韩国&type=movie">韩国</a></li>
+                    <li><a href="/List?region=美国&type=movie">美国</a></li>
+                    <li><a href="/List?region=法国&type=movie">法国</a></li>
+                    <li><a href="/List?region=英国&type=movie">英国</a></li>
+                    <li><a href="/List?region=泰国&type=movie">泰国</a></li>
+                    <li><a href="/List?region=德国&type=movie">德国</a></li>
+                    <li><a href="/List?region=其它&type=movie">其它</a></li>
+                </ul>
+                <ul class="category clearfix">
+                    <li><strong>年代</strong></li>
+                    <li><a href="/List?publicyear=2013&type=movie">2013</a></li>
+                    <li><a href="/List?publicyear=2012&type=movie">2012</a></li>
+                    <li><a href="/List?publicyear=2011&type=movie">2011</a></li>
+                    <li><a href="/List?publicyear=2010&type=movie">2010</a></li>
+                    <li><a href="/List?publicyear=2009&type=movie">2009</a></li>
+                    <li><a href="/List?publicyear=2008&type=movie">2008</a></li>
+                    <li><a href="/List?publicyear=2007&type=movie">2007</a></li>
+                    <li><a href="/List?publicyear=2006&type=movie">2006</a></li>
+                    <li><a href="/List?publicyear=2005&type=movie">2005</a></li>
+                    <li><a href="/List?publicyear=2004&type=movie">2004</a></li>
+                    <li><a href="/List?publicyear=2003&type=movie">2003</a></li>
+                    <li><a href="/List?publicyear=2002&type=movie">2002</a></li>
+                    <li><a href="/List?publicyear=2001&type=movie">2001</a></li>
+                    <li><a href="/List?publicyear=2000&type=movie">2000</a></li>
+                    <li><a href="/List?publicyear=1999&type=movie">1999</a></li>
+                    <li><a href="/List?publicyear=1998&type=movie">1998</a></li>
+                    <li><a href="/List?publicyear=1997&type=movie">1997</a></li>
+                </ul>
+            </div>
+        </div>                
+        <div class="wrapper tv clearfix">
+            <div class="title-bar ui-title">
+                <a href="/List?type=tv" class="more">更多 &gt;</a><h2>电视</h2>
+            </div>
+            <div class="colMainL">
+                <ul class="ctrl-tab clearfix"><li class="cur">最新</li></ul>
+                <ul class="imgList1">
+                    <li><a title="爱的创可贴" class="avatar" href="/Vod?mid=204452">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="爱的创可贴" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/2/r/20445_s.jpg" />
+                        <span class="tip">全32集</span> </a>
+                        <h4 class="name"><a title="爱的创可贴" href="/Vod?mid=204452">爱的创可贴</a></h4>
+                    </li>
+                    <li><a title="仁心解码 第2季 国语" class="avatar" href="/Vod?mid=207302">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="仁心解码 第2季 国语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/2/0/20730_s.jpg" />
+                        <span class="tip">全25集</span> </a>
+                        <h4 class="name"><a title="仁心解码 第2季 国语" href="/Vod?mid=207302">仁心解码 第2季 国语</a></h4>
+                    </li>
+                    <li><a title="行尸走肉 第3季" class="avatar" href="/Vod?mid=160192">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="行尸走肉 第3季" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/2/t/16019_s.jpg" />
+                        <span class="tip">全16集</span> </a>
+                        <h4 class="name"><a title="行尸走肉 第3季" href="/Vod?mid=160192">行尸走肉 第3季</a></h4>
+                    </li>
+                    <li><a title="灵书妙探 第5季" class="avatar" href="/Vod?mid=144492">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="灵书妙探 第5季" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/2/z/14449_s.jpg" />
+                        <span class="tip">更新至24集</span> </a>
+                        <h4 class="name"><a title="灵书妙探 第5季" href="/Vod?mid=144492">灵书妙探 第5季</a></h4>
+                    </li>
+                    <li><a title="金枝欲孽 第2季 国语" class="avatar" href="/Vod?mid=208092">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="金枝欲孽 第2季 国语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/2/g/20809_s.jpg" />
+                        <span class="tip">更新至21集</span> </a>
+                        <h4 class="name"><a title="金枝欲孽 第2季 国语" href="/Vod?mid=208092">金枝欲孽 第2季 国语</a></h4>
+                    </li>
+                    <li><a title="箭在弦上" class="avatar" href="/Vod?mid=202782">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="箭在弦上" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/2/6/20278_s.jpg" />
+                        <span class="tip">全42集</span> </a>
+                        <h4 class="name"><a title="箭在弦上" href="/Vod?mid=202782">箭在弦上</a></h4>
+                    </li>
+                    <li><a title="新编辑部故事" class="avatar" href="/Vod?mid=208172">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="新编辑部故事" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/2/i/20817_s.jpg" />
+                        <span class="tip">全36集</span> </a>
+                        <h4 class="name"><a title="新编辑部故事" href="/Vod?mid=208172">新编辑部故事</a></h4>
+                    </li>
+                    <li><a title="乱世三义 国语" class="avatar" href="/Vod?mid=207742">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="乱世三义 国语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/2/7/20774_s.jpg" />
+                        <span class="tip">全40集</span> </a>
+                        <h4 class="name"><a title="乱世三义 国语" href="/Vod?mid=207742">乱世三义 国语</a></h4>
+                    </li>
+                    <li><a title="英雄使命 国语" class="avatar" href="/Vod?mid=207602">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="英雄使命 国语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/2/f/20760_s.jpg" />
+                        <span class="tip">全35集</span> </a>
+                        <h4 class="name"><a title="英雄使命 国语" href="/Vod?mid=207602">英雄使命 国语</a></h4>
+                    </li>
+                    <li><a title="枪花 国语" class="avatar" href="/Vod?mid=207572">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="枪花 国语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/2/t/20757_s.jpg" />
+                        <span class="tip">全32集</span> </a>
+                        <h4 class="name"><a title="枪花 国语" href="/Vod?mid=207572">枪花 国语</a></h4>
+                    </li>
+                </ul>
+            </div>
+            <div class="colSide">
+                <h3 class="title16">
+                    电视排行榜<span>评分</span></h3>
+                <ol class="rank">
+                    <li class="top1"><a href="/Vod?mid=202772">
+                        <span class="num">1</span><span class="name">X女特工</span><span class="point">7.7</span></a>
+                     </li>                
+                    <li class="top2"><a href="/Vod?mid=207572">
+                        <span class="num">2</span><span class="name">枪花 国语</span><span class="point">6.3</span></a>
+                     </li>                
+                    <li class="top3"><a href="/Vod?mid=182892">
+                        <span class="num">3</span><span class="name">爸爸，我怀了你的孩子 国语</span><span class="point">6.4</span></a>
+                     </li>                
+                    <li class="top4"><a href="/Vod?mid=202782">
+                        <span class="num">4</span><span class="name">箭在弦上</span><span class="point">6.8</span></a>
+                     </li>                
+                    <li class="top5"><a href="/Vod?mid=208342">
+                        <span class="num">5</span><span class="name">盛夏晚晴天 国语</span><span class="point">7.0</span></a>
+                     </li>                
+                    <li class="top6"><a href="/Vod?mid=209012">
+                        <span class="num">6</span><span class="name">陆贞传奇</span><span class="point">7.5</span></a>
+                     </li>                
+                    <li class="top7"><a href="/Vod?mid=155232">
+                        <span class="num">7</span><span class="name">美女与野兽 英语</span><span class="point">6.8</span></a>
+                     </li>                
+                    <li class="top8"><a href="/Vod?mid=202632">
+                        <span class="num">8</span><span class="name">百万新娘之爱无悔 未删减版 国语</span><span class="point">6.8</span></a>
+                     </li>                
+                    <li class="top9"><a href="/Vod?mid=207742">
+                        <span class="num">9</span><span class="name">乱世三义 国语</span><span class="point">8.2</span></a>
+                     </li>                
+                    <li class="top10"><a href="/Vod?mid=187072">
+                        <span class="num">10</span><span class="name">第二十二条婚规</span><span class="point">8.6</span></a>
+                     </li>                
+
+                </ol>
+                <ul class="category clearfix">
+                    <li><strong>类型</strong></li>
+                    <li><a href="/List?category=言情&type=tv">言情</a></li>
+                    <li><a href="/List?category=古装&type=tv">古装</a></li>
+                    <li><a href="/List?category=喜剧&type=tv">喜剧</a></li>
+                    <li><a href="/List?category=历史&type=tv">历史</a></li>
+                    <li><a href="/List?category=动作&type=tv">动作</a></li>
+                    <li><a href="/List?category=伦理&type=tv">伦理</a></li>
+                    <li><a href="/List?category=偶像&type=tv">偶像</a></li>
+                    <li><a href="/List?category=穿越&type=tv">穿越</a></li>
+                    <li><a href="/List?category=警匪&type=tv">警匪</a></li>
+                    <li><a href="/List?category=都市&type=tv">都市</a></li>
+                </ul>
+                <ul class="category clearfix">
+                    <li><strong>年代</strong></li>
+                    <li><a href="/List?publicyear=2013&type=tv">2013</a></li>
+                    <li><a href="/List?publicyear=2012&type=tv">2012</a></li>
+                    <li><a href="/List?publicyear=2011&type=tv">2011</a></li>
+                    <li><a href="/List?publicyear=2010&type=tv">2010</a></li>
+                    <li><a href="/List?publicyear=2009&type=tv">2009</a></li>
+                    <li><a href="/List?publicyear=2008&type=tv">2008</a></li>
+                    <li><a href="/List?publicyear=2007&type=tv">2007</a></li>
+                    <li><a href="/List?publicyear=2006&type=tv">2006</a></li>
+                    <li><a href="/List?publicyear=2005&type=tv">2005</a></li>
+                    <li><a href="/List?publicyear=2004&type=tv">2004</a></li>
+                    <li><a href="/List?publicyear=2003&type=tv">2003</a></li>
+                    <li><a href="/List?publicyear=2002&type=tv">2002</a></li>
+                    <li><a href="/List?publicyear=2001&type=tv">2001</a></li>
+                    <li><a href="/List?publicyear=2000&type=tv">2000</a></li>
+                    <li><a href="/List?publicyear=1999&type=tv">1999</a></li>
+                    <li><a href="/List?publicyear=1998&type=tv">1998</a></li>
+                    <li><a href="/List?publicyear=1997&type=tv">1997</a></li>
+                </ul>
+            </div>
+        </div>                
+        <div class="wrapper show clearfix">
+            <div class="title-bar ui-title">
+                <a href="/List?type=show" class="more">更多 &gt;</a><h2>综艺</h2>
+            </div>
+            <div class="colMainL">
+                <ul class="ctrl-tab clearfix"><li class="cur">最新</li></ul>
+                <ul class="imgList1">
+                    <li><a title="快乐大本营" class="avatar" href="/Vod?mid=92903">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="快乐大本营" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/3/a/9290_s.jpg" />
+                        <span class="tip">更新到20130518期</span> </a>
+                        <h4 class="name"><a title="快乐大本营" href="/Vod?mid=92903">快乐大本营</a></h4>
+                    </li>
+                    <li><a title="星跳水立方" class="avatar" href="/Vod?mid=99193">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="星跳水立方" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/3/a/9919_s.jpg" />
+                        <span class="tip">更新到20130517期</span> </a>
+                        <h4 class="name"><a title="星跳水立方" href="/Vod?mid=99193">星跳水立方</a></h4>
+                    </li>
+                    <li><a title="中国最强音" class="avatar" href="/Vod?mid=100163">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="中国最强音" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/3/3/10016_s.jpg" />
+                        <span class="tip">更新到20130521期</span> </a>
+                        <h4 class="name"><a title="中国最强音" href="/Vod?mid=100163">中国最强音</a></h4>
+                    </li>
+                    <li><a title="百变大咖秀" class="avatar" href="/Vod?mid=85803">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="百变大咖秀" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/3/b/8580_s.jpg" />
+                        <span class="tip">更新到20130516期</span> </a>
+                        <h4 class="name"><a title="百变大咖秀" href="/Vod?mid=85803">百变大咖秀</a></h4>
+                    </li>
+                    <li><a title="天天向上" class="avatar" href="/Vod?mid=96073">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="天天向上" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/3/n/9607_s.jpg" />
+                        <span class="tip">更新到20130517期</span> </a>
+                        <h4 class="name"><a title="天天向上" href="/Vod?mid=96073">天天向上</a></h4>
+                    </li>
+                    <li><a title="中国星跳跃" class="avatar" href="/Vod?mid=99143">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="中国星跳跃" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/3/8/9914_s.jpg" />
+                        <span class="tip">更新到20130518期</span> </a>
+                        <h4 class="name"><a title="中国星跳跃" href="/Vod?mid=99143">中国星跳跃</a></h4>
+                    </li>
+                    <li><a title="我是歌手" class="avatar" href="/Vod?mid=72193">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="我是歌手" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/3/0/7219_s.jpg" />
+                        <span class="tip">更新到20130412期</span> </a>
+                        <h4 class="name"><a title="我是歌手" href="/Vod?mid=72193">我是歌手</a></h4>
+                    </li>
+                    <li><a title="美国偶像" class="avatar" href="/Vod?mid=72103">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="美国偶像" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/3/t/7210_s.jpg" />
+                        <span class="tip">更新到20130517期</span> </a>
+                        <h4 class="name"><a title="美国偶像" href="/Vod?mid=72103">美国偶像</a></h4>
+                    </li>
+                    <li><a title="非诚勿扰" class="avatar" href="/Vod?mid=87593">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="非诚勿扰" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/3/5/8759_s.jpg" />
+                        <span class="tip">更新到20130519期</span> </a>
+                        <h4 class="name"><a title="非诚勿扰" href="/Vod?mid=87593">非诚勿扰</a></h4>
+                    </li>
+                    <li><a title="康熙来了" class="avatar" href="/Vod?mid=91523">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="康熙来了" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/3/c/9152_s.jpg" />
+                        <span class="tip">更新到20130520期</span> </a>
+                        <h4 class="name"><a title="康熙来了" href="/Vod?mid=91523">康熙来了</a></h4>
+                    </li>
+                </ul>
+            </div>
+            <div class="colSide">
+                <h3 class="title16">
+                    综艺排行榜<span>评分</span></h3>
+                <ol class="rank">
+                    <li class="top1"><a href="/Vod?mid=99193">
+                        <span class="num">1</span><span class="name">星跳水立方</span><span class="point">6.7</span></a>
+                     </li>                
+                    <li class="top2"><a href="/Vod?mid=87593">
+                        <span class="num">2</span><span class="name">非诚勿扰</span><span class="point">8.4</span></a>
+                     </li>                
+                    <li class="top3"><a href="/Vod?mid=92903">
+                        <span class="num">3</span><span class="name">快乐大本营</span><span class="point">7.9</span></a>
+                     </li>                
+                    <li class="top4"><a href="/Vod?mid=85803">
+                        <span class="num">4</span><span class="name">百变大咖秀</span><span class="point">8.3</span></a>
+                     </li>                
+                    <li class="top5"><a href="/Vod?mid=72193">
+                        <span class="num">5</span><span class="name">我是歌手</span><span class="point">8.3</span></a>
+                     </li>                
+                    <li class="top6"><a href="/Vod?mid=67553">
+                        <span class="num">6</span><span class="name">壹周立波秀</span><span class="point">9.3</span></a>
+                     </li>                
+                    <li class="top7"><a href="/Vod?mid=100163">
+                        <span class="num">7</span><span class="name">中国最强音</span><span class="point">7.6</span></a>
+                     </li>                
+                    <li class="top8"><a href="/Vod?mid=96073">
+                        <span class="num">8</span><span class="name">天天向上</span><span class="point">8.2</span></a>
+                     </li>                
+                    <li class="top9"><a href="/Vod?mid=98523">
+                        <span class="num">9</span><span class="name">我们约会吧</span><span class="point">8.4</span></a>
+                     </li>                
+                    <li class="top10"><a href="/Vod?mid=93153">
+                        <span class="num">10</span><span class="name">风情热装</span><span class="point">8.4</span></a>
+                     </li>                
+
+                </ol>
+                <ul class="category clearfix">
+                    <li><strong>地区</strong></li>
+                    <li><a href="/List?region=大陆&type=show">大陆</a></li>
+                    <li><a href="/List?region=香港&type=show">香港</a></li>
+                    <li><a href="/List?region=台湾&type=show">台湾</a></li>
+                    <li><a href="/List?region=日本&type=show">日本</a></li>
+                    <li><a href="/List?region=韩国&type=show">韩国</a></li>
+                    <li><a href="/List?region=美国&type=show">美国</a></li>
+                    <li><a href="/List?region=法国&type=show">法国</a></li>
+                    <li><a href="/List?region=英国&type=show">英国</a></li>
+                    <li><a href="/List?region=泰国&type=show">泰国</a></li>
+                    <li><a href="/List?region=德国&type=show">德国</a></li>
+                    <li><a href="/List?region=未知&type=show">未知</a></li>
+                </ul>
+                <ul class="category clearfix">
+                    <li><strong>年代</strong></li>
+                    <li><a href="/List?publicyear=2013&type=show">2013</a></li>
+                    <li><a href="/List?publicyear=2012&type=show">2012</a></li>
+                    <li><a href="/List?publicyear=2011&type=show">2011</a></li>
+                    <li><a href="/List?publicyear=2010&type=show">2010</a></li>
+                    <li><a href="/List?publicyear=2009&type=show">2009</a></li>
+                    <li><a href="/List?publicyear=2008&type=show">2008</a></li>
+                    <li><a href="/List?publicyear=2007&type=show">2007</a></li>
+                    <li><a href="/List?publicyear=2006&type=show">2006</a></li>
+                    <li><a href="/List?publicyear=2005&type=show">2005</a></li>
+                    <li><a href="/List?publicyear=2004&type=show">2004</a></li>
+                    <li><a href="/List?publicyear=2003&type=show">2003</a></li>
+                    <li><a href="/List?publicyear=2002&type=show">2002</a></li>
+                    <li><a href="/List?publicyear=2001&type=show">2001</a></li>
+                    <li><a href="/List?publicyear=2000&type=show">2000</a></li>
+                    <li><a href="/List?publicyear=1999&type=show">1999</a></li>
+                    <li><a href="/List?publicyear=1998&type=show">1998</a></li>
+                    <li><a href="/List?publicyear=1997&type=show">1997</a></li>
+                </ul>
+            </div>
+        </div>                
+        <div class="wrapper comic clearfix">
+            <div class="title-bar ui-title">
+                <a href="/List?type=comic" class="more">更多 &gt;</a><h2>动漫</h2>
+            </div>
+            <div class="colMainL">
+                <ul class="ctrl-tab clearfix"><li class="cur">最新</li></ul>
+                <ul class="imgList1">
+                    <li><a title="潜行吧!奈亚子 OVA版 日语" class="avatar" href="/Vod?mid=174874">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="潜行吧!奈亚子 OVA版 日语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/4/s/17487_s.jpg" />
+                        <span class="tip">更新至1集</span> </a>
+                        <h4 class="name"><a title="潜行吧!奈亚子 OVA版 日语" href="/Vod?mid=174874">潜行吧!奈亚子 OVA版 日语</a></h4>
+                    </li>
+                    <li><a title="降世神通 全集版" class="avatar" href="/Vod?mid=174844">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="降世神通 全集版" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/4/e/17484_s.jpg" />
+                        <span class="tip">全61集</span> </a>
+                        <h4 class="name"><a title="降世神通 全集版" href="/Vod?mid=174844">降世神通 全集版</a></h4>
+                    </li>
+                    <li><a title="平成警察 日语" class="avatar" href="/Vod?mid=171314">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="平成警察 日语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/4/n/17131_s.jpg" />
+                        <span class="tip">更新至5集</span> </a>
+                        <h4 class="name"><a title="平成警察 日语" href="/Vod?mid=171314">平成警察 日语</a></h4>
+                    </li>
+                    <li><a title="玻璃假面 搞笑版 日语" class="avatar" href="/Vod?mid=170514">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="玻璃假面 搞笑版 日语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/4/c/17051_s.jpg" />
+                        <span class="tip">更新至8集</span> </a>
+                        <h4 class="name"><a title="玻璃假面 搞笑版 日语" href="/Vod?mid=170514">玻璃假面 搞笑版 日语</a></h4>
+                    </li>
+                    <li><a title="彩虹小马之友情就是魔法 日语" class="avatar" href="/Vod?mid=170294">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="彩虹小马之友情就是魔法 日语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/4/f/17029_s.jpg" />
+                        <span class="tip">更新至7集</span> </a>
+                        <h4 class="name"><a title="彩虹小马之友情就是魔法 日语" href="/Vod?mid=170294">彩虹小马之友情就是魔法 日语</a></h4>
+                    </li>
+                    <li><a title="七龙珠 国语 第1季" class="avatar" href="/Vod?mid=174764">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="七龙珠 国语 第1季" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/4/y/17476_s.jpg" />
+                        <span class="tip">全153集</span> </a>
+                        <h4 class="name"><a title="七龙珠 国语 第1季" href="/Vod?mid=174764">七龙珠 国语 第1季</a></h4>
+                    </li>
+                    <li><a title="宝石宠物之Happiness 日语 第5季" class="avatar" href="/Vod?mid=170354">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="宝石宠物之Happiness 日语 第5季" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/4/a/17035_s.jpg" />
+                        <span class="tip">更新至7集</span> </a>
+                        <h4 class="name"><a title="宝石宠物之Happiness 日语 第5季" href="/Vod?mid=170354">宝石宠物之Happiness 日语 第5季</a></h4>
+                    </li>
+                    <li><a title="虫奉行 TV版 日语" class="avatar" href="/Vod?mid=170534">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="虫奉行 TV版 日语" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/4/k/17053_s.jpg" />
+                        <span class="tip">更新至7集</span> </a>
+                        <h4 class="name"><a title="虫奉行 TV版 日语" href="/Vod?mid=170534">虫奉行 TV版 日语</a></h4>
+                    </li>
+                    <li><a title="非公认战队秋叶原连者 日语 第2季" class="avatar" href="/Vod?mid=170494">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="非公认战队秋叶原连者 日语 第2季" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/4/7/17049_s.jpg" />
+                        <span class="tip">更新至7集</span> </a>
+                        <h4 class="name"><a title="非公认战队秋叶原连者 日语 第2季" href="/Vod?mid=170494">非公认战队秋叶原连者 日语 第2季</a></h4>
+                    </li>
+                    <li><a title="侠岚 国语 第4季" class="avatar" href="/Vod?mid=174074">
+                        <b class="mask-play"></b>
+                        <img class="lazy" alt="侠岚 国语 第4季" width="115" height="150" src="/Images/grey.gif" original="http://hb.wuji.com/4/v/17407_s.jpg" />
+                        <span class="tip">更新至9集</span> </a>
+                        <h4 class="name"><a title="侠岚 国语 第4季" href="/Vod?mid=174074">侠岚 国语 第4季</a></h4>
+                    </li>
+                </ul>
+            </div>
+            <div class="colSide">
+                <h3 class="title16">
+                    动漫排行榜<span>评分</span></h3>
+                <ol class="rank">
+                    <li class="top1"><a href="/Vod?mid=151144">
+                        <span class="num">1</span><span class="name">火影忍者 日语</span><span class="point">8.0</span></a>
+                     </li>                
+                    <li class="top2"><a href="/Vod?mid=169614">
+                        <span class="num">2</span><span class="name">小鸡想飞</span><span class="point">7.6</span></a>
+                     </li>                
+                    <li class="top3"><a href="/Vod?mid=163134">
+                        <span class="num">3</span><span class="name">愤怒的小鸟</span><span class="point">7.2</span></a>
+                     </li>                
+                    <li class="top4"><a href="/Vod?mid=147484">
+                        <span class="num">4</span><span class="name">喜羊羊与灰太狼之羊羊快乐的一年 国语 第3季</span><span class="point">7.9</span></a>
+                     </li>                
+                    <li class="top5"><a href="/Vod?mid=167214">
+                        <span class="num">5</span><span class="name">十万个冷笑话 TV版 国语</span><span class="point">8.0</span></a>
+                     </li>                
+                    <li class="top6"><a href="/Vod?mid=170144">
+                        <span class="num">6</span><span class="name">写真女友 日语</span><span class="point">6.4</span></a>
+                     </li>                
+                    <li class="top7"><a href="/Vod?mid=163364">
+                        <span class="num">7</span><span class="name">海贼王 日语</span><span class="point">8.7</span></a>
+                     </li>                
+                    <li class="top8"><a href="/Vod?mid=152274">
+                        <span class="num">8</span><span class="name">海绵宝宝</span><span class="point">9.2</span></a>
+                     </li>                
+                    <li class="top9"><a href="/Vod?mid=140424">
+                        <span class="num">9</span><span class="name">熊出没之环球大冒险 国语 第2季</span><span class="point">8.7</span></a>
+                     </li>                
+                    <li class="top10"><a href="/Vod?mid=168874">
+                        <span class="num">10</span><span class="name">侠岚 国语 第3季</span><span class="point">8.7</span></a>
+                     </li>                
+
+                </ol>
+                <ul class="category clearfix">
+                    <li><strong>地区</strong></li>
+                    <li><a href="/List?region=大陆&type=comic">大陆</a></li>
+                    <li><a href="/List?region=香港&type=comic">香港</a></li>
+                    <li><a href="/List?region=台湾&type=comic">台湾</a></li>
+                    <li><a href="/List?region=日本&type=comic">日本</a></li>
+                    <li><a href="/List?region=韩国&type=comic">韩国</a></li>
+                    <li><a href="/List?region=美国&type=comic">美国</a></li>
+                    <li><a href="/List?region=法国&type=comic">法国</a></li>
+                    <li><a href="/List?region=英国&type=comic">英国</a></li>
+                    <li><a href="/List?region=泰国&type=comic">泰国</a></li>
+                    <li><a href="/List?region=德国&type=comic">德国</a></li>
+                    <li><a href="/List?region=未知&type=comic">未知</a></li>
+                </ul>
+                <ul class="category clearfix">
+                    <li><strong>年代</strong></li>
+                    <li><a href="/List?publicyear=2013&type=comic">2013</a></li>
+                    <li><a href="/List?publicyear=2012&type=comic">2012</a></li>
+                    <li><a href="/List?publicyear=2011&type=comic">2011</a></li>
+                    <li><a href="/List?publicyear=2010&type=comic">2010</a></li>
+                    <li><a href="/List?publicyear=2009&type=comic">2009</a></li>
+                    <li><a href="/List?publicyear=2008&type=comic">2008</a></li>
+                    <li><a href="/List?publicyear=2007&type=comic">2007</a></li>
+                    <li><a href="/List?publicyear=2006&type=comic">2006</a></li>
+                    <li><a href="/List?publicyear=2005&type=comic">2005</a></li>
+                    <li><a href="/List?publicyear=2004&type=comic">2004</a></li>
+                    <li><a href="/List?publicyear=2003&type=comic">2003</a></li>
+                    <li><a href="/List?publicyear=2002&type=comic">2002</a></li>
+                    <li><a href="/List?publicyear=2001&type=comic">2001</a></li>
+                    <li><a href="/List?publicyear=2000&type=comic">2000</a></li>
+                    <li><a href="/List?publicyear=1999&type=comic">1999</a></li>
+                    <li><a href="/List?publicyear=1998&type=comic">1998</a></li>
+                    <li><a href="/List?publicyear=1997&type=comic">1997</a></li>
+                </ul>
+            </div>
+        </div>                
+    <div class="wrapper"><script type="text/javascript">BAIDU_CLB_fillSlot("667119");</script></div>
+<img src="http://click.wuji.com/j.ashx?action=2" style="display:none;"/>
+    </div>
+    <!-- end 内容区 -->
+    <!-- 返回 -->
+    <div id="bottom">
+        <!--<a href="#"><img src="/Images/feedback.gif" alt="反馈" /></a>-->
+        <a href="#" class="go2top"><img src="/Images/top.gif" alt="回到页首" /></a></div>
+    <!-- end 返回 -->
+    <!-- 历史播放记录 -->
+    <div class="history-dropmenu" id="history-dropmenu" style="display:none;">
+        <div class="history-titleBar"></div><ul id="his_list" class="history-list"></ul>
+        <div class="history-ctrlBar"><a href="javascript:gHisMenu.clear()">清空历史记录</a>|<a id="his_close" href="javascript:gHisMenu.closeHis()">关闭</a></div>
+    </div>
+    <!-- end 历史播放记录 -->
+<img src="http://click.wuji.com/j.ashx?action=9" style="display:none;"/>
+</body>
+<script type="text/javascript">    doResize(); loadImage(); </script>
+<script type="text/javascript">    BAIDU_CLB_fillSlot("667115");</script>
+</html>
+<script type="text/javascript" src="http://js.tongji.linezing.com/3058244/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/3058244/tongji.gif"/></a></noscript>
