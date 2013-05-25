@@ -10,6 +10,30 @@
     <script type="text/javascript" src="/Tpl/jxyy/lazyLoad.js"></script>
     <script type="text/javascript" src="/Tpl/jxyy/Common.js"></script>
 	<script language="javascript" src="/Tpl/jxyy/Slide.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		function play(){
+			var item={
+					"id":"1231345",
+					"title":"陆贞传奇",
+					"part":{
+						"partid":"1",
+						"title":"第一集",
+						"src":[
+							{"id":"iqiyi","name":"爱奇异","url":"http://www.jixun360.com/palyer/software/extern/web/lz01_iqiyi.html"},
+							{"id":"letv","name":"乐视","url":"http://www.jixun360.com/palyer/software/extern/web/lz01_letv.html"}
+						]
+					}
+				};
+			window.open("jx://protocal?type=cmd&action=playlist&item="+encodeURIComponent(JSON.stringify(item)));
+
+			var play={
+					"id":"1231345",
+					"partid":"1",
+					"srcid":"letv"
+				};
+			window.open("jx://protocal?type=cmd&action=play&item="+encodeURIComponent(JSON.stringify(play)));
+		}
+	</script>
 </head>
 <body>
     <!-- 页首 -->
@@ -54,7 +78,7 @@
             <!-- 播放链接 -->
             <if condition="$list_id eq 1">
 	            <div class="play-link">
-	                <a href="javascript:PlayVideo('qq', 1, '');" class="btn-play">立即播放</a>
+	                <a href="javascript:play();" class="btn-play">立即播放</a>
 	                <ul class="supply">
 	                	<volist name="vod_playlist" id="ppvod" key="playerkey">
 	                    <li><a href="{:ff_play_url($vod_id,($playerkey-1),1,$vod_cid,$vod_name)}" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
