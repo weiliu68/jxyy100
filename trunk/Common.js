@@ -230,7 +230,7 @@ function OpenMovie(movieid, cid, sid, title, url) {
 
     }
     try {
-        external.zyExternal.OpenMovie(movieid, cid, sid, title, url);
+        external.zyExternal.getMainVersion();
     } catch (e) { downplayer(); };
 };
 
