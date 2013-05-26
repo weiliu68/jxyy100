@@ -1,43 +1,524 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>最新{$list_name}-{$list_dir}{$list_name_big}{$list_name}-2011最新{$list_name}{$list_title}</title>
-<meta name="keywords" content="<notempty name="list_keywords">{$list_keywords}<else/>最新{$list_name},{$keywords}</notempty>">
-<meta name="description" content="最新{$list_name}包含的影片有<volist name='vod_list' id='ppvod'>{$ppvod.vod_name|msubstr=0,10},</volist>完全免费在线观看！">
-<include file="./Public/tpl/home/header.html" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>电视列表 —— 无极影音</title>
+    <meta name="keywords" content="电视列表 —— 无极影音" />
+    <meta name="description" content="电视列表 —— 无极影音" />
+    <link href="/Content/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Scripts/live/1.7.2.jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/lazyLoad.js"></script>
+    <script type="text/javascript" src="/Scripts/Common.js"></script>
+    <script type="text/javascript" src="/Scripts/recommend.js"></script>
+    
+        <script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+    <script type="text/javascript">BAIDU_CLB_preloadSlots('667122', '667124', '667121', '667115');</script>    
 </head>
 <body>
-<div class="wrap">
-    <include file="Home:pp_header" /> 
-    <div class="top960">{:getadsurl('top960')}</div>
-    <div class="vodlist_l box">
-      <div class="top">
-		<h3><a href="{$root}">首页</a></label> > <a href="{$list_url}">{$list_name}</a></h3>
-      </div>
-      <php>$vod_list = ff_mysql_vod('cid:'.$list_id.';limit:8;page:true;order:vod_addtime desc,vod_id desc');$page = $vod_list[0]['page'];</php>
-      <neq name="vod_list.0.count" value="0"><volist name="vod_list" id="ppvod">
-        <ul><a href="{$ppvod.vod_readurl}"><img class="lazy" data-original="{$ppvod.vod_picurl}" src="" alt="点击播放《{$ppvod.vod_name}》" /></a>
-        <h2><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a><em>{$ppvod.vod_gold}</em><notempty name="ppvod.vod_title"><span>{$ppvod.vod_title}</span></notempty></h2>
-        <p class="space">主演∶{$ppvod.vod_actor|ff_search_url}</p>
-        <p>地区∶{$ppvod.vod_area|default='未录入'} 更新时间∶{$ppvod.vod_addtime|date='Y-m-d',###}</p>
-        <p class="content">{$ppvod.vod_content|msubstr=0,100,'utf-8',true}</p>
-        <p><a href="{$ppvod.vod_readurl}">影片详情</a> | <a href="{$ppvod.vod_playurl}">在线观看</a> | 影评({$ppvod.vod_golder})</p>
-        </ul></volist>
-        <div class="pages">{$page}</div>
-      <else/>
-       	 <ul>该分类暂无数据！</ul>
-      </neq>    
+    <!-- 页首 -->
+    <div class="header" id="header">
+    <div class="wrapper" style="position: relative; left: -11px;">
+            <ul class="mainNav">
+
+                <li class="btn1"><a href="javascript:history.back(-1);" class="back">后退</a></li>
+                <li class="btn2"><a href="javascript:window.location.reload();" class="refresh">刷新</a></li>
+                <li><a href="/index.html" class="nav-home">首页</a></li>         
+                <li><a href="/List?type=movie" class="nav-movie">高清电影</a></li>
+                <li class='cur'><a href="/List?type=tv" class="nav-tv">电视剧场</a></li>
+                <li><a href="/List?type=comic" class="nav-comic">卡通动漫</a></li>
+                <li><a href="/List?type=show" class="nav-show">综艺</a></li>
+                <li><a href="/Rank" class="nav-rank">排行榜</a></li>
+                <li><a href="/live.html" class="nav-live">直播</a></li>
+            </ul>
+            <div class="searchBox">
+                <form method="get" action="/Search" id="search"><input type="text" name="keyword" class="input-search" />
+                <input name="searchbtn" type="image" src="/Images/search-btn.png" class="btn-search" alt="搜索" />
+                </form>
+            </div><a href="javascript:gHisMenu.openHis()" id="btnHis" class="history">播放记录</a>
     </div>
-    <div class="vodlist_r box">
-    	<div class="top">
-    		<h3><span>评分</span><a href="{$list_url}">{$list_name} 排行榜</a></h3>
-        </div>     
-        <ul class="list300">{:getadsurl('list300')}</ul>
-        <ul><php>$gold_desc = ff_mysql_vod('cid:'.$list_id.';limit:30;order:vod_gold desc,vod_hits desc');</php><fflist name="gold_desc" id="ppvod"><li><span>{$ppvod.vod_gold}</span><em>{$i}</em><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,12}</a></li></fflist></ul>        
-    </div>     
-    <div class="blank"></div>
-    <include file="Home:pp_footer" />  
 </div>
+    <!-- end 页首 -->
+    <!-- 内容区 -->
+    <div id="container">
+    
+<div class="wrapper clearfix">
+            <div class="blank10"></div>
+    <script type="text/javascript">    BAIDU_CLB_fillSlot("667121");</script>
+            <div class="blank10"></div>
+            <div class="colMain3">
+                <div style="width:640px; margin-bottom:10px;"><script type="text/javascript">BAIDU_CLB_fillSlot("511419");</script></div>
+                <div class="title-bar">
+                    <ul class="ctrl-tab2 clearfix">
+
+                        <li class='cur'>
+                            <a href="/List?type=tv&amp;orderby=click">最受欢迎</a>
+                        </li>
+                        <li >
+                            <a href="/List?type=tv&amp;orderby=dateandtime">最近更新</a>
+                        </li>
+                        <li >
+                            <a href="/List?type=tv&amp;orderby=publicyear">最新上映</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="orderbox" style="height:18px;"><span>列表样式：</span>
+                    <a class='on' title="单页内显示数量少，信息详细" href="javascript:ChangeWJListType(0)">详细</a>                        
+                        |
+                    <a  title="单页内显示数量多，信息简洁" href="javascript:ChangeWJListType(1)">简洁</a>
+                    </div>
+                    <ul class="imgList2">
+                        <li>
+                            <div class="il2Img">
+                                <a title="X女特工" class="avatar" href="/Vod?mid=202772"><b class="mask-play"></b>
+                                <img class="lazy" alt="X女特工" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/j/20277_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=202772" title="X女特工">X女特工</a></span>
+                                <span>导演：于敏</span>
+                                <span>演员：唐嫣, 罗晋, 吕一</span>
+                                <span>集数：全42集</span>
+                                <span>更新：<font >2013-04-18 19:14</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-iqiyi" href="/Vod?mid=202772&showSrc=iqiyi"></a>
+                                    <a class="g-letv" href="/Vod?mid=202772&showSrc=letv"></a>
+                                    <a class="g-qq" href="/Vod?mid=202772&showSrc=qq"></a>
+                                    <a class="g-sohu" href="/Vod?mid=202772&showSrc=sohu"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="爸爸，我怀了你的孩子 国语" class="avatar" href="/Vod?mid=182892"><b class="mask-play"></b>
+                                <img class="lazy" alt="爸爸，我怀了你的孩子 国语" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/m/18289_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=182892" title="爸爸，我怀了你的孩子 国语">爸爸，我怀了你的孩...</a></span>
+                                <span>导演：郭彤</span>
+                                <span>演员：邵兵, 郭家铭, 徐婕儿</span>
+                                <span>集数：全50集</span>
+                                <span>更新：<font >2013-03-19 20:42</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-letv" href="/Vod?mid=182892&showSrc=letv"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="枪花 国语" class="avatar" href="/Vod?mid=207572"><b class="mask-play"></b>
+                                <img class="lazy" alt="枪花 国语" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/t/20757_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=207572" title="枪花 国语">枪花 国语</a></span>
+                                <span>导演：刘国豪</span>
+                                <span>演员：王丽坤,刘丛丹,程皓枫</span>
+                                <span>集数：全32集</span>
+                                <span>更新：<font >2013-04-30 06:22</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-iqiyi" href="/Vod?mid=207572&showSrc=iqiyi"></a>
+                                    <a class="g-youku" href="/Vod?mid=207572&showSrc=youku"></a>
+                                    <a class="g-letv" href="/Vod?mid=207572&showSrc=letv"></a>
+                                    <a class="g-qq" href="/Vod?mid=207572&showSrc=qq"></a>
+                                    <a class="g-sohu" href="/Vod?mid=207572&showSrc=sohu"></a>
+                                    <a class="g-tudou" href="/Vod?mid=207572&showSrc=tudou"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="陆贞传奇" class="avatar" href="/Vod?mid=209012"><b class="mask-play"></b>
+                                <img class="lazy" alt="陆贞传奇" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/5/20901_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=209012" title="陆贞传奇">陆贞传奇</a></span>
+                                <span>导演：李慧珠,邓伟恩,梁国冠</span>
+                                <span>演员：赵丽颖,陈晓,乔任梁</span>
+                                <span>集数：更新至51集</span>
+                                <span>更新：<font style='color:#FF6600;'>2013-05-26 00:36</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-iqiyi" href="/Vod?mid=209012&showSrc=iqiyi"></a>
+                                    <a class="g-letv" href="/Vod?mid=209012&showSrc=letv"></a>
+                                    <a class="g-qq" href="/Vod?mid=209012&showSrc=qq"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="箭在弦上" class="avatar" href="/Vod?mid=202782"><b class="mask-play"></b>
+                                <img class="lazy" alt="箭在弦上" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/6/20278_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=202782" title="箭在弦上">箭在弦上</a></span>
+                                <span>导演：余明生</span>
+                                <span>演员：蒋欣, 靳东, 陈龙</span>
+                                <span>集数：全42集</span>
+                                <span>更新：<font >2013-05-16 11:28</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-iqiyi" href="/Vod?mid=202782&showSrc=iqiyi"></a>
+                                    <a class="g-pps" href="/Vod?mid=202782&showSrc=pps"></a>
+                                    <a class="g-qq" href="/Vod?mid=202782&showSrc=qq"></a>
+                                    <a class="g-sohu" href="/Vod?mid=202782&showSrc=sohu"></a>
+                                    <a class="g-tudou" href="/Vod?mid=202782&showSrc=tudou"></a>
+                                    <a class="g-youku" href="/Vod?mid=202782&showSrc=youku"></a>
+                                    <a class="g-letv" href="/Vod?mid=202782&showSrc=letv"></a>
+                                    <a class="g-pptv" href="/Vod?mid=202782&showSrc=pptv"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="盛夏晚晴天 国语" class="avatar" href="/Vod?mid=208342"><b class="mask-play"></b>
+                                <img class="lazy" alt="盛夏晚晴天 国语" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/u/20834_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=208342" title="盛夏晚晴天 国语">盛夏晚晴天 国语</a></span>
+                                <span>导演：麦贯之</span>
+                                <span>演员：刘恺威,杨幂,吴建飞,樊少皇</span>
+                                <span>集数：更新至46集</span>
+                                <span>更新：<font >2013-05-13 02:24</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-iqiyi" href="/Vod?mid=208342&showSrc=iqiyi"></a>
+                                    <a class="g-letv" href="/Vod?mid=208342&showSrc=letv"></a>
+                                    <a class="g-qq" href="/Vod?mid=208342&showSrc=qq"></a>
+                                    <a class="g-pps" href="/Vod?mid=208342&showSrc=pps"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="美女与野兽 英语" class="avatar" href="/Vod?mid=155232"><b class="mask-play"></b>
+                                <img class="lazy" alt="美女与野兽 英语" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/w/15523_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=155232" title="美女与野兽 英语">美女与野兽 英语</a></span>
+                                <span>导演：加里.弗莱德</span>
+                                <span>演员：克斯汀.克鲁克, 布莱恩.J.怀特</span>
+                                <span>集数：更新至22集</span>
+                                <span>更新：<font >2013-05-17 14:46</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-sohu" href="/Vod?mid=155232&showSrc=sohu"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="百万新娘之爱无悔 未删减版 国语" class="avatar" href="/Vod?mid=202632"><b class="mask-play"></b>
+                                <img class="lazy" alt="百万新娘之爱无悔 未删减版 国语" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/2/20263_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=202632" title="百万新娘之爱无悔 未删减版 国语">百万新娘之爱无悔 ...</a></span>
+                                <span>导演：王伟廷, 王淑志</span>
+                                <span>演员：李宗翰, 张咏棋, 小李琳</span>
+                                <span>集数：全72集</span>
+                                <span>更新：<font >2013-04-18 19:14</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-iqiyi" href="/Vod?mid=202632&showSrc=iqiyi"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="乱世三义 国语" class="avatar" href="/Vod?mid=207742"><b class="mask-play"></b>
+                                <img class="lazy" alt="乱世三义 国语" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/7/20774_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=207742" title="乱世三义 国语">乱世三义 国语</a></span>
+                                <span>导演：刘江</span>
+                                <span>演员：黄海波,童蕾,田小洁</span>
+                                <span>集数：全40集</span>
+                                <span>更新：<font >2013-05-10 02:26</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-iqiyi" href="/Vod?mid=207742&showSrc=iqiyi"></a>
+                                    <a class="g-sohu" href="/Vod?mid=207742&showSrc=sohu"></a>
+                                    <a class="g-qq" href="/Vod?mid=207742&showSrc=qq"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="第二十二条婚规" class="avatar" href="/Vod?mid=187072"><b class="mask-play"></b>
+                                <img class="lazy" alt="第二十二条婚规" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/w/18707_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=187072" title="第二十二条婚规">第二十二条婚规</a></span>
+                                <span>导演：金凌辉</span>
+                                <span>演员：黄圣依, 宋小宝, 杨子</span>
+                                <span>集数：全35集</span>
+                                <span>更新：<font >2013-03-29 01:43</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-tudou" href="/Vod?mid=187072&showSrc=tudou"></a>
+                                    <a class="g-youku" href="/Vod?mid=187072&showSrc=youku"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="英雄使命 国语" class="avatar" href="/Vod?mid=207602"><b class="mask-play"></b>
+                                <img class="lazy" alt="英雄使命 国语" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/f/20760_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=207602" title="英雄使命 国语">英雄使命 国语</a></span>
+                                <span>导演：林建中</span>
+                                <span>演员：王珂,王新,周楚楚</span>
+                                <span>集数：全35集</span>
+                                <span>更新：<font >2013-05-01 23:19</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-sohu" href="/Vod?mid=207602&showSrc=sohu"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="神探高伦布 国语" class="avatar" href="/Vod?mid=203262"><b class="mask-play"></b>
+                                <img class="lazy" alt="神探高伦布 国语" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/k/20326_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=203262" title="神探高伦布 国语">神探高伦布 国语</a></span>
+                                <span>导演：李添胜</span>
+                                <span>演员：黎耀祥, 唐诗咏, 敖嘉年</span>
+                                <span>集数：全25集</span>
+                                <span>更新：<font >2013-05-11 02:30</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-tudou" href="/Vod?mid=203262&showSrc=tudou"></a>
+                                    <a class="g-youku" href="/Vod?mid=203262&showSrc=youku"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="仁心解码 国语 第2季" class="avatar" href="/Vod?mid=187112"><b class="mask-play"></b>
+                                <img class="lazy" alt="仁心解码 国语 第2季" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/d/18711_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=187112" title="仁心解码 国语 第2季">仁心解码 国语 第2季</a></span>
+                                <span>导演：罗永贤</span>
+                                <span>演员：方中信, 蒙嘉慧, 杨怡</span>
+                                <span>集数：更新至19集</span>
+                                <span>更新：<font >2013-04-12 15:18</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-iqiyi" href="/Vod?mid=187112&showSrc=iqiyi"></a>
+                                    <a class="g-letv" href="/Vod?mid=187112&showSrc=letv"></a>
+                                    <a class="g-pps" href="/Vod?mid=187112&showSrc=pps"></a>
+                                    <a class="g-tudou" href="/Vod?mid=187112&showSrc=tudou"></a>
+                                    <a class="g-youku" href="/Vod?mid=187112&showSrc=youku"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="行尸走肉 第3季" class="avatar" href="/Vod?mid=160192"><b class="mask-play"></b>
+                                <img class="lazy" alt="行尸走肉 第3季" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/t/16019_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=160192" title="行尸走肉 第3季">行尸走肉 第3季</a></span>
+                                <span>导演：弗兰克·德拉邦特</span>
+                                <span>演员：安德鲁·林肯, 莎拉·韦恩·卡丽丝, 大卫·莫瑞瑟</span>
+                                <span>集数：全16集</span>
+                                <span>更新：<font >2013-04-18 19:15</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-tudou" href="/Vod?mid=160192&showSrc=tudou"></a>
+                                    <a class="g-youku" href="/Vod?mid=160192&showSrc=youku"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="赵氏孤儿案" class="avatar" href="/Vod?mid=187052"><b class="mask-play"></b>
+                                <img class="lazy" alt="赵氏孤儿案" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/g/18705_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=187052" title="赵氏孤儿案">赵氏孤儿案</a></span>
+                                <span>导演：阎建钢</span>
+                                <span>演员：吴秀波, 孙淳, 应采儿</span>
+                                <span>集数：全41集</span>
+                                <span>更新：<font >2013-05-13 12:37</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-iqiyi" href="/Vod?mid=187052&showSrc=iqiyi"></a>
+                                    <a class="g-letv" href="/Vod?mid=187052&showSrc=letv"></a>
+                                    <a class="g-sohu" href="/Vod?mid=187052&showSrc=sohu"></a>
+                                    <a class="g-youku" href="/Vod?mid=187052&showSrc=youku"></a>
+                                    <a class="g-tudou" href="/Vod?mid=187052&showSrc=tudou"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="il2Img">
+                                <a title="一个鬼子都不留 TV版" class="avatar" href="/Vod?mid=186852"><b class="mask-play"></b>
+                                <img class="lazy" alt="一个鬼子都不留 TV版" src="/Images/grey.gif" width="115" height="150" original="http://hb.wuji.com/2/m/18685_s.jpg" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="/Vod?mid=186852" title="一个鬼子都不留 TV版">一个鬼子都不留 TV版</a></span>
+                                <span>导演：王滨</span>
+                                <span>演员：于震, 池程, 马少骅</span>
+                                <span>集数：全32集</span>
+                                <span>更新：<font >2013-03-26 02:36</font></span>
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                                    <a class="g-iqiyi" href="/Vod?mid=186852&showSrc=iqiyi"></a>
+                                    <a class="g-letv" href="/Vod?mid=186852&showSrc=letv"></a>
+                                    <a class="g-qq" href="/Vod?mid=186852&showSrc=qq"></a>
+                                </dd></dl>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- 分页 -->
+                    <div id="pages" style="margin-bottom:20px;">
+                        
+<!--MvcPager 1.5 for ASP.NET MVC 3.0 © 2009-2011 Webdiyer (http://www.webdiyer.com)-->
+<div class="badoo"><a disabled="disabled">首页</a>&nbsp;&nbsp;<a disabled="disabled">上一页</a>&nbsp;&nbsp;1&nbsp;&nbsp;<a href='/List?type=tv&page=2'>2</a>&nbsp;&nbsp;<a href='/List?type=tv&page=3'>3</a>&nbsp;&nbsp;<a href='/List?type=tv&page=4'>4</a>&nbsp;&nbsp;<a href='/List?type=tv&page=5'>5</a>&nbsp;&nbsp;<a href='/List?type=tv&page=6'>6</a>&nbsp;&nbsp;<a href='/List?type=tv&page=7'>7</a>&nbsp;&nbsp;<a href='/List?type=tv&page=8'>8</a>&nbsp;&nbsp;<a href='/List?type=tv&page=9'>9</a>&nbsp;&nbsp;<a href='/List?type=tv&page=10'>10</a>&nbsp;&nbsp;<a href='/List?type=tv&page=11'>...</a>&nbsp;&nbsp;<a href='/List?type=tv&page=2'>下一页</a>&nbsp;&nbsp;<a href='/List?type=tv&page=100'>尾页</a></div>
+<!--MvcPager 1.5 for ASP.NET MVC 3.0 © 2009-2011 Webdiyer (http://www.webdiyer.com)-->
+
+                    </div>
+                    <!-- end 分页 -->
+                </div>
+            </div>
+            <div class="colSide3">
+                <div class="title-bar ui-title2"><h2 class="title18">按类型</h2></div>
+                <ul class="category clearfix">
+                    <li><a href='/List?type=tv' class='cur'>全部</a></li><li><a href='/List?type=tv&category=%e8%a8%80%e6%83%85'>言情</a></li>
+<li><a href='/List?type=tv&category=%e5%8f%a4%e8%a3%85'>古装</a></li>
+<li><a href='/List?type=tv&category=%e5%96%9c%e5%89%a7'>喜剧</a></li>
+<li><a href='/List?type=tv&category=%e5%8e%86%e5%8f%b2'>历史</a></li>
+<li><a href='/List?type=tv&category=%e5%8a%a8%e4%bd%9c'>动作</a></li>
+<li><a href='/List?type=tv&category=%e4%bc%a6%e7%90%86'>伦理</a></li>
+<li><a href='/List?type=tv&category=%e5%81%b6%e5%83%8f'>偶像</a></li>
+<li><a href='/List?type=tv&category=%e7%a9%bf%e8%b6%8a'>穿越</a></li>
+<li><a href='/List?type=tv&category=%e8%ad%a6%e5%8c%aa'>警匪</a></li>
+<li><a href='/List?type=tv&category=%e9%83%bd%e5%b8%82'>都市</a></li>
+
+                </ul>
+                <div class="blank10"></div>
+                <div class="title-bar ui-title2"><h2 class="title18">按地区</h2></div>
+                <ul class="category clearfix">
+                    <li><a href='/List?type=tv' class='cur'>全部</a></li><li><a href='/List?type=tv&region=%e5%a4%a7%e9%99%86'>大陆</a></li>
+<li><a href='/List?type=tv&region=%e9%a6%99%e6%b8%af'>香港</a></li>
+<li><a href='/List?type=tv&region=%e5%8f%b0%e6%b9%be'>台湾</a></li>
+<li><a href='/List?type=tv&region=%e6%97%a5%e6%9c%ac'>日本</a></li>
+<li><a href='/List?type=tv&region=%e9%9f%a9%e5%9b%bd'>韩国</a></li>
+<li><a href='/List?type=tv&region=%e7%be%8e%e5%9b%bd'>美国</a></li>
+<li><a href='/List?type=tv&region=%e6%b3%95%e5%9b%bd'>法国</a></li>
+<li><a href='/List?type=tv&region=%e8%8b%b1%e5%9b%bd'>英国</a></li>
+<li><a href='/List?type=tv&region=%e6%b3%b0%e5%9b%bd'>泰国</a></li>
+<li><a href='/List?type=tv&region=%e5%be%b7%e5%9b%bd'>德国</a></li>
+<li><a href='/List?type=tv&region=%e6%9c%aa%e7%9f%a5'>未知</a></li>
+
+                </ul>
+                <div class="blank10"></div>
+                <div class="title-bar ui-title2"><h2 class="title18">按年份</h2></div>
+                <ul class="category clearfix">
+                    <li><a href='/List?type=tv' class='cur'>全部</a></li><li><a href='/List?type=tv&publicyear=2013'>2013</a></li>
+<li><a href='/List?type=tv&publicyear=2012'>2012</a></li>
+<li><a href='/List?type=tv&publicyear=2011'>2011</a></li>
+<li><a href='/List?type=tv&publicyear=2010'>2010</a></li>
+<li><a href='/List?type=tv&publicyear=2009'>2009</a></li>
+<li><a href='/List?type=tv&publicyear=2008'>2008</a></li>
+<li><a href='/List?type=tv&publicyear=2007'>2007</a></li>
+<li><a href='/List?type=tv&publicyear=2006'>2006</a></li>
+<li><a href='/List?type=tv&publicyear=2005'>2005</a></li>
+<li><a href='/List?type=tv&publicyear=2004'>2004</a></li>
+<li><a href='/List?type=tv&publicyear=2003'>2003</a></li>
+<li><a href='/List?type=tv&publicyear=2002'>2002</a></li>
+<li><a href='/List?type=tv&publicyear=2001'>2001</a></li>
+<li><a href='/List?type=tv&publicyear=2000'>2000</a></li>
+<li><a href='/List?type=tv&publicyear=1999'>1999</a></li>
+<li><a href='/List?type=tv&publicyear=1998'>1998</a></li>
+<li><a href='/List?type=tv&publicyear=1997'>1997</a></li>
+<li><a href='/List?type=tv&publicyear=1996'>1996</a></li>
+<li><a href='/List?type=tv&publicyear=1995'>1995</a></li>
+<li><a href='/List?type=tv&publicyear=1994'>1994</a></li>
+<li><a href='/List?type=tv&publicyear=1993'>1993</a></li>
+<li><a href='/List?type=tv&publicyear=1992'>1992</a></li>
+<li><a href='/List?type=tv&publicyear=1991'>1991</a></li>
+
+                </ul>
+                <div class="ad250x250"><script type="text/javascript">BAIDU_CLB_fillSlot("667122");</script></div>
+                <div class="blank10"></div>
+                <h3 class="title16">排行榜</h3>
+                <ol class="rank">
+                                    <li class="top1">
+                    <a href="/Vod?mid=202772">
+                        <span class="num">1</span><span class="name">X女特工<span class="cGrey"></span></span><span class="point">7.7</span>
+                    </a>
+                 </li>
+                <li class="top2">
+                    <a href="/Vod?mid=182892">
+                        <span class="num">2</span><span class="name">爸爸，我怀了你的孩子 国语<span class="cGrey"></span></span><span class="point">6.4</span>
+                    </a>
+                 </li>
+                <li class="top3">
+                    <a href="/Vod?mid=207572">
+                        <span class="num">3</span><span class="name">枪花 国语<span class="cGrey"></span></span><span class="point">6.3</span>
+                    </a>
+                 </li>
+                <li class="top4">
+                    <a href="/Vod?mid=209012">
+                        <span class="num">4</span><span class="name">陆贞传奇<span class="cGrey"></span></span><span class="point">7.5</span>
+                    </a>
+                 </li>
+                <li class="top5">
+                    <a href="/Vod?mid=202782">
+                        <span class="num">5</span><span class="name">箭在弦上<span class="cGrey"></span></span><span class="point">6.8</span>
+                    </a>
+                 </li>
+                <li class="top6">
+                    <a href="/Vod?mid=208342">
+                        <span class="num">6</span><span class="name">盛夏晚晴天 国语<span class="cGrey"></span></span><span class="point">7.0</span>
+                    </a>
+                 </li>
+                <li class="top7">
+                    <a href="/Vod?mid=155232">
+                        <span class="num">7</span><span class="name">美女与野兽 英语<span class="cGrey"></span></span><span class="point">6.8</span>
+                    </a>
+                 </li>
+                <li class="top8">
+                    <a href="/Vod?mid=202632">
+                        <span class="num">8</span><span class="name">百万新娘之爱无悔 未删减版 国语<span class="cGrey"></span></span><span class="point">6.8</span>
+                    </a>
+                 </li>
+                <li class="top9">
+                    <a href="/Vod?mid=207742">
+                        <span class="num">9</span><span class="name">乱世三义 国语<span class="cGrey"></span></span><span class="point">8.3</span>
+                    </a>
+                 </li>
+                <li class="top10">
+                    <a href="/Vod?mid=187072">
+                        <span class="num">10</span><span class="name">第二十二条婚规<span class="cGrey"></span></span><span class="point">8.6</span>
+                    </a>
+                 </li>
+            
+                </ol>
+                <div class="ad250x250"><script type="text/javascript">BAIDU_CLB_fillSlot("667124");</script></div>
+            </div>
+        </div>
+        <script type="text/javascript">            InitVideoListSrcInfo('g');</script>
+    </div>
+    <!-- end 内容区 -->
+    <!-- 返回 -->
+    <div id="bottom">
+        <!--<a href="#"><img src="/Images/feedback.gif" alt="反馈" /></a>-->
+        <a href="#" class="go2top"><img src="/Images/top.gif" alt="回到页首" /></a></div>
+    <!-- end 返回 -->
+    <!-- 历史播放记录 -->
+    <div class="history-dropmenu" id="history-dropmenu" style="display:none;">
+        <div class="history-titleBar"></div><ul id="his_list" class="history-list"></ul>
+        <div class="history-ctrlBar"><a href="javascript:gHisMenu.clear()">清空历史记录</a>|<a id="his_close" href="javascript:gHisMenu.closeHis()">关闭</a></div>
+    </div>
+    <!-- end 历史播放记录 -->
 </body>
 </html>

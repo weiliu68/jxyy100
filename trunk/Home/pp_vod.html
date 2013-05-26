@@ -20,7 +20,7 @@
 						"title":"第一集",
 						"src":[
 							{"id":"iqiyi","name":"爱奇异","url":"http://www.jixun360.com/palyer/software/extern/web/lz01_iqiyi.html"},
-							{"id":"letv","name":"乐视","url":"http://www.jixun360.com/palyer/software/extern/web/lz01_letv.html"}
+							{"id":"letv","name":"乐视","url":"http://www.jixun360.com/palyer/software/extern/web/lz01_iqiyi.html"}
 						]
 					}
 				};
@@ -81,7 +81,7 @@
 	                <a href="javascript:play();" class="btn-play">立即播放</a>
 	                <ul class="supply">
 	                	<volist name="vod_playlist" id="ppvod" key="playerkey">
-	                    <li><a href="{:ff_play_url($vod_id,($playerkey-1),1,$vod_cid,$vod_name)}" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
+	                    <li><a href="javascript:PlayVideo('iqiyi', 1);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
 	                    </volist>
 	                </ul>
 	            </div>
@@ -305,10 +305,9 @@
         <div class="wrapper"><script type="text/javascript">BAIDU_CLB_fillSlot("511443");</script></div>
         <!--end 页脚 -->
         <script type="text/javascript">
-            var videoInfo = {id:'83223', videoType:1, video_sources:'letv_qq', video_title:'青春期2 国语', video_category:'爱情,喜剧'};
+            var videoInfo = {video_category:'爱情,喜剧<empty name="vod_id">{$vod_id}</empty>',id:'{$vod_id}', videoType:1,video_sources:'letv_qq', video_title:'{$vod_name}'};
         </script>
-        <script type="text/javascript" src="/Scripts/Score.js"></script>
-            <script type="text/javascript">                onInit(); </script>
+        <script type="text/javascript" src="/Tpl/jxyy/Score.js"></script>
     </div>
     <!-- end 内容区 -->
     <!-- 返回 -->
