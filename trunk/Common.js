@@ -235,8 +235,8 @@ function OpenMovie(movieid, cid, sid, title, url) {
 };
 
 function downplayer() {
-    if (confirm('本视频需要安装无极影音，点击确定下载')) {
-        var _url = 'http://www.wuji.com/setup.exe';
+    if (confirm('本视频需要安装极迅影音，点击确定下载')) {
+        var _url = 'http://www.jixun100.com/setup.exe';
         window.location = _url;
     }
 }
