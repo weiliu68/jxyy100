@@ -169,18 +169,21 @@
             	<empty name="vod_id">{$vod_id}</empty>
 				id:'{$vod_id}',
 				title:'{$vod_name}',
-				part:
-				<volist name="ppvod['son']" id="ppvodson">
-				{
-					partid:'1',
-					title:'第一集',
-					src:[
-						{id:'iqiyi',name:'爱奇异',url:'http://www.jixun360.com/palyer/software/extern/web/lz01_iqiyi.html'},
-						{id:'letv',name:'乐视',url:'http://www.jixun360.com/palyer/software/extern/web/lz01_iqiyi.html'}
-					]
-				}
-				</volist>
+				part:[
+					<volist name="jxplayItem" id="list">
+					{
+						partid:'{$list.partid}',
+						title:'{$list.title}',
+						src:[
+						<volist name="list.src" id="src">
+							{<empty name="vod_id">{$vod_id}</empty>id:'{$src.id}',name:'{$src.name}',url:'{$src.url}'},
+						</volist>
+						]
+					},
+					</volist>
+				]
             };
+            
         </script>
         <script type="text/javascript" src="/Tpl/jxyy/Score.js"></script>
     </div>
