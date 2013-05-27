@@ -187,10 +187,10 @@ function PlayVideo(src, sequence, year) {
     if (year == null) {
         year = '';
     }
-    OpenMovie(videoInfo.id + '' + year + '' + videoInfo.videoType + '_' + src + "_" + sequence, videoInfo.video_sources, videoInfo.id + '' + year + '' + videoInfo.videoType, videoInfo.video_title, '');
+    OpenMovie(videoInfo.id + '' + year + '' + videoInfo.videoType + '_' + src + "_" + sequence, videoInfo.video_sources, videoInfo.id + '' + year + '' + videoInfo.videoType, videoInfo.video_title, '', src);
 }
 
-function OpenMovie(movieid, cid, sid, title, url) {
+function OpenMovie(movieid, cid, sid, title, url, src) {
     if (gHisMenu != null) {
         var o = new Object();
         o.movieid = movieid;
@@ -224,15 +224,24 @@ function OpenMovie(movieid, cid, sid, title, url) {
         saveStr += ']';
         gHisMenu.setCookie(saveStr);
         gHisMenu.init();
-        //alert(hisList[0].title);
-        //alert(hisList.length);
-           
-
     }
     try {
-        external.zyExternal.getMainVersion();
+        //external.zyExternal.getMainVersion();
+        //play
+		clientCall("playlist",videoItem);
+		
+		var play={
+				"id":videoInfo.id,
+				"partid":sid,
+				"srcid":src
+			};
+		clientCall("play",play);
     } catch (e) { downplayer(); };
 };
+
+function clientCall(t,d){
+	window.open("jx://protocal?type=cmd&action="+ t +"&item="+encodeURIComponent(JSON.stringify(d)));
+}
 
 function downplayer() {
     if (confirm('本视频需要安装极迅影音，点击确定下载')) {
