@@ -12,6 +12,12 @@
 	<script language="javascript" src="/Tpl/jxyy/Slide.js" charset="utf-8"></script>
 </head>
 <body>
+<php>
+$vod_stars = ff_mysql_vod('limit:14;order:vod_stars desc,vod_hits desc');
+$vod_news = ff_mysql_vod('limit:36;order:vod_addtime desc');
+$vod_hot_tv = ff_mysql_vod('limit:21;cid:2;order:vod_gold desc,vod_hits desc');
+$vod_hot_dm = ff_mysql_vod('limit:10;cid:3;order:vod_gold desc,vod_hits desc');
+</php>
     <!-- 页首 -->
     <include file="Home:pp_header" />
     <!-- end 页首 -->
@@ -196,59 +202,33 @@
         </div>
         <!-- end 猜测您喜欢的 -->
         <div class="wrapper movie clearfix">
+        	<php>$vod_hot_dy = ff_mysql_vod('limit:10;cid:1;order:vod_gold desc,vod_hits desc');</php>
             <div class="title-bar ui-title">
                 <a href="/List?type=movie" class="more">更多 &gt;</a><h2>电影</h2>
             </div>
             <div class="colMainL">
                 <ul class="ctrl-tab clearfix"><li class="cur">最新</li></ul>
                 <ul class="imgList1">
-                	<fflist name="vod_hot_tv" id="ppvod">
-                    <li><a title="{$ppvod.vod_name|msubstr=0,12}" class="avatar" href="/Vod?mid=674801">
+                	<fflist name="vod_hot_dy" id="ppvod">
+                    <li><a title="{$ppvod.vod_name|msubstr=0,12}" class="avatar" href="{$ppvod.vod_readurl}">
                         <b class="mask-play"></b>
-                        <img class="lazy" alt="{$ppvod.vod_name|msubstr=0,12}" width="115" height="150" src="images/grey.gif" original="http://hb.wuji.com/1/k/67480_s.jpg" />
+                        <img class="lazy" alt="{$ppvod.vod_name|msubstr=0,12}" width="115" height="150" src="/Tpl/jxyy/images/grey.gif" original="{$ppvod.vod_pic}" />
                         <span class="tip">{$ppvod.vod_year}</span> </a>
                         <h4 class="name"><a title="{$ppvod.vod_name|msubstr=0,12}" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,12}</a></h4>
                     </li>
                     </fflist>
-                            <php>$vod_new = ff_mysql_vod('cid:'.$ppcid.';limit:30;order:vod_addtime desc');</php>
-                    
                 </ul>
             </div>
             <div class="colSide">
+            	<php>$hot_dy=ff_mysql_vod('cid:1;limit:1,10;order:vod_gold desc,vod_hits desc');</php>
                 <h3 class="title16">
-                    电影排行榜<span>评分</span></h3>
+                    	电影排行榜<span>评分</span></h3>
                 <ol class="rank">
-                    <li class="top1"><a href="/Vod?mid=832231">
-                        <span class="num">1</span><span class="name">青春期2 国语</span><span class="point">7.2</span></a>
-                     </li>                
-                    <li class="top2"><a href="/Vod?mid=896291">
-                        <span class="num">2</span><span class="name">西游降魔篇 国语</span><span class="point">6.5</span></a>
-                     </li>                
-                    <li class="top3"><a href="/Vod?mid=850041">
-                        <span class="num">3</span><span class="name">女蛹</span><span class="point">6.2</span></a>
-                     </li>                
-                    <li class="top4"><a href="/Vod?mid=859071">
-                        <span class="num">4</span><span class="name">都市色戒 韩语</span><span class="point">6.2</span></a>
-                     </li>                
-                    <li class="top5"><a href="/Vod?mid=896001">
-                        <span class="num">5</span><span class="name">上位之第三集 国语</span><span class="point">6.8</span></a>
-                     </li>                
-                    <li class="top6"><a href="/Vod?mid=786081">
-                        <span class="num">6</span><span class="name">前度 国语</span><span class="point">6.5</span></a>
-                     </li>                
-                    <li class="top7"><a href="/Vod?mid=897151">
-                        <span class="num">7</span><span class="name">X 周立鹏版 国语</span><span class="point">6.2</span></a>
-                     </li>                
-                    <li class="top8"><a href="/Vod?mid=839011">
-                        <span class="num">8</span><span class="name">擒爱记</span><span class="point">7.4</span></a>
-                     </li>                
-                    <li class="top9"><a href="/Vod?mid=674801">
-                        <span class="num">9</span><span class="name">十二生肖 国语</span><span class="point">7.3</span></a>
-                     </li>                
-                    <li class="top10"><a href="/Vod?mid=716971">
-                        <span class="num">10</span><span class="name">青春荷尔蒙</span><span class="point">6.9</span></a>
-                     </li>                
-
+                	<fflist name="hot_dy" id="ppvod">
+                    <li class="top{$i}"><a href="{$ppvod.vod_readurl}">
+                        <span class="num">{$i}</span><span class="name">{$ppvod.vod_name|msubstr=0,12}</span><span class="point">{$ppvod.vod_gold}</span></a>
+                    </li>                
+                    </fflist>
                 </ol>
                 <ul class="category clearfix">
                     <li><strong>类型</strong></li>
@@ -684,6 +664,7 @@
         <div class="history-ctrlBar"><a href="javascript:gHisMenu.clear()">清空历史记录</a>|<a id="his_close" href="javascript:gHisMenu.closeHis()">关闭</a></div>
     </div>
     <!-- end 历史播放记录 -->
-    <iframe src="jx://protocal?type=ev&loading=success&from=1"/>
+    <!-- <iframe src="jx://protocal?type=ev&loading=success&from=1"/> -->
 </body>
+<script type="text/javascript">    doResize(); loadImage(); </script>
 </html>
