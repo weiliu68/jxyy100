@@ -237,10 +237,11 @@ function OpenMovie(movieid, cid, sid, title, url, src) {
 //				"partid":sid,
 //				"srcid":src
 //			};
-		var play='{'+
-				'"id":"'+videoInfo.id+'",'+
-				'"partid":"'+sid+'",'+
-				'"srcid":"'+src+'"}';
+		var play={
+				"id":videoInfo.id,
+				"partid":sid,
+				"srcid":src
+		};
 		clientCall("play",play);
     } catch (e) { downplayer(); };
 };
