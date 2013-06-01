@@ -1,0 +1,144 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$title}</title>
+	<meta name="keywords" content="{$keywords}">
+	<meta name="description" content="{$description}">
+	<link href="/Tpl/jxyy/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/Tpl/jxyy/1.7.2.jquery.min.js"></script>
+    <script type="text/javascript" src="/Tpl/jxyy/lazyLoad.js"></script>
+    <script type="text/javascript" src="/Tpl/jxyy/Common.js"></script>
+</head>
+<body>
+    <!-- 页首 -->
+    <include file="Home:pp_header" />
+    <!-- end 页首 -->
+    <!-- 内容区 -->
+    <div id="container">
+	  <?php
+$s_area=array('大陆','香港','台湾','港台','欧美','日本','韩国','日韩','泰国','印度','其他');
+$s_letter = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9');
+$s_language=array('国语','粤语','韩语','日语','英语','泰语','其他');
+$s_year=array('2012','2011','2010','2009','2008','2007','2006','2005','2004','2003','2002','2001','2000','1999');
+if($_GET[year]) $u_year="-year-".$_GET[year];else $u_year=NULL;if($_GET[area]) $u_area="-area-".$_GET[area];else $u_area=NULL;if($_GET[letter]) $u_letter="-letter-".$_GET[letter];else $u_letter=NULL;if($_GET[order]) $u_order="-order-".$_GET[order];else $u_order=NULL;
+?>
+<div class="wrapper clearfix">
+            <div class="blank10"></div>
+    		<script type="text/javascript">    BAIDU_CLB_fillSlot("667121");</script>
+            <div class="blank10"></div>
+            <div class="colMain3">
+                <div style="width:640px; margin-bottom:10px;"><script type="text/javascript">BAIDU_CLB_fillSlot("511419");</script></div>
+                <div class="title-bar">
+                    <ul class="ctrl-tab2 clearfix">
+
+                        <li class='cur'>
+                            <a href="/List?type=tv&amp;orderby=click">最受欢迎</a>
+                        </li>
+                        <li >
+                            <a href="/List?type=tv&amp;orderby=dateandtime">最近更新</a>
+                        </li>
+                        <li >
+                            <a href="/List?type=tv&amp;orderby=publicyear">最新上映</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="orderbox" style="height:18px;"><span>列表样式：</span>
+                    <a class='on' title="单页内显示数量少，信息详细" href="javascript:ChangeWJListType(0)">详细</a>                        
+                        |
+                    <a  title="单页内显示数量多，信息简洁" href="javascript:ChangeWJListType(1)">简洁</a>
+                    </div>
+       				<php>$vod_list = ff_mysql_vod('cid:'.$list_id.';limit:8;page:true;order:vod_addtime desc,vod_id desc');$page = $vod_list[0]['page'];</php>
+                    <ul class="imgList2">
+                    	<volist name="vod_list" id="ppvod">
+                        <li>
+                            <div class="il2Img">
+                                <a title="{$ppvod.vod_name}" class="avatar" href="{$ppvod.vod_readurl}"><b class="mask-play"></b>
+                                <img class="lazy" alt="{$ppvod.vod_name}" src="/Tpl/jxyy/images/grey.gif" width="115" height="150" original="{$ppvod.vod_picurl}" />
+                                </a>
+                            </div>
+                            <div class="il2Info">
+                                <span class="il2Title">片名：<a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">{$ppvod.vod_name|msubstr=0,8}</a></span>
+                                <span>导演：{$ppvod.vod_director}</span>
+                                <span>演员：{$ppvod.vod_actor}</span>
+                                <if condition="$list_id eq 2">
+                                <span>集数：全42集</span>
+                                </if>
+                                <!-- <span>更新：<font >{$ppvod.vod_actor}</font></span>  -->
+                                <dl class="sourceOnList"><dt>片源：</dt><dd>
+                        		    <volist name="ppvod.vod_play" id="ppvod" key="playerkey">
+                                    <a class="g-{$ppvod.playname}" href="{:ff_play_url($vod_id,($playerkey-1),1,$vod_cid,$vod_name)}"></a>
+                                    </volist>
+                                </dd></dl>
+                            </div>
+                        </li>
+                        </volist>
+                    </ul>
+                    <!-- 分页 -->
+                    <div id="pages" style="margin-bottom:20px;">
+<div class="badoo">{$page}</div>
+                    </div>
+                    <!-- end 分页 -->
+                </div>
+            </div>
+            <div class="colSide3">
+                <div class="title-bar ui-title2"><h2 class="title18">按类型</h2></div>
+                <ul class="category clearfix">
+                    <li><a href='/List?type=tv' class='cur'>全部</a></li><li><a href='/List?type=tv&category=%e8%a8%80%e6%83%85'>言情</a></li>
+<li><a href='/List?type=tv&category=%e5%8f%a4%e8%a3%85'>古装</a></li>
+<li><a href='/List?type=tv&category=%e5%96%9c%e5%89%a7'>喜剧</a></li>
+<li><a href='/List?type=tv&category=%e5%8e%86%e5%8f%b2'>历史</a></li>
+<li><a href='/List?type=tv&category=%e5%8a%a8%e4%bd%9c'>动作</a></li>
+<li><a href='/List?type=tv&category=%e4%bc%a6%e7%90%86'>伦理</a></li>
+<li><a href='/List?type=tv&category=%e5%81%b6%e5%83%8f'>偶像</a></li>
+<li><a href='/List?type=tv&category=%e7%a9%bf%e8%b6%8a'>穿越</a></li>
+<li><a href='/List?type=tv&category=%e8%ad%a6%e5%8c%aa'>警匪</a></li>
+<li><a href='/List?type=tv&category=%e9%83%bd%e5%b8%82'>都市</a></li>
+
+                </ul>
+                <div class="blank10"></div>
+                <div class="title-bar ui-title2"><h2 class="title18">按地区</h2></div>
+                <ul class="category clearfix">
+                    <li><a href='/List?type=tv' class='cur'>全部</a></li>
+<?php foreach($s_area as $aid=>$avalue){ if($_GET[area]==$avalue) $class=" class='current'";else $class=NULL;echo "<li><a href=".$root."?s=vod-show-id-".$_GET[id].$u_year."-area-".urlencode($avalue).$u_letter.$u_order.".html $class>".$avalue."</a></li>";} ?>                    
+                </ul>
+                <div class="blank10"></div>
+                <div class="title-bar ui-title2"><h2 class="title18">按年份</h2></div>
+                <ul class="category clearfix">
+                    <li><a href='{$list_url}' <eq name="_GET[year]" value="">class='cur'</eq>>全部</a></li>
+<?php foreach($s_year as $yid=>$yvalue){ if($_GET[year]==$yvalue) $class=" class='cur'";else $class=NULL;echo "<li><a href=".$root."?s=vod-show-id-".$_GET[id]."-year-".$yvalue.$u_area.$u_letter.$u_order.".html $class>".$yvalue."</a></li>";} ?>
+                </ul>
+                <div class="ad250x250"><script type="text/javascript">BAIDU_CLB_fillSlot("667122");</script></div>
+                <div class="blank10"></div>
+                <h3 class="title16">排行榜</h3>
+                <ol class="rank">
+                          <php>$hot_dy=ff_mysql_vod('cid:1;limit:1,10;order:vod_gold desc,vod_hits desc');</php>
+                          <fflist name="hot_dy" id="ppvod">
+                              <li class="top{$i}">
+				                 <a href="{$ppvod.vod_readurl}">
+				                 <span class="num">{$i}</span><span class="name">{$ppvod.vod_name|msubstr=0,20}<span class="cGrey"></span></span><span class="point">{$ppvod.vod_gold}</span>
+				                 </a>
+				              </li>
+				          </fflist>
+                </ol>
+            </div>
+        </div>
+        <script type="text/javascript">            InitVideoListSrcInfo('g');</script>
+    </div>
+    <!-- end 内容区 -->
+    <!-- 返回 -->
+    <div id="bottom">
+        <!--<a href="#"><img src="/Images/feedback.gif" alt="反馈" /></a>-->
+        <a href="#" class="go2top"><img src="/Images/top.gif" alt="回到页首" /></a></div>
+    <!-- end 返回 -->
+    <!-- 历史播放记录 -->
+    <div class="history-dropmenu" id="history-dropmenu" style="display:none;">
+        <div class="history-titleBar"></div><ul id="his_list" class="history-list"></ul>
+        <div class="history-ctrlBar"><a href="javascript:gHisMenu.clear()">清空历史记录</a>|<a id="his_close" href="javascript:gHisMenu.closeHis()">关闭</a></div>
+    </div>
+    <!-- end 历史播放记录 -->
+</body>
+<script type="text/javascript">    doResize(); loadImage(); </script>
+</html>
