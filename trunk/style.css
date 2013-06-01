@@ -713,13 +713,13 @@ div.badoo input {
 	background: url("images/60.png") no-repeat 0px 0px; left: 0px; top: 0px; width: 280px; height: 330px; position: absolute; _background: none;
 }
 .recommend h2 {
-	margin-right: 15px; margin-left: 15px; border-bottom-color: rgb(255, 153, 0); border-bottom-width: 1px; border-bottom-style: solid; position: relative; z-index: 333;
+	margin-right: 15px; margin-left: 15px; border-bottom-color: rgb(83, 196, 230); border-bottom-width: 1px; border-bottom-style: solid; position: relative; z-index: 333;
 }
 .recommend ul li a {
 	padding: 0px 15px; height: 26px; line-height: 26px; overflow: hidden; vertical-align: middle; display: block; position: relative; zoom: 1;
 }
 .recommend ul li a:hover {
-	margin: 0px 15px; padding: 0px; border-bottom-color: rgb(255, 153, 0); border-bottom-width: 1px; border-bottom-style: dotted;
+	margin: 0px 15px; padding: 0px; border-bottom-color: rgb(83, 196, 230); border-bottom-width: 1px; border-bottom-style: dotted;
 }
 .recommend ul li.even {
 	
