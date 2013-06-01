@@ -238,7 +238,7 @@ function OpenMovie(movieid, cid, sid, title, url, src) {
 //				"srcid":src
 //			};
 		var play='{'+
-				'"id":'+videoInfo.id+','+
+				'"id":"'+videoInfo.id+'",'+
 				'"partid":"'+sid+'",'+
 				'"srcid":"'+src+'"}';
 		clientCall("play",play);
