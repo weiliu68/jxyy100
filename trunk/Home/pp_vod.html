@@ -19,7 +19,7 @@
 						"partid":"1",
 						"title":"第一集",
 						"src":[
-							{"id":"iqiyi","name":"爱奇异","url":"http://www.jixun360.com/palyer/software/extern/web/lz01_iqiyi.html"},
+							{"id":"iqiyi","name":"爱奇异","url":"http://localhost/?s=vod-play-id-4-sid-2-pid-1.html"},
 							{"id":"letv","name":"乐视","url":"http://www.jixun360.com/palyer/software/extern/web/lz01_iqiyi.html"}
 						]
 					}
@@ -69,7 +69,7 @@
                         <p class="type">地区：{$vod_area|default='未知'}</p>
                     </li>
                     <if condition="$list_id eq 2">
-                    <li class="link-play"><a class="btn-play" href="javascript:PlayVideo('qq', 1, '');">立即播放</a></li>
+                    <li class="link-play"><a class="btn-play" href="javascript:play();">立即播放</a></li>
                     </if>
                 </ul>
             </div>
@@ -177,7 +177,7 @@
 						title:'{$list.title}',
 						src:[
 						<volist name="list.src" id="src">
-							{<empty name="vod_id">{$vod_id}</empty>id:'{$src.id}',name:'{$src.name}',url:'{$src.url}'},
+							{<empty name="vod_id">{$vod_id}</empty>id:'{$src.id}',name:'{$src.name}',url:'http://localhost{$src.url}'},
 						</volist>
 						]
 					}

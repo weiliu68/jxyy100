@@ -187,7 +187,7 @@ function PlayVideo(src, sequence, year) {
     if (year == null) {
         year = '';
     }
-    OpenMovie(videoInfo.id + '' + year + '' + videoInfo.videoType + '_' + src + "_" + sequence, videoInfo.video_sources, videoInfo.id + '' + year + '' + videoInfo.videoType, videoInfo.video_title, '', src);
+    OpenMovie(videoInfo.id + '' + year + '' + videoInfo.videoType + '_' + src + "_" + sequence, videoInfo.video_sources, sequence, videoInfo.video_title, '', src);
 }
 
 function OpenMovie(movieid, cid, sid, title, url, src) {
@@ -231,12 +231,16 @@ function OpenMovie(movieid, cid, sid, title, url, src) {
     	$.each(videoItem, function() {
             clientCall("playlist",this);
         });
-		
-		var play={
-				"id":videoInfo.id,
-				"partid":sid,
-				"srcid":src
-			};
+    	
+//		var play={
+//				"id":videoInfo.id,
+//				"partid":sid,
+//				"srcid":src
+//			};
+		var play='{'+
+				'"id":'+videoInfo.id+','+
+				'"partid":"'+sid+'",'+
+				'"srcid":"'+src+'"}';
 		clientCall("play",play);
     } catch (e) { downplayer(); };
 };
