@@ -228,7 +228,9 @@ function OpenMovie(movieid, cid, sid, title, url, src) {
     try {
         //external.zyExternal.getMainVersion();
         //play
-		clientCall("playlist",videoItem);
+    	$.each(videoItem, function() {
+            clientCall("playlist",this);
+        });
 		
 		var play={
 				"id":videoInfo.id,

@@ -81,7 +81,7 @@
 	                <a href="javascript:play();" class="btn-play">立即播放</a>
 	                <ul class="supply">
 	                	<volist name="vod_playlist" id="ppvod" key="playerkey">
-	                    <li><a href="javascript:PlayVideo('iqiyi', 1);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
+	                    <li><a href="javascript:PlayVideo('{$ppvod.playname}', 1);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
 	                    </volist>
 	                </ul>
 	            </div>
@@ -165,12 +165,13 @@
         <!--end 页脚 -->
         <script type="text/javascript">
             var videoInfo = {video_category:'爱情,喜剧<empty name="vod_id">{$vod_id}</empty>',id:'{$vod_id}', videoType:1,video_sources:'letv_qq', video_title:'{$vod_name}'};
-            var videoItem = {
+            var videoItem = [
             	<empty name="vod_id">{$vod_id}</empty>
+				<volist name="jxplayItem" id="list">
+                {
 				id:'{$vod_id}',
 				title:'{$vod_name}',
-				part:[
-					<volist name="jxplayItem" id="list">
+				part:
 					{
 						partid:'{$list.partid}',
 						title:'{$list.title}',
@@ -179,10 +180,9 @@
 							{<empty name="vod_id">{$vod_id}</empty>id:'{$src.id}',name:'{$src.name}',url:'{$src.url}'},
 						</volist>
 						]
-					},
-					</volist>
-				]
-            };
+					}
+            },
+			</volist>];
             
         </script>
         <script type="text/javascript" src="/Tpl/jxyy/Score.js"></script>
