@@ -226,17 +226,12 @@ function OpenMovie(movieid, cid, sid, title, url, src) {
         gHisMenu.init();
     }
     try {
-        //external.zyExternal.getMainVersion();
+        external.zyExternal.getMainVersion();
         //play
     	$.each(videoItem, function() {
             clientCall("playlist",this);
         });
     	
-//		var play={
-//				"id":videoInfo.id,
-//				"partid":sid,
-//				"srcid":src
-//			};
 		var play={
 				"id":videoInfo.id,
 				"partid":sid,
