@@ -81,7 +81,7 @@
 	                <a href="javascript:play();" class="btn-play">立即播放</a>
 	                <ul class="supply">
 	                	<volist name="vod_playlist" id="ppvod" key="playerkey">
-	                    <li><a href="javascript:PlayVideo('{$ppvod.playname}', 1);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
+	                    <li><a href="javascript:PlayVideo('{$ppvod.playname}', '1');" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
 	                    </volist>
 	                </ul>
 	            </div>
@@ -122,7 +122,7 @@
                </div>
                <div class="blank20"></div>
                                         <div class="letv" index="letv1">
-                <a href="javascript:PlayVideo('letv', 1);">第1集</a>
+                <a href="javascript:PlayVideo('letv', '1');">第1集</a>
 </div>                        <div class="letv" index="letv2"style='display:none;'>
                 <a href="javascript:PlayVideo('letv', 49);">第49集</a>
                 </div>
