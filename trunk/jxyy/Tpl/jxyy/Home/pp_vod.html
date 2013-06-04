@@ -78,69 +78,53 @@
             <!-- 播放链接 -->
             <if condition="$list_id eq 1">
 	            <div class="play-link">
-	                <a href="javascript:play();" class="btn-play">立即播放</a>
+	                <a href="javascript:PlayVideo('{$vod_playlist.0.playname}','1');" class="btn-play">立即播放</a>
 	                <ul class="supply">
 	                	<volist name="vod_playlist" id="ppvod" key="playerkey">
 	                    <li><a href="javascript:PlayVideo('{$ppvod.playname}', '1');" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
 	                    </volist>
 	                </ul>
 	            </div>
-            <elseif condition="$list_id eq 2" />
+            <elseif condition="$list_id eq 3" />
 	            <ul class="ctrl-supply">
 	            	<volist name="vod_playlist" id="ppvod" key="playerkey">
-	                <li index="qq" class='cur'><a href="javascript:void(0);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
+	                <li index="{$ppvod.playname}" class='cur'><a href="javascript:void(0);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
 	                </volist>
 	            </ul>
             </if>
             <!-- end 播放链接 -->
             <if condition="$list_id eq 1">
             <div class="blank10"></div>
-            <elseif condition="$list_id eq 2" />
-                        <!-- 页签 -->
-            <div class="blank20"></div>
-               <div class="btns-play newest" index="qq">
-               <div class="vlist-group">
-               <dl><dt>集数分组：</dt>
-               <dd>
-                        <li ctrl="iqiyi" index="iqiyi1" class='cur'>01 - 48</li>
-                        <li ctrl="iqiyi" index="iqiyi2">49 - 49</li>
-               </dd></dl>
-               </div>
-               <div class="blank20"></div>
-                                        <div class="iqiyi" index="iqiyi1">
-                <a href="javascript:PlayVideo('qq', 1);">第1集</a>
-</div>                        <div class="iqiyi" index="iqiyi2"style='display:none;'>
-                <a href="javascript:PlayVideo('qq', 49);">第49集</a>
-                </div>
-</div>               <div class="btns-play newest" style='display:none' index="letv">
-               <div class="vlist-group">
-               <dl><dt>集数分组：</dt>
-               <dd>
-                        <li ctrl="letv" index="letv1" class='cur'>01 - 48</li>
-                        <li ctrl="letv" index="letv2">49 - 49</li>
-               </dd></dl>
-               </div>
-               <div class="blank20"></div>
-                                        <div class="letv" index="letv1">
-                <a href="javascript:PlayVideo('letv', '1');">第1集</a>
-</div>                        <div class="letv" index="letv2"style='display:none;'>
-                <a href="javascript:PlayVideo('letv', 49);">第49集</a>
-                </div>
-</div>               <div class="btns-play newest" style='display:none' index="iqiyi">
-               <div class="vlist-group">
-               <dl><dt>集数分组：</dt>
-               <dd>
-                        <li ctrl="qq" index="qq1" class='cur'>01 - 48</li>
-                        <li ctrl="qq" index="qq2">49 - 49</li>
-               </dd></dl>
-               </div>
-               <div class="blank20"></div>
-                                        <div class="qq" index="qq1">
-                <a href="javascript:PlayVideo('iqiyi', 1);">第1集</a>
-</div>                        <div class="qq" index="qq2"style='display:none;'>
-                <a href="javascript:PlayVideo('iqiyi', 49);">第49集</a>
-                </div>
-</div>            <!--end 页签 -->
+            <elseif condition="$list_id eq 3" />
+	            <!-- 页签 -->
+	            <div class="blank20"></div>
+	            <volist name="vod_playlist" id="ppvod" key="playerkey">
+	            <php>
+	            	$count=count($ppvod['son'])-1;
+	            	if($ppvod['son']>10){krsort($ppvod['son']);}
+	            </php>
+	            <div class="btns-play newest" style='display:none' index="{$ppvod.playname}">
+	               <div class="vlist-group">
+						<dl><dt>集数分组：</dt>
+	               			<dd>
+	                        	<li ctrl="{$ppvod.playname}" index="{$ppvod.playname}1" class='cur'>01 - 48</li>
+	                        	<if 
+	                        	<li ctrl="{$ppvod.playname}" index="{$ppvod.playname}2">49 - 49</li>
+	               			</dd>
+	               		</dl>
+	               </div>
+	               <div class="blank20"></div>
+	               <div class="{$ppvod.playname}" index="{$ppvod.playname}1">
+	               		<volist name="ppvod['son']" id="ppvodson">
+	               			<a href="javascript:PlayVideo('{$ppvod.playname}', '{$i}');">{$ppvodson.playname}</a>
+	               		</volist>
+					</div>
+					<div class="{$ppvod.playname}" index="{$ppvod.playname}2"style='display:none;'>
+	                	<a href="javascript:PlayVideo('iqiyi', 49);">第49集</a>
+	                </div>
+				</div>
+				</volist>
+				<!--end 页签 -->
             <div class="blank20"></div>
             </if>
             <!-- 剧情简介 -->
@@ -154,7 +138,6 @@
                     <a class="close" id="change" href="javascript:void(0);">换一换</a><h2 class="title16">相关推荐</h2>
                 </div>
                 <ul id="recommend" class="imgList1 clearfix">
-                    
                 </ul>
             </div>
             <!-- end 相关推荐 -->
@@ -191,7 +174,7 @@
     <!-- 返回 -->
     <div id="bottom">
         <!--<a href="#"><img src="/Images/feedback.gif" alt="反馈" /></a>-->
-        <a href="#" class="go2top"><img src="/Images/top.gif" alt="回到页首" /></a></div>
+        <a href="#" class="go2top"><img src="/Tpl/jxyy/images/top.gif" alt="回到页首" /></a></div>
     <!-- end 返回 -->
     <!-- 历史播放记录 -->
     <div class="history-dropmenu" id="history-dropmenu" style="display:none;">

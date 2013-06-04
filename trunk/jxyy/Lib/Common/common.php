@@ -849,7 +849,7 @@ function ff_letter_url($file='vod',$str=''){
 	return $str;
 }
 // 获取搜索带链接
-function ff_search_url($str,$type="actor",$sidname='vod',$action='search'){
+function ff_search_url($str,$type="wd",$sidname='vod',$action='search'){
 	$array = array();
     $str = str_replace(array('/','|',',','，'),' ',$str);
 	$arr = explode(' ',$str);
