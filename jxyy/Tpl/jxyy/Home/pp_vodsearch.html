@@ -1,42 +1,144 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{$title}</title>
-<meta name="keywords" content="<notempty name="list_keywords">{$list_keywords}<else/>最新{$list_name},{$keywords}</notempty>">
-<meta name="description" content="最新{$list_name}包含的影片有<volist name='vod_list' id='ppvod'>{$ppvod.vod_name|msubstr=0,10},</volist>完全免费在线观看！">
-<include file="./Public/tpl/home/header.html" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$title}</title>
+	<meta name="keywords" content="{$keywords}">
+	<meta name="description" content="{$description}">
+	<link href="/Tpl/jxyy/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/Tpl/jxyy/1.7.2.jquery.min.js"></script>
+    <script type="text/javascript" src="/Tpl/jxyy/lazyLoad.js"></script>
+    <script type="text/javascript" src="/Tpl/jxyy/Common.js"></script>
 </head>
 <body>
-<div class="wrap">
     <include file="Home:pp_header" />
-    <div class="top960">{:getadsurl('top960')}</div>
-    <div class="vodlist_r box">
-        <div class="top">
-            <h3><span>评分</span><a href="#">点播排行榜</a></h3>
+    <!-- 内容区 -->
+    <div id="container">
+    
+<div class="wrapper clearfix">
+<php>
+$vod_list = ff_mysql_vod('wd:'.$search_wd.';actor:'.$search_actor.';year:'.$search_year.';language:'.$search_language.';area:'.$search_area.';letter:'.$search_letter.';limit:8;page:true;order:vod_addtime desc');
+$page = $vod_list[0]['page'];
+$count = count(vod_list);
+</php>
+            <div class="blank20"></div>
+            <div class="colMain3">
+                <div class="search_key">搜索“<strong class="cOrange">{$search_wd}</strong>”，共找到视频<strong class="cOrange">{$count}</strong>个。</div>
+                <div class="title-bar">
+                    <ul class="ctrl-tab2 clearfix">
+                        <li class='cur'><a href="/Search?keyword=%E5%A4%8F%E6%97%A5&amp;type=movie">
+                            电影</a></li>
+                        <li ><a href="/Search?keyword=%E5%A4%8F%E6%97%A5&amp;type=tv">
+                            电视剧</a></li>
+                       <li ><a href="/Search?keyword=%E5%A4%8F%E6%97%A5&amp;type=show">
+                            综艺</a></li> 
+                        <li ><a href="/Search?keyword=%E5%A4%8F%E6%97%A5&amp;type=comic">
+                            动画</a></li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="orderbox"><span>排序方式：</span>
+                        <a class='on' title="最多播放" href="/Search?keyword=%E5%A4%8F%E6%97%A5&amp;orderby=click&amp;type=movie">最多播放</a>
+                        |
+                        <a  title="最新发行" href="/Search?keyword=%E5%A4%8F%E6%97%A5&amp;orderby=publicyear&amp;type=movie">最新发行</a>
+                    </div>
+                    <gt name="vod_list.0.count" value="0">
+                    <volist name="vod_list" id="ppvod">
+	                    <ul class="videoList">
+	                        <li class="thumb"><a href="{$ppvod.vod_readurl}" class="avatar" title="{$ppvod.vod_name}"><b class="mask-play"></b>
+	                            <img class="lazy" width="115" height="150" src="/Tpl/jxyy/images/grey.gif" original="{$ppvod.vod_picurl}" alt="{$ppvod_name}">
+	                            <span class="tip">{$ppvod.vod_year}</span> </a></li>
+	                        <li><span class="grade-score"><strong>{$ppvod.vod_gold}</strong></span><a href="{$ppvod.vod_readurl}" class="title16">{$ppvod.vod_name}</a> </li>
+	                        <li>
+	                            <p><em>主演：</em>{$ppvod.vod_actor}</p>
+	                            <p>导演：{$ppvod.vod_director}</p>
+	                            <p>年代：{$ppvod.vod_year}</p>
+	                        </li>
+	                        <li class="plot"></li>
+	                        <li class="link-play"><a href="{$ppvod.vod_readurl}"  class="btn-play2">立即播放</a></li>
+	                    </ul>
+                    </volist>
+                    </gt>
+                    <!-- 分页 -->
+                    <div id="pages">{$page}</div>
+                    <!-- end 分页 -->
+                </div>
+            </div>
+            <div class="colSide3">
+                <div class="ad250x250"><script type="text/javascript">BAIDU_CLB_fillSlot("512186");</script></div>
+                <div class="blank10"></div><h3 class="title16">网友在看的</h3>
+                <ol class="rank">
+                    <li class="top1">
+                        <a href="Vod?mid=799061"><span class="num">1</span>
+                        <span class="name">8毫米栏目电影之大话娱乐<span class="cGrey"> </span></span>
+                        <span class="point">0.0</span></a>
+                    </li>
+                    <li class="top2">
+                        <a href="Vod?mid=690221"><span class="num">2</span>
+                        <span class="name">夺命双头鲨 英语<span class="cGrey"> </span></span>
+                        <span class="point">0.0</span></a>
+                    </li>
+                    <li class="top3">
+                        <a href="Vod?mid=690121"><span class="num">3</span>
+                        <span class="name">向钱冲向前冲 国语<span class="cGrey"> </span></span>
+                        <span class="point">0.0</span></a>
+                    </li>
+                    <li class="top4">
+                        <a href="Vod?mid=914301"><span class="num">4</span>
+                        <span class="name">我的梦想,我的舞台<span class="cGrey"> </span></span>
+                        <span class="point">0.0</span></a>
+                    </li>
+                    <li class="top5">
+                        <a href="Vod?mid=738261"><span class="num">5</span>
+                        <span class="name">诺拉五天<span class="cGrey"> </span></span>
+                        <span class="point">0.0</span></a>
+                    </li>
+                    <li class="top6">
+                        <a href="Vod?mid=762271"><span class="num">6</span>
+                        <span class="name">我的美女老板 国语<span class="cGrey"> </span></span>
+                        <span class="point">0.0</span></a>
+                    </li>
+                    <li class="top7">
+                        <a href="Vod?mid=858601"><span class="num">7</span>
+                        <span class="name">抵抗运动之上部 法语<span class="cGrey"> </span></span>
+                        <span class="point">0.0</span></a>
+                    </li>
+                    <li class="top8">
+                        <a href="Vod?mid=925561"><span class="num">8</span>
+                        <span class="name">我们这一班6 国语<span class="cGrey"> </span></span>
+                        <span class="point">0.0</span></a>
+                    </li>
+                    <li class="top9">
+                        <a href="Vod?mid=674381"><span class="num">9</span>
+                        <span class="name">亨利-乔治&#183;克鲁佐的地狱 法语<span class="cGrey"> </span></span>
+                        <span class="point">0.0</span></a>
+                    </li>
+                    <li class="top10">
+                        <a href="Vod?mid=854701"><span class="num">10</span>
+                        <span class="name">衰鸟向前冲 国语<span class="cGrey"> </span></span>
+                        <span class="point">0.0</span></a>
+                    </li>
+
+                </ol>
+                <div class="ad250x250"><script type="text/javascript">BAIDU_CLB_fillSlot("512187");</script></div>
+            </div>
         </div>
-        <ul><php>$gold_desc = ff_mysql_vod('limit:30;order:vod_gold desc,vod_hits desc');</php><fflist name="gold_desc" id="ppvod"><li><span>{$ppvod.vod_gold}</span><em>{$i}</em><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,12}</a></li></fflist></ul>        
-    </div>   
-    <div class="vodlist_l box">
-      <div class="top">
-          <h3><a href="{$root}">首页</a></label> > {$search_wd}</h3>
-      </div>
-      <php>$vod_list = ff_mysql_vod('wd:'.$search_wd.';actor:'.$search_actor.';year:'.$search_year.';language:'.$search_language.';area:'.$search_area.';letter:'.$search_letter.';limit:8;page:true;order:vod_addtime desc');$page = $vod_list[0]['page'];</php>
-      <gt name="vod_list.0.count" value="0"><volist name="vod_list" id="ppvod">
-        <ul><a href="{$ppvod.vod_readurl}"><img src="{$ppvod.vod_picurl}" alt="点击播放《{$ppvod.vod_name}》" /></a>
-        <h2><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a><em>{$ppvod.vod_gold}</em><notempty name="ppvod.vod_title"><span>{$ppvod.vod_title}</span></notempty></h2>
-        <p>主演∶{$ppvod.vod_actor|ff_search_url}</p>
-        <p>地区∶{$ppvod.vod_area|default='未录入'} 上映时间∶{$ppvod.vod_addtime|date='Y-m-d',###}</p>
-        <p class="content">{$ppvod.vod_content|msubstr=0,100,'utf-8',true}</p>
-        <p><a href="{$ppvod.vod_readurl}">影片详情</a> | <a href="{$ppvod.vod_playurl}">在线观看</a> | 影评({$ppvod.vod_golder})</p>
-        </ul></volist>
-        <div class="pages">{$page}</div>
-      <else/>
-       	 <ul>对不起,没有搜索到<{$search_wd}{$search_actor}{$search_director}{$search_year|default=''}{$search_language}{$search_letter}>相关内容!</ul>
-      </gt>    
-    </div>   
-    <div class="blank"></div>
-    <include file="Home:pp_footer" />  
-</div>
+        <!-- end 内容 -->
+        <!-- 页脚 -->
+        <div class="footer"><div class="wrapper"><script type="text/javascript">BAIDU_CLB_fillSlot("512192");</script></div></div>
+        <!--end 页脚 -->
+    </div>
+    <!-- end 内容区 -->
+    <!-- 返回 -->
+    <div id="bottom">
+        <!--<a href="#"><img src="/Images/feedback.gif" alt="反馈" /></a>-->
+        <a href="#" class="go2top"><img src="/Tpl/jxyy/images/top.gif" alt="回到页首" /></a></div>
+    <!-- end 返回 -->
+<img src="http://click.wuji.com/j.ashx?action=9" style="display:none;"/>
 </body>
+<script type="text/javascript">
+    doResize();
+    loadImage();
+ </script>
 </html>
