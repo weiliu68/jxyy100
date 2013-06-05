@@ -85,7 +85,7 @@
 	                    </volist>
 	                </ul>
 	            </div>
-            <elseif condition="$list_id eq 2" />
+            <elseif condition="$list_id eq 2 or $list_id eq 3" />
 	            <ul class="ctrl-supply">
 	            	<volist name="vod_playlist" id="ppvod" key="playerkey">
 	                <li index="{$ppvod.playname}" class='cur'><a href="javascript:void(0);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
@@ -95,7 +95,7 @@
             <!-- end 播放链接 -->
             <if condition="$list_id eq 1">
             <div class="blank10"></div>
-            <elseif condition="$list_id eq 2"/>
+            <elseif condition="$list_id eq 2 or $list_id eq 3"/>
 	            <!-- 页签 -->
 	            <div class="blank20"></div>
 	            <volist name="vod_playlist" id="ppvod" key="playerkey">
