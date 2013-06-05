@@ -85,7 +85,7 @@
 	                    </volist>
 	                </ul>
 	            </div>
-            <elseif condition="$list_id eq 3" />
+            <elseif condition="$list_id eq 2" />
 	            <ul class="ctrl-supply">
 	            	<volist name="vod_playlist" id="ppvod" key="playerkey">
 	                <li index="{$ppvod.playname}" class='cur'><a href="javascript:void(0);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
@@ -95,7 +95,7 @@
             <!-- end 播放链接 -->
             <if condition="$list_id eq 1">
             <div class="blank10"></div>
-            <elseif condition="$list_id eq 3" />
+            <elseif condition="$list_id eq 2"/>
 	            <!-- 页签 -->
 	            <div class="blank20"></div>
 	            <volist name="vod_playlist" id="ppvod" key="playerkey">
@@ -116,7 +116,7 @@
 	               <div class="blank20"></div>
 	               <div class="{$ppvod.playname}" index="{$ppvod.playname}1">
 	               		<volist name="ppvod['son']" id="ppvodson">
-	               			<a href="javascript:PlayVideo('{$ppvod.playname}', '{$i}');">{$ppvodson.playname}</a>
+	               			<a href="javascript:PlayVideo('{$ppvod.playname}', '{$count + 2 - $i}');">{$ppvodson.playname}</a>
 	               		</volist>
 					</div>
 					<div class="{$ppvod.playname}" index="{$ppvod.playname}2"style='display:none;'>
@@ -125,7 +125,7 @@
 				</div>
 				</volist>
 				<!--end 页签 -->
-            <div class="blank20"></div>
+            	<div class="blank20"></div>
             </if>
             <!-- 剧情简介 -->
             <div class="title-bar ui-title2"><h2 class="title18">剧情简介</h2></div>
