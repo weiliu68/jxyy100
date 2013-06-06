@@ -155,7 +155,7 @@ a:active {
 	color: #fff;
 }
 .btn-orange {
-	background: #F90;
+	background: #53c4e6;
 	color: #fff;
 }
 a.btn-play {
@@ -191,7 +191,7 @@ a.btn-play:hover {
     white-space:nowrap;
     }
 .btns-play a:hover{
-	background: #F90;
+	background: #53c4e6;
 	color: #fff;
 	border: 1px solid #217fa5;
 }
@@ -206,7 +206,7 @@ a.btn-play:hover {
 	font-size: 14px;
 }
 .btns-play2 a:hover {
-	background: #F90;
+	background: #53c4e6;
 	color: #fff;
 	border: 1px solid #217fa5;
 　
@@ -1620,7 +1620,7 @@ a.btn-play2:hover {
 }
 .vlist-group .cur
 {
-    background: #F90;
+    background: #53c4e6;
 	color: #fff;
 	border: 1px solid #217fa5;
 }
