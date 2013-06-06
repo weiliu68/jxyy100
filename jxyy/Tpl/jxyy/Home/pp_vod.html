@@ -3,37 +3,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>{$title}</title>
-	<meta name="keywords" content="{$keywords}">
-	<meta name="description" content="{$description}">
+	<meta name="keywords" content="{$keywords}"/>
+	<meta name="description" content="{$description}"/>
 	<link href="/Tpl/jxyy/style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="/Tpl/jxyy/1.7.2.jquery.min.js"></script>
     <script type="text/javascript" src="/Tpl/jxyy/lazyLoad.js"></script>
     <script type="text/javascript" src="/Tpl/jxyy/Common.js"></script>
 	<script language="javascript" src="/Tpl/jxyy/Slide.js" charset="utf-8"></script>
-	<script type="text/javascript">
-		function play(){
-			var item={
-					"id":"1231345",
-					"title":"陆贞传奇",
-					"part":{
-						"partid":"1",
-						"title":"第一集",
-						"src":[
-							{"id":"iqiyi","name":"爱奇异","url":"http://localhost/?s=vod-play-id-4-sid-2-pid-1.html"},
-							{"id":"letv","name":"乐视","url":"http://www.jixun360.com/palyer/software/extern/web/lz01_iqiyi.html"}
-						]
-					}
-				};
-			window.open("jx://protocal?type=cmd&action=playlist&item="+encodeURIComponent(JSON.stringify(item)));
-
-			var play={
-					"id":"1231345",
-					"partid":"1",
-					"srcid":"letv"
-				};
-			window.open("jx://protocal?type=cmd&action=play&item="+encodeURIComponent(JSON.stringify(play)));
-		}
-	</script>
 </head>
 <body>
     <!-- 页首 -->
@@ -108,7 +84,6 @@
 						<dl><dt>集数分组：</dt>
 	               			<dd>
 	                        	<li ctrl="{$ppvod.playname}" index="{$ppvod.playname}1" class='cur'>01 - 48</li>
-	                        	<if 
 	                        	<li ctrl="{$ppvod.playname}" index="{$ppvod.playname}2">49 - 49</li>
 	               			</dd>
 	               		</dl>
@@ -133,11 +108,15 @@
             <!-- end 剧情简介 -->
             <div class="blank10"></div>
             <!-- 相关推荐 -->
+            <php>$hot_up = ff_mysql_vod('cid:'.$list_id.';limit:7;order:vod_up desc,vod_addtime desc');</php>
             <div class="others">
                 <div class="title-bar">
-                    <a class="close" id="change" href="javascript:void(0);">换一换</a><h2 class="title16">相关推荐</h2>
+                    <!--<a class="close" id="change" href="javascript:void(0);">换一换</a>--><h2 class="title16">相关推荐</h2>
                 </div>
                 <ul id="recommend" class="imgList1 clearfix">
+                <volist name="hot_up" id="ppvod">
+                	<li <eq name="i % 7" value="0">class="last"</eq>> <a title="{$ppvod.vod_name}" class="avatar" href="{$ppvod.vod_readurl}"><b class="mask-play"></b><img alt="{$ppvod.vod_name}" src="{$ppvod.vod_picurl}" onerror="OnImgError(this)"><span class="tip">{$ppvod.vod_year}</span> </a><h4 class="name"><a title="{$ppvod.vod_name}" href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a></h4><p class="info">{$ppvod.vod_keyword}</p></li>
+                </volist>
                 </ul>
             </div>
             <!-- end 相关推荐 -->
