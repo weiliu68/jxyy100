@@ -937,7 +937,7 @@ DIV.badoo input {
 
 }
 .recommend h2 {
-	border-bottom: 1px solid #ff9900; /* edit 20121030 */
+	border-bottom: 1px solid #53c4e6; /* edit 20121030 */
 	margin-left: 15px;
 	margin-right: 15px;
 	z-index:333;
@@ -956,7 +956,7 @@ DIV.badoo input {
 /* edit 20121103 */
 .recommend ul li a:hover {
 	/* background: #444; */
-	border-bottom:1px dotted #F90;
+	border-bottom:1px dotted #53c4e6;
 	padding:0;
 	margin:0 15px;
 }
