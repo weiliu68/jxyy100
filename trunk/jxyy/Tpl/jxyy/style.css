@@ -96,7 +96,7 @@ a:visited {
 	outline: none;
 }
 a:hover {
-	color: #ff6f21;
+	color: #80d3ec;
 }
 a:active {
 	outline: none;
@@ -151,7 +151,7 @@ a:active {
 	padding: 5px 20px;
 }
 .btn:hover {
-	background: #f60;
+	background: #217fa5;
 	color: #fff;
 }
 .btn-orange {
@@ -193,7 +193,7 @@ a.btn-play:hover {
 .btns-play a:hover{
 	background: #F90;
 	color: #fff;
-	border: 1px solid #F60;
+	border: 1px solid #217fa5;
 }
 .btns-play2 a {
 	padding: 5px 10px;
@@ -208,7 +208,7 @@ a.btn-play:hover {
 .btns-play2 a:hover {
 	background: #F90;
 	color: #fff;
-	border: 1px solid #F60;
+	border: 1px solid #217fa5;
 　
 }
 /*----------------- 标题 --------------------*/
@@ -247,7 +247,7 @@ a.btn-play:hover {
 	left: 0;
 }
 .ui-title2 {
-	border-bottom: 1px solid #ff6600;
+	border-bottom: 1px solid #217fa5;
 	position: relative;
 	height: 37px;
 }
@@ -262,7 +262,7 @@ a.btn-play:hover {
 	color: #999;
 }
 .cOrange {
-	color: #F60;
+	color: #217fa5;
 }
 .cBlue {
 	color: #369;
@@ -527,7 +527,7 @@ SCROLLBAR-TRACK-COLOR:#000000;
 	width: 32px;
 }
 .category li a.cur {
-	background: #F60;
+	background: #217fa5;
 	color: #fff;
 }
 /*----------------- 页签 --------------------*/
@@ -572,7 +572,7 @@ SCROLLBAR-TRACK-COLOR:#000000;
 	background: #f8f8f8;
 }
 .ctrl-tab2 li.cur {
-	border-top: 3px solid #F60;
+	border-top: 3px solid #217fa5;
 }
 .ctrl-tab2 li.cur a {
 	border-bottom: 1px solid #fff;
@@ -592,7 +592,7 @@ SCROLLBAR-TRACK-COLOR:#000000;
 	color: #000;
 }
 .ctrl-tab3 li.cur a {
-	color: #F60;
+	color: #217fa5;
 }
 /*----------------- 分页 --------------------*/
 #pages {
@@ -814,7 +814,7 @@ DIV.badoo input {
 	color: #666;
 }
 .ui-title .more:hover {
-	color: #F60;
+	color: #217fa5;
 }
 .ui-title h2 {
 	background-image: url(/Tpl/jxyy/images/title.gif);
@@ -1206,7 +1206,7 @@ DIV.badoo input {
 	background-repeat: no-repeat;
 }
 .ctrl-supply li.cur {
-	border-top: 3px solid #F60;
+	border-top: 3px solid #217fa5;
 }
 .ctrl-supply li.cur a {
 	border-bottom: 1px solid #fff;
@@ -1417,7 +1417,7 @@ DIV.badoo input {
 	padding: 0 0 10px;
 }
 .orderbox .on:link, .orderbox .on:visited {
-	color: #F60;
+	color: #217fa5;
 	font-weight: bold;
 }
 .orderbox a {
@@ -1487,7 +1487,7 @@ DIV.badoo input {
 }
 .videoList li .grade-score strong {
 	font-size:16px;
-	color:#F60;
+	color:#217fa5;
 }
 a.btn-play2 {
 	background: url(/Tpl/jxyy/images/btns.png) 0 -86px no-repeat;
@@ -1622,7 +1622,7 @@ a.btn-play2:hover {
 {
     background: #F90;
 	color: #fff;
-	border: 1px solid #F60;
+	border: 1px solid #217fa5;
 }
 .vinfop span{ float:left;}
 .vinfop .t1{ width:36px;}
