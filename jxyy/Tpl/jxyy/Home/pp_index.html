@@ -12,12 +12,6 @@
 	<script language="javascript" src="/Tpl/jxyy/Slide.js" charset="utf-8"></script>
 </head>
 <body>
-<php>
-$vod_stars = ff_mysql_vod('limit:14;order:vod_stars desc,vod_hits desc');
-$vod_news = ff_mysql_vod('limit:36;order:vod_addtime desc');
-$vod_hot_tv = ff_mysql_vod('limit:10;cid:2;order:vod_gold desc,vod_hits desc');
-$vod_hot_dm = ff_mysql_vod('limit:10;cid:3;order:vod_gold desc,vod_hits desc');
-</php>
     <!-- 页首 -->
     <include file="Home:pp_header" />
     <!-- end 页首 -->
@@ -166,6 +160,7 @@ $vod_hot_dm = ff_mysql_vod('limit:10;cid:3;order:vod_gold desc,vod_hits desc');
             </div>
             <div class="colMainL">
                 <ul class="ctrl-tab clearfix"><li class="cur">最新</li></ul>
+                <php>$vod_hot_tv = ff_mysql_vod('limit:10;cid:2;order:vod_gold desc,vod_hits desc');</php>
                 <ul class="imgList1">
                 	<fflist name="vod_hot_tv" id="ppvod">
                     <li><a title="{$ppvod.vod_name|msubstr=0,12}" class="avatar" href="{$ppvod.vod_readurl}">
