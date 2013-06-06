@@ -1,159 +1,107 @@
+@charset "utf-8";
+/*----------------- Reset --------------------*/
 * {
-	margin: 0px; padding: 0px;
+	margin: 0;
+	padding: 0;
 }
-fieldset {
-	border: 0px currentColor;
+fieldset, img {
+	border: 0 none;
 }
-img {
-	border: 0px currentColor;
+a, input, :focus {
+	outline: none;
 }
-a {
-	
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: 400;
 }
-input {
-	
-}
-:focus {
-	
-}
-h1 {
-	font-size: 100%; font-weight: 400;
-}
-h2 {
-	font-size: 100%; font-weight: 400;
-}
-h3 {
-	font-size: 100%; font-weight: 400;
-}
-h4 {
-	font-size: 100%; font-weight: 400;
-}
-h5 {
-	font-size: 100%; font-weight: 400;
-}
-h6 {
-	font-size: 100%; font-weight: 400;
-}
-blockquote {
-	quotes: none;
-}
-q {
+blockquote, q {
 	quotes: none;
 }
 em {
 	font-style: normal;
 }
-ol {
+ol, ul {
 	list-style: none;
 }
-ul {
-	list-style: none;
-}
-:link {
+:link, :visited, ins {
 	text-decoration: none;
 }
-:visited {
-	text-decoration: none;
+area, area:active {
+	border: 0 none;
+	outline: none;
 }
-ins {
-	text-decoration: none;
-}
-area {
-	border: 0px currentColor;
-}
-area:active {
-	border: 0px currentColor;
-}
-blockquote::before {
-	content: "";
-}
-blockquote::after {
-	content: "";
-}
-q::before {
-	content: "";
-}
-q::after {
-	content: "";
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
 }
 table {
-	border-collapse: collapse; border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
-caption {
-	text-align: left;
-}
-th {
+caption, th {
 	text-align: left;
 }
 input {
-	border: 0px currentColor;
+	border: 0;
 }
 textarea {
-	overflow: auto; resize: vertical;
+	overflow: auto;
+	resize: vertical;
 }
 html {
-	background: rgb(255, 255, 255); height: 100%; overflow-y: scroll;
+	background: #fff;
+	height: 100%;
+	overflow-y: scroll;
+}
+body, input, textarea, table, td {
+	color: #666;
+	font-family: Tahoma, '宋体', sans-serif;
+	font-size: 12px;
 }
 body {
-	color: rgb(102, 102, 102); font-family: Tahoma, "����", sans-serif; font-size: 12px;
+	position:relative;
 }
-input {
-	color: rgb(102, 102, 102); font-family: Tahoma, "����", sans-serif; font-size: 12px;
-}
-textarea {
-	color: rgb(102, 102, 102); font-family: Tahoma, "����", sans-serif; font-size: 12px;
-}
-table {
-	color: rgb(102, 102, 102); font-family: Tahoma, "����", sans-serif; font-size: 12px;
-}
-td {
-	color: rgb(102, 102, 102); font-family: Tahoma, "����", sans-serif; font-size: 12px;
-}
-body {
-	position: relative;
-}
-img {
+img, object, select, input, textarea, button {
 	vertical-align: middle;
 }
-object {
-	vertical-align: middle;
+.clear, .clear-all {
+	clear: both;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	overflow: hidden;
 }
-select {
-	vertical-align: middle;
-}
-input {
-	vertical-align: middle;
-}
-textarea {
-	vertical-align: middle;
-}
-button {
-	vertical-align: middle;
-}
-.clear {
-	height: 0px; line-height: 0; overflow: hidden; clear: both; font-size: 0px;
-}
-.clear-all {
-	height: 0px; line-height: 0; overflow: hidden; clear: both; font-size: 0px;
-}
-.clearfix::after {
-	height: 0px; clear: both; font-family: Arial, Helvetica, sans-serif; font-size: 0px; display: block; visibility: hidden; content: " ";
+.clearfix:after {
+	clear: both;
+	content: " ";
+	display: block;
+	font-size: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	height: 0;
+	visibility: hidden;
 }
 .clearfix {
-	
+*zoom:1;
+}
+input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="file"]>input[type="button"]::-moz-focus-inner {
+border:none; /* 解决firefox下button文字不能垂直居中的问题  */
+padding:0;
 }
 a {
-	color: rgb(51, 51, 51); text-decoration: none;
+	text-decoration: none;
+	color: #333;
 }
 a:visited {
-	color: rgb(51, 51, 51); _color: inherit;
+	color: #333;
+	_color: inherit;
+	outline: none;
 }
 a:hover {
-	color: rgb(255, 111, 33);
+	color: #ff6f21;
 }
 a:active {
-	
+	outline: none;
 }
+/*----------------- Global --------------------*/
 .pointer {
 	cursor: pointer;
 }
@@ -161,20 +109,32 @@ a:active {
 	position: relative;
 }
 .word-break {
-	word-break: break-all; word-wrap: break-word;
+	word-break: break-all;
+	word-wrap: break-word;
 }
 .word-hidden {
-	overflow: hidden; word-wrap: break-word;
+	overflow: hidden;
+	word-wrap: break-word;
 }
-.wrapper {
-	margin: 0px auto; width: 960px; text-align: left; padding-left: 15px; zoom: 1;
+.wrapper
+{
+    width: 960px;
+    text-align: left;
+    margin: 0 auto;
+    padding-left:15px;
+    zoom: 1;
 }
 .blank10 {
-	height: 10px; overflow: hidden; clear: both;
+	height: 10px;
+	clear: both;
+	overflow: hidden;
 }
 .blank20 {
-	height: 20px; overflow: hidden; clear: both;
+	height: 20px;
+	clear: both;
+	overflow: hidden;
 }
+/*----------------- 表单，按钮 --------------------*/
 .mid {
 	width: 278px;
 }
@@ -182,652 +142,1036 @@ a:active {
 	width: 120px;
 }
 .textarea {
-	padding: 10px; border: 1px solid rgb(204, 204, 204);
+	padding: 10px;
+	border: 1px solid #ccc;
 }
 .btn {
-	padding: 5px 20px; font-family: "Microsoft Yahei", "΢���ź�", "����"; font-size: 16px;
+	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+	font-size: 16px;
+	padding: 5px 20px;
 }
 .btn:hover {
-	background: rgb(255, 102, 0); color: rgb(255, 255, 255);
+	background: #f60;
+	color: #fff;
 }
 .btn-orange {
-	background: rgb(255, 153, 0); color: rgb(255, 255, 255);
+	background: #F90;
+	color: #fff;
 }
 a.btn-play {
-	background: url("images/btns.png") no-repeat 0px 0px; width: 220px; height: 43px; color: rgb(102, 102, 102); text-indent: -999px; overflow: hidden; float: left; display: block;
+	background: url(/Tpl/jxyy/images/btns.png) 0 0 no-repeat;
+	width: 220px;
+	height: 43px;
+	text-indent: -999px;
+	overflow: hidden;
+	float: left;
+	display: block;
+	color: #666;
 }
 a.btn-play:hover {
-	background: url("images/btns.png") no-repeat 0px -43px; color: rgb(102, 102, 102);
+	background: url(/Tpl/jxyy/images/btns.png) 0 -43px no-repeat;
+	color: #666;
 }
 .btns-play a {
-	background: rgb(232, 232, 232); padding: 5px 10px; border: 1px solid rgb(204, 204, 204); width: 50px; text-align: center; font-size: 14px; margin-right: 4px; margin-bottom: 10px; display: inline-block;
+	padding: 5px 10px;
+	margin-right: 4px;
+	margin-bottom: 10px;
+	display: inline-block;
+	width: 50px;
+	text-align: center;
+	border: 1px solid #ccc;
+	background: #e8e8e8;
+	font-size: 14px;
 }
-.show-play a {
-	width: 290px; text-align: left; overflow: hidden; white-space: nowrap;
-}
-.btns-play a:hover {
-	background: rgb(255, 153, 0); border: 1px solid rgb(255, 102, 0); color: rgb(255, 255, 255);
+.show-play a
+{
+    width: 290px;
+    text-align:left;
+    overflow:hidden;
+    white-space:nowrap;
+    }
+.btns-play a:hover{
+	background: #F90;
+	color: #fff;
+	border: 1px solid #F60;
 }
 .btns-play2 a {
-	background: rgb(232, 232, 232); padding: 5px 10px; border: 1px solid rgb(204, 204, 204); width: 290px; font-size: 14px; margin-right: 4px; margin-bottom: 10px; display: inline-block;
+	padding: 5px 10px;
+	margin-right: 4px;
+	margin-bottom: 10px;
+	display: inline-block;
+	width: 290px;
+	border: 1px solid #ccc;
+	background: #e8e8e8;
+	font-size: 14px;
 }
 .btns-play2 a:hover {
-	background: rgb(255, 153, 0); border: 1px solid rgb(255, 102, 0); color: rgb(255, 255, 255);
+	background: #F90;
+	color: #fff;
+	border: 1px solid #F60;
+　
 }
+/*----------------- 标题 --------------------*/
 .title12 {
-	color: rgb(136, 136, 136); font-size: 12px; font-weight: normal;
+	font-size: 12px;
+	font-weight: normal;
+	color: #888;
 }
 .title16 {
-	line-height: 200%; font-family: "Microsoft Yahei", "΢���ź�", "����"; font-size: 16px; margin-bottom: 10px;
+	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+	font-size: 16px;
+	line-height: 200%;
+	margin-bottom: 10px;
 }
-.title16 span {
-	padding-left: 145px; font-size: 12px;
+.title16 span
+{
+    padding-left: 145px;
+    font-size: 12px;
 }
 .title18 {
-	line-height: 36px; font-family: "Microsoft Yahei", "΢���ź�", "����"; font-size: 18px; margin-bottom: 10px;
+	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+	font-size: 18px;
+	line-height: 36px;
+	margin-bottom: 10px;
 }
 .title24 {
-	line-height: 200%; font-family: "Microsoft Yahei", "΢���ź�", "����"; font-size: 24px; margin-bottom: 10px;
+	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+	font-size: 24px;
+	line-height: 200%;
+	margin-bottom: 10px;
 }
 .ui-title2 h2 {
-	left: 0px; top: 1px; border-bottom-color: rgb(133, 0, 51); border-bottom-width: 1px; border-bottom-style: solid; position: absolute;
+	border-bottom: 1px solid #850033;
+	position: absolute;
+	top: 1px;
+	left: 0;
 }
 .ui-title2 {
-	height: 37px; border-bottom-color: rgb(255, 102, 0); border-bottom-width: 1px; border-bottom-style: solid; position: relative;
+	border-bottom: 1px solid #ff6600;
+	position: relative;
+	height: 37px;
 }
+/*----------------- 颜色 --------------------*/
 .cWhite {
-	color: rgb(255, 255, 255);
+	color: #fff;
 }
 .cBlack {
-	color: rgb(0, 0, 0);
+	color: #000;
 }
 .cGrey {
-	color: rgb(153, 153, 153);
+	color: #999;
 }
 .cOrange {
-	color: rgb(255, 102, 0);
+	color: #F60;
 }
 .cBlue {
-	color: rgb(51, 102, 153);
+	color: #369;
 }
-.cYellow {
-	color: rgb(255, 204, 102);
+/* edit 20111103 */
+.cYellow{
+	color:#ffcc66;	
 }
+/*----------------- 布局 --------------------*/
 .colMainL {
-	width: 682px; float: left;
-}
-.colMainL2 {
-	width: 620px; float: left;
-}
-.colMainL2 img {
-	width: 220px; height: 300px;
-}
-.colMain3 {
-	width: 682px; float: right;
-}
-.colSide {
-	width: 250px; overflow: hidden; float: right;
-}
-.colSide2 {
-	width: 300px; overflow: hidden; float: right;
-}
-.colSide3 {
-	width: 250px; overflow: hidden; float: left;
-}
-html {
-	height: 100%; overflow: hidden;
-}
-body {
-	height: 100%; scrollbar-face-color: rgb(51, 51, 51); scrollbar-3dlight-color: rgb(0, 0, 0); scrollbar-shadow-color: rgb(51, 51, 51); scrollbar-highlight-color: rgb(51, 51, 51); scrollbar-darkshadow-color: rgb(51, 51, 51); scrollbar-arrow-color: rgb(153, 153, 153); scrollbar-track-color: rgb(0, 0, 0);
-}
-#header {
-	height: 50px;
-}
-#container {
-	width: 100%; position: absolute; overflow-x: auto; overflow-y: scroll;
-}
-#bottom {
-	width: 42px; right: 30px; bottom: 0px; position: absolute;
-}
-#bottom a {
-	padding-bottom: 10px; display: block;
-}
-.imgList2 li {
-	width: 320px; height: 160px; margin-right: 10px; margin-bottom: 10px; float: left;
-}
-.imgList2 div {
+	width: 682px;
 	float: left;
 }
-.imgList2 .il2Img {
-	width: 115px; height: 150px;
+.colMainL2 {
+	width: 620px;
+	float: left;
 }
-.imgList2 .il2Info {
-	width: 190px; padding-top: 3px; padding-left: 10px;
+.colMainL2 img{width:220px;height:300px;}
+.colMain3 {
+	width: 682px;
+	float: right;
 }
-.imgList2 .il2Info span font {
-	font-size: 12px;
+.colSide {
+	width: 250px;
+	float: right;
+	overflow: hidden;
 }
-.imgList2 .il2Title a {
-	color: rgb(102, 102, 102); font-size: 14px; font-weight: bold;
+.colSide2 {
+	width: 300px;
+	float: right;
+	overflow: hidden;
 }
-.imgList2 .il2Info span {
-	padding: 3px 0px 3px 36px; width: 154px; text-indent: -35px; display: block;
+.colSide3 {
+	width: 250px;
+	float: left;
+	overflow: hidden;
 }
-.imgList2 .il2Title {
-	margin-bottom: 5px;
+/*  edit 20121030 */
+html {
+	overflow:hidden;
+	height:100%;
 }
-.imgList2 .il2Info .srcLbl {
-	width: 30px; padding-top: 3px; float: left; display: block;
+body {
+	height:100%;
+SCROLLBAR-ARROW-COLOR:#999999;
+SCROLLBAR-FACE-COLOR:#333333;
+SCROLLBAR-DARKSHADOW-COLOR:#333333;
+SCROLLBAR-HIGHLIGHT-COLOR:#333333;
+SCROLLBAR-3DLIGHT-COLOR:#000000;
+SCROLLBAR-SHADOW-COLOR:#333333;
+SCROLLBAR-TRACK-COLOR:#000000;
 }
-.sourceOnList dt {
-	padding-top: 3px; float: left;
+#header {
+	height:50px;
 }
-.sourceOnList dd {
-	padding-top: 3px; float: left;
+#container {
+	overflow-y:scroll;/*	background:url(/Tpl/jxyy/images/bodybg.jpg) left top repeat; */
+	overflow-x:auto;
+	position:absolute;
+	
+	width:100%;
 }
-.sourceOnList dt {
-	width: 36px;
+#bottom {
+	position:absolute;
+	bottom:0;
+	right:30px;
+	width:42px;
 }
-.sourceOnList dd {
-	width: 152px;
+#bottom a{
+	display:block;
+	padding-bottom:10px;
 }
+/*----------------- 列表 --------------------*/
+.imgList2 li
+{
+    width: 320px;
+    height: 160px;
+    margin-right: 10px;
+    float: left;
+    margin-bottom: 10px;
+}
+.imgList2 div
+{
+    float: left;
+}
+.imgList2 .il2Img
+{
+    height: 120px;
+    height:150px;
+    width:115px;
+}
+.imgList2 .il2Info
+{
+    width: 190px;
+    padding-top: 3px;
+    padding-left: 10px;
+}
+.imgList2 .il2Info span font
+{
+    font-size:12px;
+}
+.imgList2 .il2Title a
+{
+    font-size: 14px;
+    color: #666666;
+    font-weight: bold;
+}
+.imgList2 .il2Info span
+{
+    padding: 3px 0px 3px 36px;
+    display: block;
+    width: 154px;
+    text-indent: -35px;
+}
+.imgList2 .il2Title
+{
+    margin-bottom: 5px;
+}
+.imgList2 .il2Info .srcLbl
+{
+    padding-top: 3px;
+    width: 30px;
+    display: block;
+    float: left;
+}
+.sourceOnList dt, .sourceOnList dd
+{
+    float: left;
+    padding-top: 3px;
+}
+.sourceOnList dt
+{
+    width: 36px;
+}
+.sourceOnList dd
+{
+    width: 152px;
+}
+/*
+.imgList2 .il2Info span em
+{
+    text-indent: -35px;    
+    float: left;
+    clear: both;
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+}
+*/
 .imgList1 li {
-	margin: 0px 20px 10px 0px; width: 115px; height: 200px; text-align: center; overflow: hidden; float: left; display: inline;
+	text-align: center;
+	width: 115px;
+	float: left;
+	margin: 0 20px 10px 0;
+	display: inline;
+	height: 200px;
+	overflow: hidden;
 }
 .imgList1 li.last {
-	margin-right: 0px;
+	margin-right: 0;
 }
-.imgList1 .avatar {
-	width: 115px; height: 150px; overflow: hidden; display: block; position: relative;
-}
-.imgList2 .avatar {
-	width: 115px; height: 150px; overflow: hidden; display: block; position: relative;
+.imgList1 .avatar,.imgList2 .avatar {
+	width: 115px;
+	height: 150px;
+	position: relative;
+	display: block;
+	overflow: hidden;
 }
 .imgList1 .avatar img {
-	width: 100%; height: 100%;
+	width: 100%;
+	height: 100%;
 }
-.imgList1 li .avatar:hover .mask-play {
-	background: url("images/play.png"); left: 0px; top: 0px; width: 100%; height: 100%; display: block; position: absolute; z-index: 333; cursor: pointer;
-}
-.imgList2 li .avatar:hover .mask-play {
-	background: url("images/play.png"); left: 0px; top: 0px; width: 100%; height: 100%; display: block; position: absolute; z-index: 333; cursor: pointer;
+.imgList1 li .avatar:hover .mask-play, .imgList2 li .avatar:hover .mask-play {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 333;
+	background: url(/Tpl/jxyy/images/play.png);
+	cursor:pointer;
 }
 .imgList1 li .avatar .tip {
-	background: 0px 0px rgba(0, 0, 0, 0.4) !important; left: 0px; width: 100%; text-align: center; bottom: 0px; color: rgb(255, 255, 255); line-height: 20px; filter: Alpha(opacity=40); position: absolute; z-index: 999;
+	background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0 !important;/*实现FF背景透明，文字不透明*/
+	filter: Alpha(opacity=40);
+	background: #000000;/*实现IE背景透明*/
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 999;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	width: 100%;
 }
-.imgList1 li .name a:link {
-	color: rgb(102, 153, 0); line-height: 24px; font-size: 14px; font-weight: bold; white-space: nowrap;
-}
-.imgList1 li .name a:visited {
-	color: rgb(102, 153, 0); line-height: 24px; font-size: 14px; font-weight: bold; white-space: nowrap;
+.imgList1 li .name a:link, .imgList1 li .name a:visited {
+	font-size: 14px;
+	color: #669900;
+	font-weight: bold;
+	line-height: 24px;
+	white-space: nowrap;
 }
 .imgList1 li .name a:hover {
-	color: rgb(51, 51, 51);
+	color: #333;
 }
 .imgList1 li .info {
-	color: rgb(136, 136, 136); white-space: nowrap;
+	color: #888;
+	white-space: nowrap;
 }
 .rank li {
-	height: 16px; overflow: hidden; margin-bottom: 8px; vertical-align: middle;
+	height: 16px;
+	overflow: hidden;
+	vertical-align: middle;
+	margin-bottom: 8px;
 }
 .rank .num {
-	background: rgb(153, 153, 153); width: 16px; height: 16px; text-align: center; color: rgb(255, 255, 255); overflow: hidden; font-family: Tahoma, Geneva, sans-serif; margin-right: 8px; float: left; display: inline;
+	float: left;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #fff;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+	text-align: center;
+	background: #999;
+	display: inline;
+	margin-right: 8px;
 }
 .rank .top1 .num {
-	background: rgb(255, 60, 0);
+	background: #ff3c00;
 }
 .rank .top2 .num {
-	background: rgb(255, 102, 0);
+	background: #ff6600;
 }
 .rank .top3 .num {
-	background: rgb(255, 153, 0);
+	background: #ff9900;
 }
 .rank .name {
-	width: 175px; float: left; cursor: pointer;
+	float: left;
+	width: 175px;
+	cursor:pointer;
 }
 .rank .point {
-	color: rgb(136, 136, 136); float: right; cursor: pointer;
+	float: right;
+	color: #888;
+	cursor:pointer;
 }
 .category {
-	overflow: hidden; padding-top: 10px; margin-right: -20px;
+	padding-top: 10px;
+	margin-right: -20px;
+	overflow: hidden;
 }
 .category li {
-	line-height: 22px; margin-right: 11px; float: left;
+	float: left;
+	line-height: 22px;
+	margin-right: 11px;
 }
-.category li a {
-	width: 32px; text-align: center; float: left; display: block;
-}
-.category li strong {
-	width: 32px; text-align: center; float: left; display: block;
+.category li a, .category li strong {
+	float: left;
+	text-align: center;
+	display: block;
+	width: 32px;
 }
 .category li a.cur {
-	background: rgb(255, 102, 0); color: rgb(255, 255, 255);
+	background: #F60;
+	color: #fff;
 }
+/*----------------- 页签 --------------------*/
 .ctrl-tab {
 	padding-bottom: 10px;
 }
 .ctrl-tab li {
-	width: 62px; height: 30px; text-align: center; line-height: 24px; font-family: "Microsoft Yahei", "΢���ź�", "����"; font-size: 14px; float: left; cursor: pointer;
+	float: left;
+	text-align: center;
+	width: 62px;
+	height: 30px;
+	line-height: 24px;
+	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+	font-size: 14px;
+	cursor: pointer;
 }
 .ctrl-tab li.cur {
-	background: url("images/icons.png") 0px -160px; color: rgb(255, 255, 255);
+	background: url(/Tpl/jxyy/images/icons.png) 0 -160px;
+	color: #fff;
 }
 .ctrl-tab2 {
-	background: url("images/title.gif") repeat-x 0px -216px; height: 36px; font-family: "Microsoft Yahei", "΢���ź�", "����"; font-size: 16px; margin-bottom: 20px; border-left-color: rgb(204, 204, 204); border-left-width: 1px; border-left-style: solid;
+	border-left: 1px solid #ccc;
+	height: 36px;
+	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+	font-size: 16px;
+	background: url(/Tpl/jxyy/images/title.gif) 0 -216px repeat-x;
+	margin-bottom: 20px;
 }
 .ctrl-tab2 li {
-	height: 32px; border-top-color: rgb(204, 204, 204); border-top-width: 3px; border-top-style: solid; float: left;
+	float: left;
+	border-top: 3px solid #ccc;
+	height: 32px;
 }
 .ctrl-tab2 li a {
-	background: rgb(248, 248, 248); padding: 0px 30px; height: 32px; line-height: 32px; border-right-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; float: left; display: block;
+	display: block;
+	float: left;
+	height: 32px;
+	line-height: 32px;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	padding: 0 30px;
+	background: #f8f8f8;
 }
 .ctrl-tab2 li.cur {
-	border-top-color: rgb(255, 102, 0); border-top-width: 3px; border-top-style: solid;
+	border-top: 3px solid #F60;
 }
 .ctrl-tab2 li.cur a {
-	background: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-bottom-width: 1px; border-bottom-style: solid;
+	border-bottom: 1px solid #fff;
+	background: #fff;
 }
 .ctrl-tab3 li {
-	padding: 0px 20px; border-right-color: rgb(204, 204, 204); border-right-width: 1px; border-right-style: solid; float: left;
+	float: left;
+	border-right: 1px solid #ccc;
+	padding: 0 20px;
 }
 .ctrl-tab3 li a {
-	text-align: center; color: rgb(51, 102, 204); font-weight: bold;
+	text-align: center;
+	color: #36C;
+	font-weight: bold;
 }
 .ctrl-tab3 li a:hover {
-	color: rgb(0, 0, 0);
+	color: #000;
 }
 .ctrl-tab3 li.cur a {
-	color: rgb(255, 102, 0);
+	color: #F60;
 }
+/*----------------- 分页 --------------------*/
 #pages {
 	clear: both;
 }
-div.badoo {
-	padding: 10px 0px; text-align: center; color: rgb(51, 51, 51); font-family: Arial, Helvetica, sans-serif; font-size: 13px; background-color: rgb(255, 255, 255);
+DIV.badoo {
+	background-color: #FFFFFF;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	padding: 10px 0;
+	text-align: center;
 }
-div.badoo a {
-	margin: 0px 2px; padding: 2px 5px; border: 1px solid rgb(213, 213, 213); color: rgb(51, 51, 51); text-decoration: none;
+DIV.badoo A {
+	border: 1px solid #D5D5D5;
+	color: #333333;
+	margin: 0 2px;
+	padding: 2px 5px;
+	text-decoration: none;
 }
-div.badoo a:hover {
-	border: 1px solid rgb(213, 213, 213); color: rgb(51, 51, 51);
+DIV.badoo A:hover {
+	border: 1px solid #D5D5D5;
+	color: #333333;
 }
-div.badoo a:active {
-	border: 1px solid rgb(213, 213, 213); color: rgb(51, 51, 51);
+DIV.badoo A:active {
+	border: 1px solid #D5D5D5;
+	color: #333333;
 }
-div.badoo span.current {
-	padding: 2px 5px; border: 1px solid rgb(213, 213, 213); color: rgb(255, 90, 0); font-weight: bold;
+DIV.badoo SPAN.current {
+	border: 1px solid #D5D5D5;
+	color: #FF5A00;
+	font-weight: bold;
+	padding: 2px 5px;
 }
-div.badoo span.disabled {
+DIV.badoo SPAN.disabled {
 	display: none;
 }
-div.badoo input {
-	margin: 2px; padding: 2px; border: 1px solid rgb(213, 213, 213); width: 15px; height: 15px; text-align: center; color: rgb(255, 90, 0);
+DIV.badoo input {
+	border: 1px solid #D5D5D5;
+	color: #FF5A00;
+	height: 15px;
+	margin: 2px;
+	padding: 2px;
+	text-align: center;
+	width: 15px;
 }
+/*----------------- Header --------------------*/
+
+/*  edit 20121030 */
 .header {
-	background: url("images/headerbg.jpg") repeat-x left top; height: 50px;
+	background: #000;
+	height: 50px;
+	background:url(/Tpl/jxyy/images/headerbg.jpg) left top repeat-x;
 }
 .searchBox {
-	top: 11px; margin-right: 70px; float: right; display: inline; position: relative;
+	float: right;
+	position: relative;
+	top: 11px;
+	margin-right:70px;
+	display:inline;
 }
 .searchBox .input-search {
-	background: rgb(83, 83, 83); padding: 7px; top: 0px; width: 130px; height: 14px; right: 0px; color: rgb(204, 204, 204); line-height: 14px; position: absolute;
+	height: 14px;
+	background: #535353;
+	width: 130px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 7px;
+	line-height: 14px;
+	color: #ccc;
 }
 .searchBox .btn-search {
-	top: 0px; right: 0px; position: absolute; z-index: 333;
+	position: absolute;
+	z-index: 333;
+	right: 0;
+	top: 0;
 }
 .mainNav {
-	height: 50px; float: left;
+	float: left;
+	height:50px;
 }
 .mainNav li {
-	padding: 5px 0px 3px; height: 42px; font-family: "Microsoft Yahei", "΢���ź�", "����"; font-size: 16px; font-weight: bold; margin-right: 5px; float: left; display: inline;
+	float: left;
+	height: 42px;
+	padding:5px 0 3px;
+	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+	font-size: 16px;
+	font-weight: bold;
+	margin-right: 5px;
+	display: inline;
 }
-.mainNav li a:link {
-	width: 85px; height: 42px; color: rgb(102, 102, 102); text-indent: -9999px; overflow: hidden; display: block; background-image: url("images/nav.gif"); background-repeat: no-repeat;
+.mainNav li a:link, .mainNav li a:visited {
+	background-image: url(/Tpl/jxyy/images/nav.gif);
+	background-repeat: no-repeat;
+	display: block;
+	overflow:hidden;
+	text-indent:-9999px;
+	color: #666;
+	width:85px;
+	height:42px;
 }
-.mainNav li a:visited {
-	width: 85px; height: 42px; color: rgb(102, 102, 102); text-indent: -9999px; overflow: hidden; display: block; background-image: url("images/nav.gif"); background-repeat: no-repeat;
+.mainNav li.cur a.nav-home:link, .mainNav li.cur a.nav-home:visited {
+	background-position:-170px 0;
 }
-.mainNav li.cur a.nav-home:link {
-	background-position: -170px 0px;
-}
-.mainNav li.cur a.nav-home:visited {
-	background-position: -170px 0px;
-}
-.mainNav li a.nav-home:link {
-	
-}
-.mainNav li a.nav-home:visited {
-	
+.mainNav li a.nav-home:link, .mainNav li a.nav-home:visited {
+	background-position:0 0;
 }
 .mainNav li a.nav-home:hover {
-	background-position: -85px 0px;
+	background-position:-85px 0;
 }
-.mainNav li a.nav-movie:link {
-	background-position: 0px -42px;
+.mainNav li a.nav-movie:link, .mainNav li a.nav-movie:visited {
+	background-position:0 -42px;
 }
-.mainNav li a.nav-movie:visited {
-	background-position: 0px -42px;
-}
-.mainNav li.cur a.nav-movie:link {
-	background-position: -170px -42px;
-}
-.mainNav li.cur a.nav-movie:visited {
-	background-position: -170px -42px;
+.mainNav li.cur a.nav-movie:link, .mainNav li.cur a.nav-movie:visited {
+	background-position:-170px -42px;
 }
 .mainNav li a.nav-movie:hover {
-	background-position: -85px -42px;
+	background-position:-85px -42px;
 }
-.mainNav li a.nav-tv:link {
-	background-position: 0px -84px;
+.mainNav li a.nav-tv:link, .mainNav li a.nav-tv:visited {
+	background-position:0 -84px;
 }
-.mainNav li a.nav-tv:visited {
-	background-position: 0px -84px;
-}
-.mainNav li.cur a.nav-tv:link {
-	background-position: -170px -84px;
-}
-.mainNav li.cur a.nav-tv:visited {
-	background-position: -170px -84px;
+.mainNav li.cur a.nav-tv:link, .mainNav li.cur a.nav-tv:visited {
+	background-position:-170px -84px;
 }
 .mainNav li a.nav-tv:hover {
-	background-position: -85px -84px;
+	background-position:-85px -84px;
 }
-.mainNav li a.nav-show:link {
-	background-position: 0px -126px;
+.mainNav li a.nav-show:link, .mainNav li a.nav-show:visited {
+	background-position:0 -126px;
 }
-.mainNav li a.nav-show:visited {
-	background-position: 0px -126px;
-}
-.mainNav li.cur a.nav-show:link {
-	background-position: -170px -126px;
-}
-.mainNav li.cur a.nav-show:visited {
-	background-position: -170px -126px;
+.mainNav li.cur a.nav-show:link, .mainNav li.cur a.nav-show:visited {
+	background-position:-170px -126px;
 }
 .mainNav li a.nav-show:hover {
-	background-position: -85px -126px;
+	background-position:-85px -126px;
 }
-.mainNav li a.nav-comic:link {
-	background-position: 0px -168px;
+.mainNav li a.nav-comic:link, .mainNav li a.nav-comic:visited {
+	background-position:0 -168px;
 }
-.mainNav li a.nav-comic:visited {
-	background-position: 0px -168px;
-}
-.mainNav li.cur a.nav-comic:link {
-	background-position: -170px -168px;
-}
-.mainNav li.cur a.nav-comic:visited {
-	background-position: -170px -168px;
+.mainNav li.cur a.nav-comic:link, .mainNav li.cur a.nav-comic:visited {
+	background-position:-170px -168px;
 }
 .mainNav li a.nav-comic:hover {
-	background-position: -85px -168px;
+	background-position:-85px -168px;
 }
-.mainNav li a.nav-rank:link {
-	background-position: 0px -210px;
+.mainNav li a.nav-rank:link, .mainNav li a.nav-rank:visited {
+	background-position:0 -210px;
 }
-.mainNav li a.nav-rank:visited {
-	background-position: 0px -210px;
-}
-.mainNav li.cur a.nav-rank:link {
-	background-position: -170px -210px;
-}
-.mainNav li.cur a.nav-rank:visited {
-	background-position: -170px -210px;
+.mainNav li.cur a.nav-rank:link, .mainNav li.cur a.nav-rank:visited {
+	background-position:-170px -210px;
 }
 .mainNav li a.nav-rank:hover {
-	background-position: -85px -210px;
+	background-position:-85px -210px;
 }
-.mainNav li a.nav-live:link {
-	background-position: 0px -252px;
+.mainNav li a.nav-live:link, .mainNav li a.nav-live:visited 
+{
+	background-position:0 -252px;
 }
-.mainNav li a.nav-live:visited {
-	background-position: 0px -252px;
+.mainNav li.cur a.nav-live:link, .mainNav li.cur a.nav-live:visited {
+	background-position:-170px -252px;
 }
-.mainNav li.cur a.nav-live:link {
-	background-position: -170px -252px;
-}
-.mainNav li.cur a.nav-live:visited {
-	background-position: -170px -252px;
-}
-.mainNav li a.nav-live:hover {
-	background-position: -85px -252px;
+.mainNav li a.nav-live:hover 
+{
+	background-position:-85px -252px;
 }
 .mainNav li.btn1 {
-	margin-right: 0px;
+	margin-right:0;
 }
 .mainNav li.btn2 {
-	margin-right: 20px;
+	margin-right:20px;
 }
-.mainNav li a.back:link {
-	background-position: -2px -294px; width: 42px;
-}
-.mainNav li a.back:visited {
-	background-position: -2px -294px; width: 42px;
+.mainNav li a.back:link, .mainNav li a.back:visited {
+	background-position:-2px -294px;
+	width:42px;
 }
 .mainNav li a.back:hover {
-	background-position: -87px -294px;
+	background-position:-87px -294px;
 }
-.mainNav li a.refresh:link {
-	background-position: -2px -336px; width: 42px;
-}
-.mainNav li a.refresh:visited {
-	background-position: -2px -336px; width: 42px;
+.mainNav li a.refresh:link, .mainNav li a.refresh:visited {
+	background-position:-2px -336px;
+	width:42px;
 }
 .mainNav li a.refresh:hover {
-	background-position: -87px -336px;
+	background-position:-87px -336px;
 }
-.history:link {
-	top: 15px; right: 5px; color: rgb(255, 255, 255); position: absolute;
-}
-.history:visited {
-	top: 15px; right: 5px; color: rgb(255, 255, 255); position: absolute;
+.history:link, .history:visited {
+	position:absolute;
+	right:5px;
+	top:15px;
+	color:#fff;
 }
 .history:hover {
-	color: rgb(153, 153, 153);
+	color:#999;
 }
 .crumbs {
-	padding: 15px 0px;
+	padding: 15px 0;
 }
-.crumbs a {
-	padding: 0px 3px;
+.crumbs a, .crumbs span {
+	padding: 0 3px;
 }
-.crumbs span {
-	padding: 0px 3px;
-}
+/*----------------- 首页 --------------------*/
+/*----------------- 板块标题 --------------------*/
 .ui-title {
-	background: url("images/title.gif") repeat-x 0px -160px rgb(255, 255, 255); height: 40px; overflow: hidden; position: relative;
+	background: #fff url(/Tpl/jxyy/images/title.gif) 0 -160px repeat-x;
+	height: 40px;
+	overflow: hidden;
+	position: relative;
 }
 .ui-title .more {
-	background: rgb(255, 255, 255); padding: 0px 15px; top: 0px; height: 40px; right: 40px; color: rgb(102, 102, 102); line-height: 40px; position: absolute;
+	position: absolute;
+	right: 40px;
+	top: 0;
+	padding: 0 15px;
+	background: #fff;
+	line-height: 40px;
+	height: 40px;
+	color: #666;
 }
 .ui-title .more:hover {
-	color: rgb(255, 102, 0);
+	color: #F60;
 }
 .ui-title h2 {
-	margin: 0px auto; width: 280px; height: 40px; text-align: center; text-indent: -9999px; overflow: hidden; background-image: url("images/title.gif");
+	background-image: url(/Tpl/jxyy/images/title.gif);
+	width: 280px;
+	margin: 0 auto;
+	text-align: center;
+	height: 40px;
+	text-indent: -9999px;
+	overflow: hidden;
 }
-.movie {
-	background: url("images/line1.gif") repeat-y left top; margin-bottom: 20px;
-}
-.tv {
-	background: url("images/line1.gif") repeat-y left top; margin-bottom: 20px;
-}
-.show {
-	background: url("images/line1.gif") repeat-y left top; margin-bottom: 20px;
-}
-.comic {
-	background: url("images/line1.gif") repeat-y left top; margin-bottom: 20px;
+.movie, .tv, .show, .comic {
+	margin-bottom: 20px;
+	background: url(/Tpl/jxyy/images/line1.gif) left top repeat-y;
 }
 .movie h2 {
-	
+	background-position: 0 0;
 }
 .tv h2 {
-	background-position: 0px -40px;
+	background-position: 0 -40px;
 }
 .show h2 {
-	background-position: 0px -80px;
+	background-position: 0 -80px;
 }
 .comic h2 {
-	background-position: 0px -120px;
+	background-position: 0 -120px;
 }
 .colSide .category {
 	margin-left: -3px;
 }
 .banner {
-	background: rgb(51, 51, 51); height: 330px;
+	background: #333;
+	height:330px;
 }
+/* edit 20121103 */
 .banner .wrapper {
-	height: 330px; position: relative;
+	/*background: #1f1f1f;*/
+	height: 330px;
+	position:relative;
 }
+/* edit 20121103 */
 .feature {
-	top: 0px; width: 960px; height: 330px; overflow: hidden; position: absolute;
+	width: 960px; 
+	height: 330px;
+	overflow: hidden;
+	position:absolute;
+	left:15;
+	top:0;
 }
 .feature .output li {
-	left: 0px; top: 0px; width: 100%; height: 100%; position: absolute;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 .feature .output li h3 {
-	background: url("images/play2.png") no-repeat left bottom; left: 0px; width: 100%; height: 58px; bottom: 0px; color: rgb(255, 255, 255); line-height: 58px; text-indent: 70px; font-family: "Microsoft Yahei", "΢���ź�", "����"; font-size: 20px; position: absolute; _background: none;
+	background: url(/Tpl/jxyy/images/play2.png) left bottom no-repeat;
+	_background: none;
+ _FILTER:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Tpl/jxyy/images/play2.png');
+	height: 58px;
+	text-indent: 70px;
+	line-height: 58px;
+	color: #fff;
+	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+	font-size: 20px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 }
+/* edit 20121103 */
 .feature .ctrl {
-	background: url("images/ctrlbg.png"); width: 66px; height: 30px; right: 305px; bottom: 15px; position: absolute; z-index: 333; _background: url(/Images/ctrlbg.gif);
+	position: absolute;
+	z-index: 333;
+	right: 305px;
+	bottom: 15px;
+	width: 66px;
+	height: 30px;
+	background: url(/Tpl/jxyy/images/ctrlbg.png);
+	_background: url(/Tpl/jxyy/images/ctrlbg.gif);
 }
 .feature .ctrl a {
-	width: 30px; height: 30px; overflow: hidden; display: inline-block;
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	overflow: hidden;
 }
 .feature .ctrl a.btn-prev {
-	background: url("images/icons.png") no-repeat -73px -113px; margin-right: 1px;
+	background: url(/Tpl/jxyy/images/icons.png) -73px -113px no-repeat;
+	margin-right: 1px;
 }
 .feature .ctrl a.btn-next {
-	background: url("images/icons.png") no-repeat -110px -113px;
+	background: url(/Tpl/jxyy/images/icons.png) -110px -113px no-repeat;
 }
 .feature .ctrl a.btn-prev:hover {
-	background: url("images/icons.png") no-repeat -153px -113px;
+	background: url(/Tpl/jxyy/images/icons.png) -153px -113px no-repeat;
 }
 .feature .ctrl a.btn-next:hover {
-	background: url("images/icons.png") no-repeat -190px -113px;
+	background: url(/Tpl/jxyy/images/icons.png) -190px -113px no-repeat;
 }
+/* edit 20121103 */
 .recommend {
-	width: 280px; height: 330px; float: right; position: relative; z-index: 333;
+	width: 280px;
+	height:330px;
+	float:right;
+	z-index:333;
+	position:relative;
 }
-.recommend .mask {
-	background: url("images/60.png") no-repeat 0px 0px; left: 0px; top: 0px; width: 280px; height: 330px; position: absolute; _background: none;
+/* edit 20121103 */
+.recommend .mask{
+	position:absolute;
+	left:0;
+	top:0;
+		width: 280px;
+	height:330px;
+		background: url(/Tpl/jxyy/images/60.png) 0 0 no-repeat;
+
+		_background:none;
+	_FILTER:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Tpl/jxyy/images/60.png');
+
 }
 .recommend h2 {
-	margin-right: 15px; margin-left: 15px; border-bottom-color: rgb(83, 196, 230); border-bottom-width: 1px; border-bottom-style: solid; position: relative; z-index: 333;
+	border-bottom: 1px solid #ff9900; /* edit 20121030 */
+	margin-left: 15px;
+	margin-right: 15px;
+	z-index:333;
+	position:relative;
 }
 .recommend ul li a {
-	padding: 0px 15px; height: 26px; line-height: 26px; overflow: hidden; vertical-align: middle; display: block; position: relative; zoom: 1;
+	line-height: 26px;
+	height: 26px;
+	overflow: hidden;
+	vertical-align: middle;
+	padding: 0 15px;
+	display: block;
+	position:relative;
+	zoom:1;
 }
+/* edit 20121103 */
 .recommend ul li a:hover {
-	margin: 0px 15px; padding: 0px; border-bottom-color: rgb(83, 196, 230); border-bottom-width: 1px; border-bottom-style: dotted;
+	/* background: #444; */
+	border-bottom:1px dotted #F90;
+	padding:0;
+	margin:0 15px;
 }
+/* edit 20121103 */
 .recommend ul li.even {
-	
+	 /* background: url(/Tpl/jxyy/images/icons.png) 0 -240px; */
 }
 .recommend ul li .name {
-	width: 200px; color: rgb(255, 255, 255); overflow: hidden; float: left; white-space: nowrap; cursor: pointer;
+	width: 200px;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #fff;
+	float: left;
+	cursor:pointer;
 }
 .recommend ul li .point {
-	color: rgb(153, 153, 153); font-family: Tahoma, Geneva, sans-serif;
+	color: #999;
+	font-family: Tahoma, Geneva, sans-serif;
 }
+
+/*----------------- Fav --------------------*/
 .fav {
 	margin-bottom: 10px;
 }
+/*  edit 20121030 */
 .fav .imgList1 li {
-	margin-right: 25px;
+	margin-right:25px;
 }
 .fav .imgList1 li.last {
-	margin-right: 0px;
+	margin-right:0px;
 }
 .ctrl-fav {
-	padding-top: 20px; float: right;
+	float: right;
+	padding-top: 20px;
 }
 .ctrl-fav li {
 	float: left;
 }
 .ctrl-fav li a {
-	background: url("images/icons.png") no-repeat -160px -200px; width: 12px; height: 12px; text-indent: -999px; overflow: hidden; margin-right: 5px; display: block;
+	display: block;
+	background: url(/Tpl/jxyy/images/icons.png) -160px -200px no-repeat;
+	width: 12px;
+	height: 12px;
+	overflow: hidden;
+	text-indent: -999px;
+	margin-right: 5px;
 }
 .ctrl-fav li.cur a {
-	background: url("images/icons.png") no-repeat -200px -200px; width: 12px; height: 12px;
+	background: url(/Tpl/jxyy/images/icons.png) -200px -200px no-repeat;
+	width: 12px;
+	height: 12px;
 }
-.ctrl-prev {
-	background: url("images/icons.png") no-repeat 0px -200px; width: 30px; height: 30px; text-indent: -9999px; margin-top: 12px; float: right; display: inline;
+/*  edit 20121103 */
+.ctrl-prev{
+	background: url(/Tpl/jxyy/images/icons.png) 0px -200px no-repeat;
+	width:30px;
+	height:30px;
+	float:right;
+	display:inline;
+	text-indent:-9999px;
+	margin-top:12px;
 }
-.ctrl-prev:hover {
-	background: url("images/icons.png") no-repeat -80px -200px;
+/*  edit 20121103 */
+.ctrl-prev:hover{
+	background: url(/Tpl/jxyy/images/icons.png) -80px -200px no-repeat;
 }
-.ctrl-next {
-	background: url("images/icons.png") no-repeat -40px -200px; width: 30px; height: 30px; text-indent: -9999px; margin-top: 12px; float: right; display: inline;
+/*  edit 20121103 */
+.ctrl-next{
+	background: url(/Tpl/jxyy/images/icons.png) -40px -200px no-repeat;
+	width:30px;
+	height:30px;
+	float:right;
+	display:inline;
+	text-indent:-9999px;
+	margin-top:12px;
 }
-.ctrl-next:hover {
-	background: url("images/icons.png") no-repeat -120px -200px;
+/*  edit 20121103 */
+.ctrl-next:hover{
+		background: url(/Tpl/jxyy/images/icons.png) -120px -200px no-repeat;
 }
-.history-dropmenu {
-	top: 39px; width: 280px; right: -3px; position: absolute; z-index: 3333; zoom: 1;
+/*  edit 20121103 新增历史播放记录 */
+.history-dropmenu{
+	width:280px;
+	position:absolute;
+	right:-3px;
+	top:39px;
+	z-index:3333;
+	zoom:1;
 }
-.history-dropmenu .history-titleBar {
-	background: url("images/icons.png") no-repeat 0px -300px; height: 8px; overflow: hidden;
+.history-dropmenu .history-titleBar{
+		background: url(/Tpl/jxyy/images/icons.png) 0 -300px no-repeat;
+		height:8px;
+		overflow:hidden;
 }
 .history-dropmenu .history-list {
-	background: rgb(102, 102, 102); padding: 15px; line-height: 20px; overflow: hidden; zoom: 1;
+	padding:15px;
+	background:#666;
+	line-height:20px;
+	overflow:hidden;
+	zoom:1;
 }
-.history-dropmenu .history-list li {
-	width: 220px; color: rgb(51, 51, 51); padding-left: 25px; margin-bottom: 5px; position: relative;
+.history-dropmenu .history-list li{
+	position:relative;
+	padding-left:25px;
+	margin-bottom:5px;
+	width:220px;
+	color:#333;
+
 }
-.history-dropmenu .h-info {
-	float: right;
+.history-dropmenu .h-info{
+	float:right;
 }
-.history-dropmenu b {
-	font-weight: normal;
+.history-dropmenu b{
+	font-weight:normal;
 }
-.history-dropmenu .h-num {
-	border: 1px solid rgb(51, 51, 51); left: 0px; top: 3px; width: 14px; height: 14px; text-align: center; color: rgb(204, 204, 204); line-height: 14px; font-size: 10px; display: block; position: absolute;
+.history-dropmenu .h-num{
+	display:block;
+	height:14px;
+	width:14px;
+	line-height:14px;
+	font-size:10px;
+	color:#ccc;
+	border:1px solid #333;
+	text-align:center;
+	position:absolute;
+	left:0px;
+	top:3px;
 }
-.history-dropmenu .h-name {
-	color: rgb(255, 255, 255);
+.history-dropmenu .h-name{
+	color:#fff;
 }
-.history-dropmenu .h-name:hover {
-	color: rgb(255, 204, 102);
+.history-dropmenu .h-name:hover{
+		color:#ffcc66;
 }
-.history-ctrlBar {
-	background: rgb(255, 146, 4); padding: 5px; text-align: right; color: rgb(51, 51, 51); overflow: hidden;
+.history-ctrlBar{
+	background:#ff9204;
+	text-align:right;
+	padding:5px;
+	color:#333;
+	overflow:hidden;
 }
-.history-ctrlBar a {
-	padding: 0px 5px; color: rgb(255, 255, 255);
+.history-ctrlBar a{
+	color:#fff;
+	padding:0 5px;
 }
-.history-ctrlBar a:hover {
-	color: rgb(51, 51, 51);
+.history-ctrlBar a:hover{
+	color:#333;
 }
+/*-----------------footer-------------------*/
 .footer {
-	background: rgb(248, 248, 248); padding: 20px 0px 0px; line-height: 180%; margin-top: 30px; border-top-color: rgb(204, 204, 204); border-top-width: 1px; border-top-style: solid;
+	background: #f8f8f8;
+	padding: 20px 0 0;
+	border-top: 1px solid #ccc;
+	margin-top: 30px;
+	line-height: 180%;
 }
 .footer .wrapper {
-	background: url("images/icons7.gif") no-repeat 660px 100%; text-align: center; padding-bottom: 20px;
+	background: url(/Tpl/jxyy/images/icons7.gif) 660px 100% no-repeat;
+	padding-bottom: 20px;
+	text-align: center;
 }
+/*----------------- 内页: --------------------*/
 .ad250x250 {
-	margin: 20px 0px;
+	margin: 20px 0;
 }
+/*----------------- 影片信息 --------------------*/
 .play {
-	width: 220px; height: 300px; overflow: hidden; margin-right: 20px; float: left; position: relative;
+	width: 220px;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+	float: left;
+	margin-right: 20px;
 }
 .mask-play2 {
 	display: none;
 }
 .play:hover .mask-play2 {
-	background: url("images/play3.png"); left: 0px; top: 0px; width: 100%; height: 100%; display: block; position: absolute; z-index: 333; cursor: pointer;
+	background: url(/Tpl/jxyy/images/play3.png);
+	display: block;
+	width: 100%;
+	height: 100%;
+	z-index: 333;
+	position: absolute;
+	left: 0;
+	top: 0;
+	cursor:pointer;
 }
 .videoInfo {
-	width: 380px; float: left;
+	width: 380px;
+	float: left;
 }
 .videoInfo .point {
-	padding: 10px 0px 10px 90px; height: 40px; margin-bottom: 5px; border-top-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; position: relative;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding: 10px 0;
+	position: relative;
+	padding-left: 90px;
+	height: 40px;
+	margin-bottom: 5px;
 }
 .videoInfo .grade-score {
-	background: rgb(51, 204, 255); padding: 0px 5px; left: 0px; top: 10px; height: 40px; color: rgb(255, 255, 255); line-height: 40px; font-family: "Microsoft Yahei", "����"; font-size: 30px; position: absolute;
+	background: #33ccff;
+	color: #fff;
+	font-family: "Microsoft Yahei", "宋体";
+	font-size: 30px;
+	height:40px;
+	line-height:40px;
+	position: absolute;
+	left: 0px;
+	top: 10px;
+	padding: 0 5px;
 }
 .videoInfo .grade-score .title12 {
-	color: rgb(4, 65, 78);
+	color: #04414e;
 }
 .videoInfo p {
 	padding-top: 7px;
@@ -835,40 +1179,66 @@ div.badoo input {
 .videoInfo .link-play {
 	padding-top: 22px;
 }
+/*----------------- 影片分集 --------------------*/
 .newest {
-	padding-bottom: 10px; clear: both; margin-bottom: 20px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: dotted;
+	padding-bottom: 10px;
+	clear: both;
+	margin-bottom: 20px;
+	border-bottom: 1px dotted #ccc;
 }
 .ctrl-supply {
-	background: url("images/title.gif") 0px -208px; height: 44px; border-left-color: rgb(204, 204, 204); border-left-width: 1px; border-left-style: solid;
+	border-left: 1px solid #ccc;
+	height: 44px;
+	background: url(/Tpl/jxyy/images/title.gif) 0 -208px;
 }
 .ctrl-supply li {
-	line-height: 20px; border-top-color: rgb(204, 204, 204); border-top-width: 3px; border-top-style: solid; float: left;
+	float: left;
+	line-height: 20px;
+	border-top: 3px solid #ccc;
 }
 .ctrl-supply li a {
-	padding: 10px 15px 10px 35px; border-right-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; float: left; display: block; background-image: url("images/video.gif"); background-repeat: no-repeat;
+	float: left;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 15px 10px 35px;
+	display: block;
+	background-image: url(/Tpl/jxyy/images/video.gif);
+	background-repeat: no-repeat;
 }
 .ctrl-supply li.cur {
-	border-top-color: rgb(255, 102, 0); border-top-width: 3px; border-top-style: solid;
+	border-top: 3px solid #F60;
 }
 .ctrl-supply li.cur a {
-	border-bottom-color: rgb(255, 255, 255); border-bottom-width: 1px; border-bottom-style: solid;
+	border-bottom: 1px solid #fff;
 }
 .supply {
-	width: 720px; float: right;
+	float: right;
+	width: 720px;
 }
 .supply li {
-	line-height: 20px; float: left;
+	float: left;
+	line-height: 20px;
 }
 .supply li a {
-	padding: 10px 15px 10px 35px; float: left; display: block; background-image: url("images/video.gif"); background-repeat: no-repeat;
+	float: left;
+	padding: 10px 15px 10px 35px;
+	display: block;
+	background-image: url(/Tpl/jxyy/images/video.gif);
+	background-repeat: no-repeat;
 }
-.srcCommon {
-	width: 20px; height: 20px; margin-right: 2px; margin-bottom: 2px; float: left; display: block; background-image: url("images/video.gif"); background-repeat: no-repeat;
+.srcCommon, .sourceOnList dd a
+{
+    background-image: url(/Tpl/jxyy/images/video.gif);
+    background-repeat: no-repeat;
+    display:block;
+    float:left;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 2px;
+    margin-right: 2px;
 }
-.sourceOnList dd a {
-	width: 20px; height: 20px; margin-right: 2px; margin-bottom: 2px; float: left; display: block; background-image: url("images/video.gif"); background-repeat: no-repeat;
-}
-.g-wasu {
+.g-wasu
+{
 	background-position: 4px -556px;
 }
 .g-youku {
@@ -910,11 +1280,12 @@ div.badoo input {
 .g-qq {
 	background-position: 4px -640px;
 }
-.s-wasu {
+.s-wasu
+{
 	background-position: 10px -540px;
 }
 .s-youku {
-	background-position: 10px 0px;
+	background-position: 10px 0;
 }
 .s-ku6 {
 	background-position: 10px -30px;
@@ -953,185 +1324,342 @@ div.badoo input {
 	background-position: 10px -630px;
 }
 .plot {
-	padding: 10px; line-height: 180%; font-size: 14px;
+	padding: 10px;
+	line-height: 180%;
+	font-size: 14px;
 }
 .others {
-	background: rgb(238, 238, 238); padding: 10px 15px 0px; height: 260px;
+	background: #eee;
+	padding: 10px 15px 0;
+	height: 260px;
 }
+/*----------------- 留言 --------------------*/
 .comment_txt {
-	padding: 10px 0px 15px; margin-bottom: 5px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: dotted;
+	padding: 10px 0 15px;
+	border-bottom: 1px dotted #ccc;
+	margin-bottom: 5px;
 }
 .c_name {
-	color: rgb(0, 0, 0); padding-bottom: 3px;
+	color: #000;
+	padding-bottom: 3px;
 }
 .c_name span {
-	color: rgb(153, 153, 153); padding-left: 10px;
+	color: #999;
+	padding-left: 10px;
 }
 .post_cont {
-	line-height: 160%; font-size: 12px;
+	line-height: 160%;
+	font-size: 12px;
 }
+/*----------------- 评分 --------------------*/
 .startBox {
-	top: -5px; padding-top: 10px; position: relative;
+    padding-top:10px;/*把Hits能隐藏了，就把这个里的东西给往下压一点*/
+	position: relative;
+	top: -5px;
 }
 .myScore {
-	background: url("images/icons.png") -40px -120px; top: 3px; width: 22px; height: 20px; display: inline-block; position: relative;
+	background: url(/Tpl/jxyy/images/icons.png) -40px -120px;
+	width: 22px;
+	height: 20px;
+	display: inline-block;
+	position: relative;
+	top: 3px;
 }
 .myScore-on {
-	background: url("images/icons.png") 0px -120px; top: 3px; width: 22px; height: 20px; display: inline-block; position: relative;
+	background: url(/Tpl/jxyy/images/icons.png) 0 -120px;
+	width: 22px;
+	height: 20px;
+	display: inline-block;
+	position: relative;
+	top: 3px;
 }
+/*----------------- 提示 --------------------*/
 .tip1 {
-	background: url("images/tip1.png"); width: 252px; height: 102px; position: absolute; z-index: 333;
+	background: url(/Tpl/jxyy/images/tip1.png);
+	width: 252px;
+	height: 102px;
+	position: absolute;
+	z-index: 333;
 }
 .tip1 dl {
-	padding: 10px 20px 20px; line-height: 180%;
+	padding: 10px 20px 20px;
+	line-height: 180%;
 }
 .tip1 dt {
 	padding-bottom: 3px;
 }
 .tip1 em {
-	padding: 0px 3px; line-height: 16px; float: right;
+	float: right;
+	padding: 0 3px;
+	line-height: 16px;
 }
 .tip1 dd em.bad {
-	background: rgb(102, 153, 0); color: rgb(255, 255, 255);
+	color: #fff;
+	background: #690;
 }
 .tip1 dd em.good {
-	background: rgb(204, 51, 0); color: rgb(255, 255, 255);
+	background: #C30;
+	color: #fff;
 }
 .play-link {
 	position: relative;
-}
+}  /* 测试效果 */
 .tip1 {
-	left: 180px; top: -92px;
-}
+	left: 180px;
+	top: -92px;
+}   /* 测试效果 */
+/*------------------- 搜索列表 ----------------------*/
 .search_key {
-	padding: 15px 0px; font-size: 14px;
+	padding: 15px 0;
+	font-size: 14px;
 }
 .orderbox {
-	padding: 0px 0px 10px;
+	padding: 0 0 10px;
 }
-.orderbox .on:link {
-	color: rgb(255, 102, 0); font-weight: bold;
-}
-.orderbox .on:visited {
-	color: rgb(255, 102, 0); font-weight: bold;
+.orderbox .on:link, .orderbox .on:visited {
+	color: #F60;
+	font-weight: bold;
 }
 .orderbox a {
-	padding: 0px 10px;
+	padding: 0 10px;
 }
 .videoList {
-	padding: 20px 0px 20px 135px; clear: both; border-bottom-color: rgb(221, 221, 221); border-bottom-width: 1px; border-bottom-style: solid; position: relative; zoom: 1;
+	position: relative;
+	clear:both;
+	padding:20px 0 20px 135px;
+	border-bottom:1px solid #ddd;
+	zoom:1;
 }
 .videoList li.thumb {
-	left: 0px; top: 20px; position: absolute;
+	position: absolute;
+	left: 0;
+	top: 20px;
 }
 .videoList .avatar {
-	width: 115px; height: 150px; overflow: hidden; display: block; position: relative;
+	width: 115px;
+	height: 150px;
+	position:relative;
+	overflow: hidden;
+	display:block;
 }
 .videoList .avatar img {
-	width: 100%; height: 100%;
+	width: 100%;
+	height: 100%;
 }
 .videoList li .avatar:hover .mask-play {
-	background: url("images/play.png"); left: 0px; top: 0px; width: 100%; height: 100%; display: block; position: absolute; z-index: 333; cursor: pointer;
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 333;
+	background: url(/Tpl/jxyy/images/play.png);
+	cursor:pointer;
 }
 .videoList li .avatar .tip {
-	background: 0px 0px rgba(0, 0, 0, 0.4) !important; left: 0px; width: 100%; text-align: center; bottom: 0px; color: rgb(255, 255, 255); line-height: 20px; filter: Alpha(opacity=40); position: absolute; z-index: 999;
+	background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0 !important;/*实现FF背景透明，文字不透明*/
+	filter: Alpha(opacity=40);
+	background: #000000;/*实现IE背景透明*/
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 999;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	width: 100%;
 }
 .videoList li p {
 	line-height: 20px;
 }
-.videoList li .date {
-	width: 250px; float: left;
-}
-.videoList li .type {
-	width: 250px; float: left;
-}
-.videoList li .director {
-	width: 250px; float: left;
+.videoList li .date, .videoList li .type, .videoList li .director {
+	width: 250px;
+	float: left;
 }
 .videoList li.plot {
-	padding: 6px 0px; clear: both; font-size: 12px;
-}
-.videoList li .grade-score {
-	float: right;
-}
-.videoList li .grade-score strong {
-	color: rgb(255, 102, 0); font-size: 16px;
-}
-a.btn-play2 {
-	background: url("images/btns.png") no-repeat 0px -86px; width: 125px; height: 32px; color: rgb(102, 102, 102); text-indent: -999px; overflow: hidden; display: block;
-}
-a.btn-play2:hover {
-	background: url("images/btns.png") no-repeat 0px -118px; color: rgb(102, 102, 102);
-}
-.ranks {
-	width: 315px; padding-bottom: 30px; float: left;
-}
-.left {
-	padding-right: 50px;
-}
-.close {
-	background: url("images/close.gif") no-repeat 0px 9px; height: 30px; line-height: 30px; padding-left: 20px; float: right; display: block;
-}
-.reflesh {
-	background: url("images/reflesh.gif") no-repeat 0px; height: 30px; line-height: 30px; padding-left: 30px; float: right; display: block;
-}
-.box-feedback {
-	background: url("images/feedbackbg.gif") no-repeat 0px 0px rgb(255, 255, 255); padding: 30px 35px 35px; width: 530px; height: 305px; border-top-color: currentColor; border-top-width: 0px; border-top-style: none; position: absolute; z-index: 9999;
-}
-.box-feedback h2 {
-	color: rgb(0, 153, 204);
-}
-.box-feedback .close {
-	top: -5px; right: -10px; position: relative;
-}
-.ctrl-question li {
-	background: rgb(238, 238, 238); padding: 5px 10px; border: 1px solid rgb(204, 204, 204); font-size: 14px; margin-right: 5px; float: left; white-space: nowrap; cursor: pointer;
-}
-.ctrl-question li.cur {
-	background: rgb(4, 157, 219); border: 1px solid rgb(3, 120, 168); color: rgb(255, 255, 255);
-}
-.box-feedback textarea {
-	border: 1px solid rgb(204, 204, 204); width: 530px; height: 100px; margin-top: 10px;
-}
-.box-feedback .input-contact {
-	padding: 5px; border: 1px solid rgb(204, 204, 204); width: 480px;
-}
-.center {
-	text-align: center;
-}
-.window-mask {
-	background: rgb(0, 0, 0); left: 0px; top: 0px; filter: alpha(opacity=60); position: absolute; z-index: 7777; opacity: 0.6;
-}
-.vlist-group {
+	padding: 6px 0;
+	clear: both;
 	font-size: 12px;
 }
-.vlist-group li {
-	padding: 2px 5px; border: 1px solid rgb(192, 192, 192); color: rgb(102, 102, 102); margin-right: 10px; margin-bottom: 8px; float: left; list-style-type: none; white-space: nowrap; cursor: pointer; background-color: rgb(232, 232, 232);
+.videoList li .grade-score {
+	float:right;
 }
-.vlist-group dt {
-	float: left;
+.videoList li .grade-score strong {
+	font-size:16px;
+	color:#F60;
 }
-dd {
-	float: left;
+a.btn-play2 {
+	background: url(/Tpl/jxyy/images/btns.png) 0 -86px no-repeat;
+	width: 125px;
+	height: 32px;
+	text-indent: -999px;
+	overflow: hidden;
+	display: block;
+	color: #666;
 }
-.vlist-group dt {
-	width: 80px; text-align: center;
+a.btn-play2:hover {
+	background: url(/Tpl/jxyy/images/btns.png) 0 -118px no-repeat;
+	color: #666;
 }
-.vlist-group dd {
-	width: 870px;
+/*------------------- 排行榜 ----------------------*/
+.ranks {
+	float:left;
+	width:315px;
+	padding-bottom:30px;
 }
-.vlist-group .cur {
-	background: rgb(255, 153, 0); border: 1px solid rgb(255, 102, 0); color: rgb(255, 255, 255);
+.left {
+	padding-right:50px;
 }
-.vinfop span {
-	float: left;
+.close {
+	float:right;
+	padding-left:20px;
+	height:30px;
+	display:block;
+	line-height:30px;
+	background: url(/Tpl/jxyy/images/close.gif) 0 9px no-repeat;
 }
-.vinfop .t1 {
-	width: 36px;
+/* edit 20121103 */
+.reflesh {
+	float:right;
+	padding-left:30px;
+	height:30px;
+	display:block;
+	line-height:30px;
+	background: url(/Tpl/jxyy/images/reflesh.gif) 0 center no-repeat;
 }
-.vinfop .t2 {
-	width: 340px;
+/*------------------- 建议 -----------------------*/
+/* edit 20111103 */
+.box-feedback{
+	background:#fff url(/Tpl/jxyy/images/feedbackbg.gif) 0 0 no-repeat;
+
+	width:530px;
+	padding:30px 35px 35px;
+	position:absolute;
+	z-index:9999;
+	height:305px;
+	border-top:0;
 }
-.vinfop .t2 a {
-	padding-bottom: 5px; padding-left: 5px; float: left; display: block; white-space: nowrap;
+.box-feedback h2{
+	color:#0099cc;
+}
+.box-feedback .close{
+	right:-10px;
+	top:-5px;
+	position:relative;
+}
+.ctrl-question li {
+	float:left;
+	padding:5px 10px;
+	margin-right:5px;
+	border:1px solid #ccc;
+	font-size:14px;
+	white-space:nowrap;
+	background:#eee;
+	cursor:pointer;
+}
+.ctrl-question li.cur{
+	background:#049ddb;
+	color:#fff;
+	border:1px solid #0378a8;
+}
+.box-feedback textarea{
+	width:530px;
+	height:100px;
+	border:1px solid #ccc;
+	margin-top:10px;
+}
+.box-feedback .input-contact{
+	border:1px solid #ccc;
+	width:480px;
+	padding:5px;
+}
+.center{
+	text-align:center;}
+.window-mask{
+	background:#000;
+	opacity:0.6;
+	filter:alpha(opacity=60);
+	z-index:7777;
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+
+.vlist-group
+{
+    font-size: 12px;
+}
+
+.vlist-group li
+{
+    list-style-type: none;
+    border: 1px solid #C0C0C0;
+    background-color: #E8E8E8;
+    padding: 2px 5px 2px 5px;
+    float: left;
+    margin-right: 10px;
+    color: #666666;
+    margin-bottom: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.vlist-group dt, dd
+{
+    float: left;
+}
+.vlist-group dt
+{
+    width:80px;
+    text-align:center;
+}
+.vlist-group dd
+{
+    width:870px;
+}
+.vlist-group .cur
+{
+    background: #F90;
+	color: #fff;
+	border: 1px solid #F60;
+}
+.vinfop span{ float:left;}
+.vinfop .t1{ width:36px;}
+.vinfop .t2{ width:340px;}
+.vinfop .t2 a
+{ 
+    display:block; 
+    float:left; 
+    padding-bottom:5px; 
+    padding-left:5px;
+    white-space: nowrap;
+}
+
+#LoadingBG
+{
+    background-color: #1F1F1F;
+    position: absolute;
+    display:none;
+    left: 0px;
+    top: 50px;
+}
+#LoadingFG
+{
+    position: absolute;
+    display: none;
+    text-align: center;
+    width: 360px;
+    height: 60px;
+}
+#LoadingFG, #LoadingFG a
+{
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+#LoadingFG p
+{
+    padding-top: 10px;
 }
