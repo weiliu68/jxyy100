@@ -10,8 +10,8 @@
 			<li><a href="{:ff_mytpl_url('my_tv.html')}" class="nav-live">电视直播</a></li>
 		</ul>
 		<div class="searchBox">
-			<form method="get" action="/Search" id="search">
-				<input type="text" name="keyword" class="input-search"/>
+        	<form id="search" name="search" method="POST" action="{$root}index.php?s=vod-search">
+				<input type="text" name="wd" class="input-search"/>
 				<input name="searchbtn" type="image" src="/Tpl/jxyy/images/search-btn.png" class="btn-search" alt="搜索"/>
 			</form>
 		</div>
