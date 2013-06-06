@@ -492,13 +492,13 @@ SCROLLBAR-TRACK-COLOR:#000000;
 	margin-right: 8px;
 }
 .rank .top1 .num {
-	background: #ff3c00;
+	background: #217fa5;
 }
 .rank .top2 .num {
-	background: #ff6600;
+	background: #3cabd8;
 }
 .rank .top3 .num {
-	background: #ff9900;
+	background: #9ed5ec;
 }
 .rank .name {
 	float: left;
