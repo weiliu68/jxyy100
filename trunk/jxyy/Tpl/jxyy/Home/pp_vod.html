@@ -38,8 +38,18 @@
                        <!-- <p>播放次数：<label id="movie_hits_lbl"></label></p> -->
                     </li>
                     <li>
-                        <p class="starring vinfop"><span class="t1">主演：</span><span class="t2"><notempty name="vod_actor">{$vod_actor|ff_search_url}<else />未录入</notempty></span></p>
-                        <p class="director vinfop"><span class="t1">导演：</span><span class="t2"><notempty name="vod_director">{$vod_director|ff_search_url}<else />未录入</notempty></span></p>
+                        <p class="starring vinfop"><span class="t1">
+                        <if condition="$list_id eq 4">
+                        	主持： 
+                        <else/>
+                        	主演：
+                        </if></span><span class="t2"><notempty name="vod_actor">{$vod_actor|ff_search_url}<else />未录入</notempty></span></p>
+                        <p class="director vinfop"><span class="t1">
+                        <if condition="$list_id eq 4">
+                        	电台： 
+                        <else/>
+                        	导演：
+                        </if></span><span class="t2"><notempty name="vod_director">{$vod_director|ff_search_url}<else />未录入</notempty></span></p>
                         <p class="date">年代：{$vod_year|default='未录入'}</p>
                         <p class="type">类型：<a href="{$list_url}">{$list_name}</a></p>
                         <p class="type">地区：{$vod_area|default='未知'}</p>
