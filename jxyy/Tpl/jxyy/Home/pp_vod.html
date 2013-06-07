@@ -54,7 +54,7 @@
             <!-- 播放链接 -->
             <if condition="$list_id eq 1">
 	            <div class="play-link">
-	                <a href="javascript:PlayVideo('{$vod_playlist.0}','1');" class="btn-play">立即播放</a>
+	                <a href="javascript:PlayVideo('{$currentPlay}','1');" class="btn-play">立即播放</a>
 	                <ul class="supply">
 	                	<volist name="vod_playlist" id="ppvod" key="playerkey">
 	                    <li><a href="javascript:PlayVideo('{$ppvod.playname}', '1');" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
