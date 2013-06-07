@@ -61,7 +61,7 @@
 	                    </volist>
 	                </ul>
 	            </div>
-            <elseif condition="$list_id eq 2 or $list_id eq 3" />
+            <elseif condition="$list_id eq 2 or $list_id eq 3 or $list_id eq 4" />
 	            <ul class="ctrl-supply">
 	            	<volist name="vod_playlist" id="ppvod" key="playerkey">
 	                <li index="{$ppvod.playname}" class='cur'><a href="javascript:void(0);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
@@ -71,7 +71,7 @@
             <!-- end 播放链接 -->
             <if condition="$list_id eq 1">
             <div class="blank10"></div>
-            <elseif condition="$list_id eq 2 or $list_id eq 3"/>
+            <elseif condition="$list_id eq 2 or $list_id eq 3 or $list_id eq 4"/>
 	            <!-- 页签 -->
 	            <div class="blank20"></div>
 	            <volist name="vod_playlist" id="ppvod" key="playerkey">
@@ -79,7 +79,7 @@
 	            	$count=count($ppvod['son'])-1;
 	            	if($ppvod['son']>10){krsort($ppvod['son']);}
 	            </php>
-	            <div class="btns-play newest" style='display:none' index="{$ppvod.playname}">
+	            <div class="btns-play <eq name="list_id" value="4">show-play</eq> newest" style='display:none' index="{$ppvod.playname}">
 	               <div class="vlist-group">
 						<dl><dt>集数分组：</dt>
 	               			<dd>
