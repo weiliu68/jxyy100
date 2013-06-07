@@ -1,5 +1,5 @@
 <?php
-class ClientAction extends HomeAction{
+class AdwareAction extends HomeAction{
 	public function index(){
 		$id = $_GET['id'];
 		if($id == 1){
