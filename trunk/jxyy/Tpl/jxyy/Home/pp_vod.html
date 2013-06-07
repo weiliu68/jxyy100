@@ -91,7 +91,11 @@
 	               <div class="blank20"></div>
 	               <div class="{$ppvod.playname}" index="{$ppvod.playname}1">
 	               		<volist name="ppvod['son']" id="ppvodson">
-	               			<a href="javascript:PlayVideo('{$ppvod.playname}', '{$count + 2 - $i}');">{$ppvodson.playname}</a>
+	               			<?php 
+	               				$partid = $count + 2 - $i;
+								$partid = substr(strval($partid+1000),1,3); 
+							?>
+	               			<a href="javascript:PlayVideo('{$ppvod.playname}', '{$partid}');">{$ppvodson.playname}</a>
 	               		</volist>
 					</div>
 					<div class="{$ppvod.playname}" index="{$ppvod.playname}2"style='display:none;'>
