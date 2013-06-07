@@ -135,7 +135,10 @@
 				title:'{$vod_name}',
 				part:
 					{
-						partid:'{$list.partid}',
+						<?php 
+							$newNumber = substr(strval($list['partid']+10000),1,4); 
+						?> 
+						partid:'{$newNumber}',
 						title:'{$list.title}',
 						src:[
 						<volist name="list.src" id="src">
