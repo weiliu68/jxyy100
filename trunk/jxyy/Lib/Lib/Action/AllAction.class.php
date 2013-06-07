@@ -60,6 +60,10 @@ class AllAction extends Action{
 		//按顺序排列
 		ksort($array['vod_playlist']);
 		$array['jxplayItem'] = $this->jx_play_items($array['vod_playlist']);
+		foreach ($array['vod_playlist'] as $key=>$val){
+			$array['currentPlay'] = $array['vod_playlist'][$key]['playname'];
+			break;
+		}
 		$arrays['show'] = $array_list[0];
 		$arrays['read'] = $array;
 		return $arrays;
