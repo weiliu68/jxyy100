@@ -230,7 +230,7 @@ function OpenMovie(movieid, cid, sid, title, url, src) {
         //play
     	$.each(videoItem, function() {
     		var data = this;
-    		setTimeout(function(){clientCall("playlist",data);},10);
+    		setTimeout(function(){clientCall("playlist",data);},1);
         });
     	
     	var item={
