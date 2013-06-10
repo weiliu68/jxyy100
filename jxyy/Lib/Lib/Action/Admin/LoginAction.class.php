@@ -2,11 +2,11 @@
 class LoginAction extends Action{
     //默认操作
     public function index(){
-		if (!$_SESSION['AdminLogin']) {
-			header("Content-Type:text/html; charset=utf-8");
-			echo('请从后台管理入口登录。');
-			exit();
-		}
+//		if (!$_SESSION['AdminLogin']) {
+//			header("Content-Type:text/html; charset=utf-8");
+//			echo('请从后台管理入口登录。');
+//			exit();
+//		}
 		if ($_SESSION[C('USER_AUTH_KEY')]) {
 			redirect("?s=Admin-Index");
 		}
