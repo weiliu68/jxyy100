@@ -156,7 +156,9 @@ class AllAction extends Action{
 			$playItems[$key]['partid'] = $key+1;
 			$src = array();
 			foreach ($array as $sid=>$val){
-				$src[$sid] = array('id'=>$val['playname'],'name'=>$array[$sid]['playername'],'url'=>$val['son'][$key]['playurl']);
+				if($val['son'][$key]['playurl']!=null){
+					$src[$sid] = array('id'=>$val['playname'],'name'=>$array[$sid]['playername'],'url'=>$val['son'][$key]['playurl']);
+				}
 			}
 			$playItems[$key]['src'] = $src;
 		}
