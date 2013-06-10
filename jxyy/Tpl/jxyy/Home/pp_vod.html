@@ -23,7 +23,7 @@
         <div class="wrapper clearfix">
             <div class="crumbs"><a href="{$root}">首页</a><span> &gt; </span><a href="{$list_url}">{$list_name}</a> &gt;{$vod_name}</div>
             <div class="colMainL2">
-                <a href="javascript:PlayVideo('qq', 1, '');" class="play">
+                <a href="javascript:PlayVideo('{$currentPlay}','0001');" class="play">
                     <b class="mask-play2"></b><img src="{$vod_picurl}" alt="{$vod_name}" onerror="OnImgError(this)" />
                 </a>
                 <ul class="videoInfo">
@@ -55,7 +55,7 @@
                         <p class="type">地区：{$vod_area|default='未知'}</p>
                     </li>
                     <if condition="$list_id eq 2">
-                    <li class="link-play"><a class="btn-play" href="javascript:PlayVideo('{$currentPlay}','1');">立即播放</a></li>
+                    <li class="link-play"><a class="btn-play" href="javascript:PlayVideo('{$currentPlay}','0001');">立即播放</a></li>
                     </if>
                 </ul>
             </div>
@@ -64,17 +64,17 @@
             <!-- 播放链接 -->
             <if condition="$list_id eq 1">
 	            <div class="play-link">
-	                <a href="javascript:PlayVideo('{$currentPlay}','1');" class="btn-play">立即播放</a>
+	                <a href="javascript:PlayVideo('{$currentPlay}','0001');" class="btn-play">立即播放</a>
 	                <ul class="supply">
 	                	<volist name="vod_playlist" id="ppvod" key="playerkey">
-	                    <li><a href="javascript:PlayVideo('{$ppvod.playname}', '1');" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
+	                    <li><a href="javascript:PlayVideo('{$ppvod.playname}', '0001');" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
 	                    </volist>
 	                </ul>
 	            </div>
             <elseif condition="$list_id eq 2 or $list_id eq 3 or $list_id eq 4" />
 	            <ul class="ctrl-supply">
 	            	<volist name="vod_playlist" id="ppvod" key="playerkey">
-	                <li index="{$ppvod.playname}" class='cur'><a href="javascript:void(0);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
+	                <li index="{$ppvod.playname}" <if condition="$playerkey eq 1">class='cur'</if>><a href="javascript:void(0);" class="s-{$ppvod.playname}"><em>{$ppvod.playername}</em></a></li>
 	                </volist>
 	            </ul>
             </if>
@@ -85,32 +85,31 @@
 	            <!-- 页签 -->
 	            <div class="blank20"></div>
 	            <volist name="vod_playlist" id="ppvod" key="playerkey">
-	            <php>
-	            	$count=count($ppvod['son'])-1;
-	            	if($ppvod['son']>10){krsort($ppvod['son']);}
-	            </php>
-	            <div class="btns-play <eq name="list_id" value="4">show-play</eq> newest" style='display:none' index="{$ppvod.playname}">
-	               <div class="vlist-group">
-						<dl><dt>集数分组：</dt>
-	               			<dd>
-	                        	<li ctrl="{$ppvod.playname}" index="{$ppvod.playname}1" class='cur'>01 - 48</li>
-	                        	<li ctrl="{$ppvod.playname}" index="{$ppvod.playname}2">49 - 49</li>
-	               			</dd>
-	               		</dl>
-	               </div>
+	            <div class="btns-play <eq name="list_id" value="4">show-play</eq> newest" <if condition="$playerkey gt 1">style='display:none'</if> index="{$ppvod.playname}">
+	               <php>$groupCount = count($ppvod['group']);</php>
+	               <if condition="$groupCount gt 1">
+		           <div class="vlist-group">
+							<dl><dt>集数分组：</dt>
+		               			<dd>
+		               				<volist name="ppvod.group" id="ppvodson">
+		                        		<li ctrl="{$ppvod.playname}" index="{$ppvod.playname}{$i}" <if condition="$i eq 1">class='cur'</if>>{$ppvodson.groupName}</li>
+		                        	</volist>
+		               			</dd>
+		               		</dl>
+		           </div>
+		           </if>
 	               <div class="blank20"></div>
-	               <div class="{$ppvod.playname}" index="{$ppvod.playname}1">
-	               		<volist name="ppvod['son']" id="ppvodson">
-	               			<?php 
-	               				$partid = $count + 2 - $i;
-								$partid = substr(strval($partid+1000),1,3); 
-							?>
-	               			<a href="javascript:PlayVideo('{$ppvod.playname}', '{$partid}');">{$ppvodson.playname}</a>
-	               		</volist>
-					</div>
-					<div class="{$ppvod.playname}" index="{$ppvod.playname}2"style='display:none;'>
-	                	<a href="javascript:PlayVideo('iqiyi', 49);">第49集</a>
-	                </div>
+	               <volist name="ppvod.group" id="ppvodson" key="sonkey">
+		               <div class="{$ppvod.playname}" index="{$ppvod.playname}{$sonkey}" <if condition="$sonkey gt 1">style='display:none;'</if>>
+		               		<volist name="ppvodson.playitem" id="playitem">
+		               			<php>
+		               			$partid = ($sonkey - 1) * 48 + $i;
+		               			$partid = substr(strval($partid+10000),1,4); 
+		               			</php>
+		               			<a href="javascript:PlayVideo('{$ppvod.playname}', '{$partid}');">{$playitem.playname}</a>
+		               		</volist>
+						</div>
+					</volist>
 				</div>
 				</volist>
 				<!--end 页签 -->
@@ -150,7 +149,7 @@
 				part:
 					{
 						<?php 
-							$newNumber = substr(strval($list['partid']+1000),1,3); 
+							$newNumber = substr(strval($list['partid']+10000),1,4); 
 						?> 
 						partid:'{$newNumber}',
 						title:'{$list.title}',
