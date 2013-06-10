@@ -233,17 +233,19 @@ function OpenMovie(movieid, cid, sid, title, url, src) {
     		setTimeout(function(){clientCall("playlist",data);},1);
         });
     	
-    	var item={
-    		"refresh":true
-    	}
-    	clientCall("playlist",item);
-    	
-		var play={
-				"id":videoInfo.id,
-				"partid":sid,
-				"srcid":src
-		};
-		clientCall("play",play);
+    	setTimeout(function() {
+			var item = {
+				"refresh" : true
+			}
+			clientCall("playlist", item);
+
+			var play = {
+				"id" : videoInfo.id,
+				"partid" : sid,
+				"srcid" : src
+			};
+			clientCall("play", play);
+		}, 1000);
     } catch (e) { downplayer(); };
 };
 
