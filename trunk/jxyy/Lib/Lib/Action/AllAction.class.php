@@ -132,7 +132,14 @@ class AllAction extends Action{
 		$player = C('play_player');
 		$server = C('play_server');
 		foreach($array_player as $sid=>$val){
-			$playlist[$player[$val][0].'-'.$sid] = array('servername' => $array_server[$sid],'serverurl' => $server[$array_server[$sid]],'playername'=>$player[$val][1],'playname'=>$val,'son' => $this->ff_playlist_one($array_urllist[$sid],$array['vod_id'],$sid,$array['vod_cid'],$array['vod_name']));
+			$playlist[$player[$val][0].'-'.$sid] = array(
+				'servername' => $array_server[$sid],
+				'serverurl' => $server[$array_server[$sid]],
+				'playername'=>$player[$val][1],
+				'playname'=>$val,
+				'son' => $this->ff_playlist_one($array_urllist[$sid],$array['vod_id'],$sid,$array['vod_cid'],$array['vod_name']),
+				'group' => $this->ff_playlist_group($array_urllist[$sid],$array['vod_id'],$sid,$array['vod_cid'],$array['vod_name'])
+			);
 		}
 		//ksort($playlist);
 	    return $playlist;
@@ -156,6 +163,43 @@ class AllAction extends Action{
 		return $playItems;
 	}
 	
+	public function ff_playlist_parse($array,$id,$sid,$cid,$name,$index){
+		$urllist = array();
+		foreach($array as $key=>$val){
+		    if (strpos($val,'$') > 0) {
+		        $ji = explode('$',$val);
+			    $urllist[$key]['playname'] = trim($ji[0]);
+			    $urllist[$key]['playpath'] = trim($ji[1]);
+			}else{
+			    $urllist[$key]['playname'] = '第'.($key+1).'集';
+			    $urllist[$key]['playpath'] = trim($val);
+			}
+			$urllist[$key]['partid'] = $index + $key + 1;
+		}
+	    return $urllist;
+	}
+	
+	public function ff_playlist_group($urlone,$id,$sid,$cid,$name){
+		$playlist = array();
+	    $array_url = explode(chr(13),str_replace(array("\r\n", "\n", "\r"),chr(13),$urlone));
+		$group = array_chunk($array_url, 48, true);
+		foreach ($group as $key=>$val){
+			$playlist[$key]['groupName'] = ($this->fillZero($key * 48 + 1,count($array_url)).' - '.($this->fillZero($key * 48 + count($val),count($array_url))));
+			$playlist[$key]['playitem'] = $this->ff_playlist_parse($val,$id,$sid,$cid,$name,$key * 48);
+		}
+		return $playlist;
+	}
+	
+	public function fillZero($v,$count){
+		if($count > 1000){
+			return substr(strval($v+10000),1,4);
+		}else if($count > 100){
+			return substr(strval($v+1000),1,3);
+		}else{
+			return substr(strval($v+100),1,2);
+		}
+	}
+
 	//分解单组播放地址链接
 	public function ff_playlist_one($urlone,$id,$sid,$cid,$name){
 		$urllist = array();
