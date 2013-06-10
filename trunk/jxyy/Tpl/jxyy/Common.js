@@ -232,6 +232,11 @@ function OpenMovie(movieid, cid, sid, title, url, src) {
             clientCall("playlist",this);
         });
     	
+    	var item={
+    		"refresh":true
+    	}
+    	clientCall("playlist",item);
+    	
 		var play={
 				"id":videoInfo.id,
 				"partid":sid,
