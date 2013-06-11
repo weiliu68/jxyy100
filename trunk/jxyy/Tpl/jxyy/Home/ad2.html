@@ -4,10 +4,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{$title}</title>
 	<link href="/Tpl/jxyy/style.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	</style>
 </head>
 <body>
+<div class="ad">
 {:getadsurl('popup')}
-<a href="jx://protocal?type=cmd&param=close">close</a>
+<a href="jx://protocal?type=cmd&param=close" class="close">close</a>
+</div>
 <iframe src="jx://protocal?type=ev&loading=success&from=1" border="0" frameborder="0" width="0" height="0"/>
 </body>
 </html>
