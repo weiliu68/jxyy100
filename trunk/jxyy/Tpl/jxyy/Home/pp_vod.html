@@ -18,7 +18,7 @@
     <!-- 内容区 -->
     <div id="container">
     
-<div class="wrapper" style="margin-top:10px;"><script type="text/javascript">BAIDU_CLB_fillSlot("511434");</script></div>
+<div class="wrapper" style="margin-top:10px;"></div>
         <!-- 内容 -->
         <div class="wrapper clearfix">
             <div class="crumbs"><a href="{$root}">首页</a><span> &gt; </span><a href="{$list_url}">{$list_name}</a> &gt;{$vod_name}</div>
@@ -59,7 +59,7 @@
                     </if>
                 </ul>
             </div>
-            <div class="colSide2 ad300x300"><script type="text/javascript">BAIDU_CLB_fillSlot("511437");</script></div>
+            <div class="colSide2 ad300x300"></div>
             <div class="blank20"></div>
             <!-- 播放链接 -->
             <if condition="$list_id eq 1">
@@ -87,9 +87,9 @@
 	            <volist name="vod_playlist" id="ppvod" key="playerkey">
 	            <div class="btns-play <eq name="list_id" value="4">show-play</eq> newest" <if condition="$playerkey gt 1">style='display:none'</if> index="{$ppvod.playname}">
 	               <php>$groupCount = count($ppvod['group']);</php>
-	               <if condition="$groupCount gt 1">
+	               <if condition="$groupCount gt 1 or $list_id eq 4">
 		           <div class="vlist-group">
-							<dl><dt>集数分组：</dt>
+							<dl><dt><eq name="list_id" value="4">年份分组：</eq><neq name="list_id" value="4">集数分组：</neq></dt>
 		               			<dd>
 		               				<volist name="ppvod.group" id="ppvodson">
 		                        		<li ctrl="{$ppvod.playname}" index="{$ppvod.playname}{$i}" <if condition="$i eq 1">class='cur'</if>>{$ppvodson.groupName}</li>
@@ -99,11 +99,12 @@
 		           </div>
 		           </if>
 	               <div class="blank20"></div>
+	               <php>$partid=0;</php>
 	               <volist name="ppvod.group" id="ppvodson" key="sonkey">
 		               <div class="{$ppvod.playname}" index="{$ppvod.playname}{$sonkey}" <if condition="$sonkey gt 1">style='display:none;'</if>>
 		               		<volist name="ppvodson.playitem" id="playitem">
 		               			<php>
-		               			$partid = ($sonkey - 1) * 48 + $i;
+		               			$partid = $partid + 1;
 		               			$partid = substr(strval($partid+10000),1,4); 
 		               			</php>
 		               			<a href="javascript:PlayVideo('{$ppvod.playname}', '{$partid}');">{$playitem.playname}</a>
