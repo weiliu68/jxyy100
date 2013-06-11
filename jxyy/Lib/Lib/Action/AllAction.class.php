@@ -183,15 +183,45 @@ class AllAction extends Action{
 	
 	public function ff_playlist_group($urlone,$id,$sid,$cid,$name){
 		$playlist = array();
-	    $array_url = explode(chr(13),str_replace(array("\r\n", "\n", "\r"),chr(13),$urlone));
-		$group = array_chunk($array_url, 48, true);
+		$array_url = explode(chr(13),str_replace(array("\r\n", "\n", "\r"),chr(13),$urlone));
+		if($cid == 4){
+			$group = $this->groupByYear($array_url);
+		}else{
+			$group = array_chunk($array_url, 48, true);
+		}
+		$i = 0;
 		foreach ($group as $key=>$val){
-			$playlist[$key]['groupName'] = ($this->fillZero($key * 48 + 1,count($array_url)).' - '.($this->fillZero($key * 48 + count($val),count($array_url))));
-			$playlist[$key]['playitem'] = $this->ff_playlist_parse($val,$id,$sid,$cid,$name,$key * 48);
+			if($cid == 4){
+				$playlist[$i]['groupName'] = $key;
+			}else{
+				$playlist[$i]['groupName'] = ($this->fillZero($i * 48 + 1,count($array_url)).' - '.($this->fillZero($i * 48 + count($val),count($array_url))));
+			}
+			$playlist[$i]['playitem'] = $this->ff_playlist_parse($val,$id,$sid,$cid,$name,$i * 48);
+			$i++;
 		}
 		return $playlist;
 	}
 	
+	public function groupByYear($array_url){
+		$group = array();
+		foreach ($array_url as $val) {
+			$items = explode("|",$val);
+			if(count($items)<=2){
+				continue;
+			}
+			unset($group['playitem']);
+			
+			$year = $items[2];
+			
+			if(!isset($group[$year])){
+				$group[$year] = array();
+			}
+			
+			$group[$year][] = $items[0]."|".$items[1];
+		}
+		return $group;
+	}
+
 	public function fillZero($v,$count){
 		if($count > 1000){
 			return substr(strval($v+10000),1,4);

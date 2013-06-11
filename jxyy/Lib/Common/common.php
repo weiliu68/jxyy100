@@ -816,6 +816,7 @@ function ff_content_url($content,$array_tag='',$sid=''){
 	}
 	return $content;
 }
+
 // 自定义模板链接
 function ff_mytpl_url($tplname){
 	$tplname = str_replace(array('my_','.html'),'',$tplname);
@@ -854,7 +855,7 @@ function ff_search_url($str,$type="wd",$sidname='vod',$action='search'){
     $str = str_replace(array('/','|',',','，'),' ',$str);
 	$arr = explode(' ',$str);
 	foreach($arr as $key=>$val){
-		$array[$key] = '<a href="'.UU('Home-'.$sidname.'/'.$action,array($type=>urlencode($val)),false,true).'" target="_blank">'.$val.'</a>';
+		$array[$key] = '<a href="'.UU('Home-'.$sidname.'/'.$action,array($type=>urlencode($val)),false,true).'">'.$val.'</a>';
 	}
 	return implode(' ',$array);
 }
