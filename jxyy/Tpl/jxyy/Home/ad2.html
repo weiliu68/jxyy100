@@ -9,25 +9,26 @@
 		margin:0;
 		padding:0;
 	}
-	.adclose {
+	.ad {
 		float:right;
 		clear: both;
 	}
-	.ad{
+	.adclose{
 		position: absolute;
 		clear: both;
 		float: right;
 		background: gray;
+		font-size: 15px;
 	}
 	</style>
 </head>
 <body>
 <div>
-<div class="adclose">
+<div class="ad">
 {:getadsurl('popup')}
 </div>
-<div class="ad">
-<a href="jx://protocal?type=cmd&param=close">关闭</a>
+<div class="adclose">
+<a href="jx://protocal?type=cmd&param=close"><b>关闭</b></a>
 </div>
 </div>
 <iframe src="jx://protocal?type=ev&loading=success&from=1" border="0" frameborder="0" width="0" height="0"/>
