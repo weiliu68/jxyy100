@@ -889,7 +889,7 @@ DIV.badoo input {
 .feature .ctrl {
 	position: absolute;
 	z-index: 333;
-	right: 305px;
+	right: 5px;
 	bottom: 15px;
 	width: 66px;
 	height: 30px;
