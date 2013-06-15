@@ -35,20 +35,6 @@
                             &nbsp;</a>
                     </div>
                 </div>
-                <div class="recommend">
-                    <div class="mask"></div>
-                    <php>$news=ff_mysql_vod('limit:10;order:vod_hits desc,vod_gold desc');</php>
-                    <!-- stars:5; -->
-                    <h2 class="title24 cWhite">最新推荐</h2>
-                    <ul>
-                    	<fflist name="news" id="ppvod">
-                        <li>
-                        <a title="{$ppvod.vod_name}" href="{$ppvod.vod_readurl}"><span class="name">{$ppvod.vod_name}
-                        <span class="cGrey"></span>{$ppvod.vod_year}</span><span class="point">{$ppvod.vod_gold}</span></a>
-                        </li>
-                        </fflist>
-                    </ul>
-                </div>
             </div>
         </div>
         <div class="wrapper" style="margin-top:10px;"></div>
@@ -63,6 +49,16 @@
                 <a href="#" class="ctrl-prev">上一组</a>
                 <h2 class="title24">热门影片推荐<span class="title12">当前最热门的影片推荐，您还可以点击右侧小圆圈换另一组</span></h2>
             </div>
+            <php>$suggest=ff_mysql_vod('limit:21;order:vod_hits desc');</php>
+            <ul class="imgList1" id="div_favicons">
+            <fflist name="suggest" id="ppvod">
+            <li index="1" class="<eq name="i % 7" value="0">last</eq>"><a title="{$ppvod.vod_name}" class="avatar" href="{$ppvod.vod_readurl}">
+                <b class="mask-play"></b><img alt="{$ppvod.vod_name}" src="{$ppvod.vod_picurl}" onerror="OnImgError(this)" />
+                <span class="tip">{$ppvod.vod_year}</span></a>
+                <h4 class="name"><a title="{$ppvod.vod_name}" href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a></h4>
+            </li>
+            </fflist>
+            </ul>
         </div>
         <!-- end 猜测您喜欢的 -->
         <div class="wrapper movie clearfix">
