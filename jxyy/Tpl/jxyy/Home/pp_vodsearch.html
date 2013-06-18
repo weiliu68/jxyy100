@@ -4,8 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{$title}</title>
-	<meta name="keywords" content="{$keywords}">
-	<meta name="description" content="{$description}">
+	<meta name="keywords" content="{$keywords}"/>
+	<meta name="description" content="{$description}"/>
 	<link href="/Tpl/jxyy/style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="/Tpl/jxyy/1.7.2.jquery.min.js"></script>
     <script type="text/javascript" src="/Tpl/jxyy/lazyLoad.js"></script>
@@ -67,66 +67,23 @@ $count = count(vod_list);
             </div>
             <div class="colSide3">
                 <div class="ad250x250"><script type="text/javascript">BAIDU_CLB_fillSlot("512186");</script></div>
+                <php>$hot_dy=ff_mysql_vod('limit:10;order:vod_gold desc,vod_hits desc');</php>
                 <div class="blank10"></div><h3 class="title16">网友在看的</h3>
                 <ol class="rank">
-                    <li class="top1">
-                        <a href="Vod?mid=799061"><span class="num">1</span>
-                        <span class="name">8毫米栏目电影之大话娱乐<span class="cGrey"> </span></span>
+                	<fflist name="hot_dy" id="ppvod">
+                    <li class="top{$i}">
+                        <a href="{$ppvod.vod_readurl}"><span class="num">{$i}</span>
+                        <span class="name">{$ppvod.vod_name}<span class="cGrey"> </span></span>
                         <span class="point">0.0</span></a>
                     </li>
-                    <li class="top2">
-                        <a href="Vod?mid=690221"><span class="num">2</span>
-                        <span class="name">夺命双头鲨 英语<span class="cGrey"> </span></span>
-                        <span class="point">0.0</span></a>
-                    </li>
-                    <li class="top3">
-                        <a href="Vod?mid=690121"><span class="num">3</span>
-                        <span class="name">向钱冲向前冲 国语<span class="cGrey"> </span></span>
-                        <span class="point">0.0</span></a>
-                    </li>
-                    <li class="top4">
-                        <a href="Vod?mid=914301"><span class="num">4</span>
-                        <span class="name">我的梦想,我的舞台<span class="cGrey"> </span></span>
-                        <span class="point">0.0</span></a>
-                    </li>
-                    <li class="top5">
-                        <a href="Vod?mid=738261"><span class="num">5</span>
-                        <span class="name">诺拉五天<span class="cGrey"> </span></span>
-                        <span class="point">0.0</span></a>
-                    </li>
-                    <li class="top6">
-                        <a href="Vod?mid=762271"><span class="num">6</span>
-                        <span class="name">我的美女老板 国语<span class="cGrey"> </span></span>
-                        <span class="point">0.0</span></a>
-                    </li>
-                    <li class="top7">
-                        <a href="Vod?mid=858601"><span class="num">7</span>
-                        <span class="name">抵抗运动之上部 法语<span class="cGrey"> </span></span>
-                        <span class="point">0.0</span></a>
-                    </li>
-                    <li class="top8">
-                        <a href="Vod?mid=925561"><span class="num">8</span>
-                        <span class="name">我们这一班6 国语<span class="cGrey"> </span></span>
-                        <span class="point">0.0</span></a>
-                    </li>
-                    <li class="top9">
-                        <a href="Vod?mid=674381"><span class="num">9</span>
-                        <span class="name">亨利-乔治&#183;克鲁佐的地狱 法语<span class="cGrey"> </span></span>
-                        <span class="point">0.0</span></a>
-                    </li>
-                    <li class="top10">
-                        <a href="Vod?mid=854701"><span class="num">10</span>
-                        <span class="name">衰鸟向前冲 国语<span class="cGrey"> </span></span>
-                        <span class="point">0.0</span></a>
-                    </li>
-
+                    </fflist>
                 </ol>
-                <div class="ad250x250"><script type="text/javascript">BAIDU_CLB_fillSlot("512187");</script></div>
+                <div class="ad250x250"><script type="text/javascript"></script></div>
             </div>
         </div>
         <!-- end 内容 -->
         <!-- 页脚 -->
-        <div class="footer"><div class="wrapper"><script type="text/javascript">BAIDU_CLB_fillSlot("512192");</script></div></div>
+        <div class="footer"><div class="wrapper"><script type="text/javascript"></script></div></div>
         <!--end 页脚 -->
     </div>
     <!-- end 内容区 -->
@@ -135,7 +92,6 @@ $count = count(vod_list);
         <!--<a href="#"><img src="/Images/feedback.gif" alt="反馈" /></a>-->
         <a href="#" class="go2top"><img src="/Tpl/jxyy/images/top.gif" alt="回到页首" /></a></div>
     <!-- end 返回 -->
-<img src="http://click.wuji.com/j.ashx?action=9" style="display:none;"/>
 </body>
 <script type="text/javascript">
     doResize();
