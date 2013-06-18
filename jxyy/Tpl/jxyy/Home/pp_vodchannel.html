@@ -33,13 +33,13 @@ if($_GET[year]) $u_year="-year-".$_GET[year];else $u_year=NULL;if($_GET[area]) $
                     <ul class="ctrl-tab2 clearfix">
 
                         <li class='cur'>
-                            <a href="/List?type=tv&amp;orderby=click">最受欢迎</a>
+                            <a href="{$list_url}">最受欢迎</a>
                         </li>
                         <li >
-                            <a href="/List?type=tv&amp;orderby=dateandtime">最近更新</a>
+                            <a href="{$list_url}">最近更新</a>
                         </li>
                         <li >
-                            <a href="/List?type=tv&amp;orderby=publicyear">最新上映</a>
+                            <a href="{$list_url}">最新上映</a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +49,8 @@ if($_GET[year]) $u_year="-year-".$_GET[year];else $u_year=NULL;if($_GET[area]) $
                         |
                     <a  title="单页内显示数量多，信息简洁" href="javascript:ChangeWJListType(1)">简洁</a>
                     </div>
-       				<php>$vod_list = ff_mysql_vod('cid:'.$list_id.';limit:8;page:true;order:vod_addtime desc,vod_id desc');$page = $vod_list[0]['page'];</php>
+                    {$year}
+       				<php>$vod_list = ff_mysql_vod('cid:'.$list_id.';year:'.$year.';area:'.$area.';limit:16;page:true;order:vod_addtime desc,vod_id desc');$page = $vod_list[0]['page'];</php>
                     <ul class="imgList2">
                     	<volist name="vod_list" id="ppvod">
                         <li>
@@ -86,17 +87,7 @@ if($_GET[year]) $u_year="-year-".$_GET[year];else $u_year=NULL;if($_GET[area]) $
                 <div class="title-bar ui-title2"><h2 class="title18">按类型</h2></div>
                 <ul class="category clearfix">
                     <li><a href='/List?type=tv' class='cur'>全部</a></li>
-<li><a href='/List?type=tv&category=%e8%a8%80%e6%83%85'>言情</a></li>
-<li><a href='/List?type=tv&category=%e5%8f%a4%e8%a3%85'>古装</a></li>
-<li><a href='/List?type=tv&category=%e5%96%9c%e5%89%a7'>喜剧</a></li>
-<li><a href='/List?type=tv&category=%e5%8e%86%e5%8f%b2'>历史</a></li>
-<li><a href='/List?type=tv&category=%e5%8a%a8%e4%bd%9c'>动作</a></li>
-<li><a href='/List?type=tv&category=%e4%bc%a6%e7%90%86'>伦理</a></li>
-<li><a href='/List?type=tv&category=%e5%81%b6%e5%83%8f'>偶像</a></li>
-<li><a href='/List?type=tv&category=%e7%a9%bf%e8%b6%8a'>穿越</a></li>
-<li><a href='/List?type=tv&category=%e8%ad%a6%e5%8c%aa'>警匪</a></li>
-<li><a href='/List?type=tv&category=%e9%83%bd%e5%b8%82'>都市</a></li>
-
+<?php foreach($s_language as $aid=>$avalue){ if($_GET[language]==$avalue) $class=" class='current'";else $class=NULL;echo "<li><a href=".$root."?s=vod-show-id-".$_GET[id].$u_year."-area-".urlencode($avalue).$u_letter.$u_order.".html $class>".$avalue."</a></li>";} ?>                    
                 </ul>
                 <div class="blank10"></div>
                 <div class="title-bar ui-title2"><h2 class="title18">按地区</h2></div>
