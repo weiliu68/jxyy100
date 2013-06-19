@@ -528,9 +528,6 @@ function getpage($currentPage,$totalPages,$halfPer=5,$url,$pagego){
     $linkPage .= ( $currentPage < $totalPages )
         ? '<a href="'.str_replace('{!page!}',($currentPage+1),$url).'" class="pagegbk">下一页</a>&nbsp;<a href="'.str_replace('{!page!}',$totalPages,$url).'" class="pagegbk">尾页</a>'
         : '<em>下一页</em>&nbsp;<em>尾页</em>';
-	if(!empty($pagego)){
-		$linkPage .='&nbsp;<input type="input" name="page" id="page" size=4 class="pagego"/><input type="button" value="跳 转" onclick="'.$pagego.'" class="pagebtn" />';
-	}
     return str_replace('-1'.C('html_file_suffix'),C('html_file_suffix'),str_replace('index1'.C('html_file_suffix'),'',$linkPage));
 }
 //处理最大分页参数
