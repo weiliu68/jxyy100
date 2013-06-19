@@ -1,5 +1,5 @@
 <?php
-class InstallAction extends AllAction{
+class UnInstallAction extends AllAction{
 	public function index(){
 		if($_GET['mv']!=""){
 			$rs = M("Client");
