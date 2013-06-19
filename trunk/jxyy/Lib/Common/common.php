@@ -1108,7 +1108,8 @@ function ff_mysql_vod($tag){
 		//数据列表
 		$list = $rs->field($field)->where($where)->order($order)->limit($limit)->page($currentpage)->select();
 		$list[0]['count'] = count($list);
-		$list[0]['page'] = $pages;						
+		$list[0]['page'] = $pages;
+		$list[0]['totalcount'] = $count;						
 	}else{
 		$list = $rs->field($field)->where($where)->order($order)->limit($limit)->select();
 	}
