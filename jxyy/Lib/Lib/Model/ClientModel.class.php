@@ -1,4 +1,7 @@
 <?php 
-class ClientModel extends AdvModel {
+class ClientModel extends Model {
+	protected $_validate = array(
+		array('mv','require',''),
+	);
 }
 ?>
