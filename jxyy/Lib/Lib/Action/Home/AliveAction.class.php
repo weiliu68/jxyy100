@@ -13,7 +13,7 @@ class AliveAction extends AllAction{
 			$data['client_location'] = $location['country'];
 			$resule = $rs->add($data);
 		}
-		$this->ajaxReturn(get_client_ip());
+		$this->ajaxReturn($Ip->getlocation(get_client_ip()));
 	}
 }
 ?>
