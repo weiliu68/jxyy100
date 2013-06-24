@@ -20,6 +20,7 @@ $(document).ready(function(){
       <th class="r" width="90">类型</th>
       <th class="l">网卡</th>
       <th class="l">IP</th>
+      <th class="l">地区</th>
       <th class="l" width="150">生成时间</th>
     </tr>
   </thead>
@@ -39,6 +40,7 @@ $(document).ready(function(){
     </td>
     <td class="l pd">{$ppvod.client_mv}</td>
     <td class="l pd">{$ppvod.client_ip}</td>
+    <td class="l pd">{$ppvod.client_location}</td>
     <td class="l ct">{$ppvod.client_addtime|date='Y-m-d H:i:s',###}</td>
   </tr>
   </tbody>
