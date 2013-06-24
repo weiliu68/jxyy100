@@ -226,9 +226,9 @@ class AllAction extends Action{
 	}
 
 	public function fillZero($v,$count){
-		if($count > 1000){
+		if($count >= 1000){
 			return substr(strval($v+10000),1,4);
-		}else if($count > 100){
+		}else if($count >= 100){
 			return substr(strval($v+1000),1,3);
 		}else{
 			return substr(strval($v+100),1,2);
