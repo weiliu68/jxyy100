@@ -1571,13 +1571,18 @@ function list_sort_by($list,$field, $sortby='asc') {
 }
 
 function ff_ip_location($ipAddress){
-	if(!$ipAddress){
-		return '';
+	static $_ip    =    array();
+	if(isset($_ip[$ip])) {
+		return $_ip[$ip];
+	}else{
+		import("ORG.Net.IpLocation");
+		$iplocation =   new IpLocation($file);
+		$location   =   $iplocation->getlocation($ip);
+		$_ip[$ip]    =    $location['country'];
 	}
-	
-	import('ORG.Net.IpLocation');// 导入IpLocation类
-	$Ip = new IpLocation(); // 实例化类
-	$location = $Ip->getlocation($ipAddress); // 获取某个IP地址所在的位置
-	return $location['country'];
+	if('utf-8' != $charset) {
+		$_ip[$ip] = iconv($charset,'utf-8',$_ip[$ip]);
+	}
+	return $_ip[$ip];
 }
 ?>

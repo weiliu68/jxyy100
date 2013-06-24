@@ -7,10 +7,7 @@ class UnInstallAction extends AllAction{
 			$data['client_addtime'] = time();
 			$data['client_type'] = 2;
 			$data['client_ip'] = get_client_ip();
-			import('ORG.Net.IpLocation');// 导入IpLocation类
-			$Ip = new IpLocation(); // 实例化类
-			$location = $Ip->getlocation(get_client_ip()); // 获取某个IP地址所在的位置
-			$data['client_location'] = $location['country'];
+			$data['client_location'] = ff_ip_location(get_client_ip());
 			$resule = $rs->add($data);
 		}
 	}
