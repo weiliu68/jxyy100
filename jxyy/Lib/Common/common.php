@@ -1571,6 +1571,10 @@ function list_sort_by($list,$field, $sortby='asc') {
 }
 
 function ff_ip_location($ipAddress){
+	if(!$ipAddress){
+		return '';
+	}
+	
 	import('ORG.Net.IpLocation');// 导入IpLocation类
 	$Ip = new IpLocation(); // 实例化类
 	$location = $Ip->getlocation($ipAddress); // 获取某个IP地址所在的位置
