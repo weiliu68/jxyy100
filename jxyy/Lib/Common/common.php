@@ -1570,7 +1570,7 @@ function list_sort_by($list,$field, $sortby='asc') {
    return false;
 }
 
-function ff_ip_location($ipAddress){
+function ff_ip_location($ip='',$charset='gbk',$file='qqwry.dat'){
 	static $_ip    =    array();
 	if(isset($_ip[$ip])) {
 		return $_ip[$ip];
