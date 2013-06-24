@@ -1574,6 +1574,6 @@ function ff_ip_location($ipAddress){
 	import('ORG.Net.IpLocation');// 导入IpLocation类
 	$Ip = new IpLocation(); // 实例化类
 	$location = $Ip->getlocation($ipAddress); // 获取某个IP地址所在的位置
-	return $location['area'];
+	return $location['country'];
 }
 ?>
