@@ -1571,6 +1571,10 @@ function list_sort_by($list,$field, $sortby='asc') {
 }
 
 function ff_ip_location($ip='',$charset='gbk',$file='qqwry.dat'){
+	if(!$ip){
+		return "";
+	}
+	
 	static $_ip    =    array();
 	if(isset($_ip[$ip])) {
 		return $_ip[$ip];
