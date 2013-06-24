@@ -147,9 +147,12 @@ class AllAction extends Action{
 	
 	public function jx_play_items($array){
 		$playItems = array();
+		$listcount = 0;
 		foreach ($array as $key=>$val){
-			$firstList = $array[$key]['son'];
-			break;
+			if(count($val['son']) > $listcount){
+				$listcount = count($val['son']);
+				$firstList = $val['son'];
+			}
 		}
 		foreach ($firstList as $key=>$val){
 			$playItems[$key]['title'] = $val['playname'];
