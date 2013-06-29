@@ -44,12 +44,12 @@ if($_GET[year]) $u_year="-year-".$_GET[year];else $u_year=NULL;if($_GET[area]) $
                     </ul>
                 </div>
                 <div class="content">
-                    <div class="orderbox" style="height:18px;"><span>列表样式：</span>
+                    <div class="orderbox" style="height:18px;"><span>{$list_langaue}列表样式：</span>
                     <a class='on' title="单页内显示数量少，信息详细" href="javascript:ChangeWJListType(0)">详细</a>                        
                         |
                     <a  title="单页内显示数量多，信息简洁" href="javascript:ChangeWJListType(1)">简洁</a>
                     </div>
-       				<php>$vod_list = ff_mysql_vod('cid:'.$list_id.';year:'.$year.';area:'.$area.';limit:16;page:true;order:vod_addtime desc,vod_id desc');$page = $vod_list[0]['page'];</php>
+       				<php>$vod_list = ff_mysql_vod('cid:'.$list_id.';year:'.$list_year.';language:'.$list_langaue.';area:'.$list_area.';limit:16;page:true;order:vod_addtime desc,vod_id desc');$page = $vod_list[0]['page'];</php>
                     <ul class="imgList2">
                     	<volist name="vod_list" id="ppvod">
                         <li>
@@ -63,7 +63,7 @@ if($_GET[year]) $u_year="-year-".$_GET[year];else $u_year=NULL;if($_GET[area]) $
                                 <span>导演：{$ppvod.vod_director}</span>
                                 <span>演员：{$ppvod.vod_actor}</span>
                                 <if condition="$list_id eq 2">
-                                <span>集数：全42集</span>
+                                <!-- <span>集数：全{$ppvod.vod_continu}集</span> -->
                                 </if>
                                 <!-- <span>更新：<font >{$ppvod.vod_actor}</font></span>  -->
                                 <dl class="sourceOnList"><dt>片源：</dt><dd>
@@ -85,14 +85,14 @@ if($_GET[year]) $u_year="-year-".$_GET[year];else $u_year=NULL;if($_GET[area]) $
             <div class="colSide3">
                 <div class="title-bar ui-title2"><h2 class="title18">按类型</h2></div>
                 <ul class="category clearfix">
-                    <li><a href='/List?type=tv' class='cur'>全部</a></li>
-<?php foreach($s_language as $aid=>$avalue){ if($_GET[language]==$avalue) $class=" class='current'";else $class=NULL;echo "<li><a href=".$root."?s=vod-show-id-".$_GET[id].$u_year."-area-".urlencode($avalue).$u_letter.$u_order.".html $class>".$avalue."</a></li>";} ?>                    
+                    <li><a href='{$list_url}' <eq name="_GET[langaue]" value="">class='cur'</eq>>全部</a></li>
+<?php foreach($s_language as $aid=>$avalue){ if($_GET[langaue]==$avalue) $class=" class='cur'";else $class=NULL;echo "<li><a href=".$root."?s=vod-show-id-".$_GET[id].$u_year."-langaue-".urlencode($avalue).$u_letter.$u_order.".html $class>".$avalue."</a></li>";} ?>                    
                 </ul>
                 <div class="blank10"></div>
                 <div class="title-bar ui-title2"><h2 class="title18">按地区</h2></div>
                 <ul class="category clearfix">
-                    <li><a href='/List?type=tv' class='cur'>全部</a></li>
-<?php foreach($s_area as $aid=>$avalue){ if($_GET[area]==$avalue) $class=" class='current'";else $class=NULL;echo "<li><a href=".$root."?s=vod-show-id-".$_GET[id].$u_year."-area-".urlencode($avalue).$u_letter.$u_order.".html $class>".$avalue."</a></li>";} ?>                    
+                    <li><a href='{$list_url}' <eq name="_GET[area]" value="">class='cur'</eq>>全部</a></li>
+<?php foreach($s_area as $aid=>$avalue){ if($_GET[area]==$avalue) $class=" class='cur'";else $class=NULL;echo "<li><a href=".$root."?s=vod-show-id-".$_GET[id].$u_year."-area-".urlencode($avalue).$u_letter.$u_order.".html $class>".$avalue."</a></li>";} ?>                    
                 </ul>
                 <div class="blank10"></div>
                 <div class="title-bar ui-title2"><h2 class="title18">按年份</h2></div>
