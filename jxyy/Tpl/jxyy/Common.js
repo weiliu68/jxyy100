@@ -54,7 +54,7 @@ function HisMenu() {
         var hisList = eval(oldCookie);
         var innertext = '';
         for (var i = 0; i < hisList.length; i++) {
-            var inhtml = '<li><span class="h-info"><b class="cYellow">{0}</b></span><span class="h-num">' + (i + 1) + '</span><a href=\'javascript:OpenMovie("' + hisList[i].movieid + '","' + hisList[i].cid + '","' + hisList[i].sid + '","' + hisList[i].title + '","' + hisList[i].url + '")\' class="h-name">' + hisList[i].title + '</a></li>'
+            var inhtml = '<li><span class="h-info"><b class="cYellow">{0}</b></span><span class="h-num">' + (i + 1) + '</span><a href=\'javascript:openHistory("' + hisList[i].movieid + '","' + hisList[i].cid + '","' + hisList[i].sid + '","' + hisList[i].title + '","' + hisList[i].url + '")\' class="h-name">' + hisList[i].title + '</a></li>'
             if (hisList[i].sid != '1') {
                 //inhtml = inhtml.replace('{0}', '第' + hisList[i].sid + '集');
                 inhtml = inhtml.replace('{0}', '');
@@ -76,7 +76,6 @@ function HisMenu() {
     //关闭历史列表
     this.closeHis = function () {
         self.oMenu.fadeOut('normal', 'linear');
-        //alert(self.getCookie());
     };
     //清空列表
     this.clear = function () {
@@ -183,6 +182,10 @@ function InitVideoListSrcInfo(o) {
     }
 }
 
+function openHistory(movieid, cid, sid, title, url, src){
+	window.location = url;
+}
+
 function PlayVideo(src, sequence, year) {
     if (year == null) {
         year = '';
@@ -197,7 +200,7 @@ function OpenMovie(movieid, cid, sid, title, url, src) {
         o.cid = cid;
         o.sid = sid;
         o.title = title;
-        o.url = url;
+        o.url = "http://play.jixun100.com/?s=vod-read-id-"+videoInfo.id+".html";
 
         var oldCookie = gHisMenu.getCookie();
         if (oldCookie == null || oldCookie == '') oldCookie = '[]';
