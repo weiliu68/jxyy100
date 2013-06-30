@@ -194,40 +194,7 @@ function PlayVideo(src, sequence, year) {
 }
 
 function OpenMovie(movieid, cid, sid, title, url, src) {
-    if (gHisMenu != null) {
-        var o = new Object();
-        o.movieid = movieid;
-        o.cid = cid;
-        o.sid = sid;
-        o.title = title;
-        o.url = "http://play.jixun100.com/?s=vod-read-id-"+videoInfo.id+".html";
-
-        var oldCookie = gHisMenu.getCookie();
-        if (oldCookie == null || oldCookie == '') oldCookie = '[]';
-
-        var hisList = eval(oldCookie);
-        hisList.unshift(o);
-
-        var saveStr = '';
-        var movieid = '';
-        var listCount = 0;
-        for (var i = 0; i < hisList.length; i++) {
-            if (listCount == 6) break;  //满6条则跳出
-            if (i == 0) {
-                saveStr = '[';
-                movieid = hisList[i].movieid;
-            } else {
-                if (movieid == hisList[i].movieid) continue;
-                saveStr += ',';
-            }
-            var tmp = '{movieid:"' + hisList[i].movieid + '",cid:"' + hisList[i].cid + '",sid:"' + hisList[i].sid + '",title:"' + hisList[i].title + '",url:"' + hisList[i].url + '"}';
-            saveStr += tmp;
-            listCount++;
-        }
-        saveStr += ']';
-        gHisMenu.setCookie(saveStr);
-        gHisMenu.init();
-    }
+	addHistory(movieid, cid, sid, title, url, src);
     try {
         external.zyExternal.getMainVersion();
         //play
@@ -251,6 +218,55 @@ function OpenMovie(movieid, cid, sid, title, url, src) {
 		}, 1000);
     } catch (e) { downplayer(); };
 };
+
+function addHistory(movieid, cid, sid, title, url, src) {
+	if (gHisMenu == null) {
+		return;
+	}
+	var o = new Object();
+	o.movieid = movieid;
+	o.cid = cid;
+	o.sid = sid;
+	o.title = title;
+	o.url = "http://play.jixun100.com/?s=vod-read-id-" + videoInfo.id + ".html";
+
+	var oldCookie = gHisMenu.getCookie();
+	if (oldCookie == null || oldCookie == '')
+		oldCookie = '[]';
+
+	var hisList = eval(oldCookie);
+	for ( var i = 0; i < hisList.length; i++) {
+		if (hisList[i].url == o.url) {
+			return;
+		}
+	}
+
+	hisList.unshift(o);
+
+	var saveStr = '';
+	var movieid = '';
+	var listCount = 0;
+	for ( var i = 0; i < hisList.length; i++) {
+		if (listCount == 6)
+			break; // 满6条则跳出
+		if (i == 0) {
+			saveStr = '[';
+			movieid = hisList[i].movieid;
+		} else {
+			if (movieid == hisList[i].movieid)
+				continue;
+			saveStr += ',';
+		}
+		var tmp = '{movieid:"' + hisList[i].movieid + '",cid:"'
+				+ hisList[i].cid + '",sid:"' + hisList[i].sid + '",title:"'
+				+ hisList[i].title + '",url:"' + hisList[i].url + '"}';
+		saveStr += tmp;
+		listCount++;
+	}
+	saveStr += ']';
+	gHisMenu.setCookie(saveStr);
+	gHisMenu.init();
+}
 
 function clientCall(t,d){
 	window.open("jx://protocal?type=cmd&action="+ t +"&item="+encodeURIComponent(JSON.stringify(d)));
