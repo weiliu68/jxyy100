@@ -26,5 +26,21 @@ class ClientAction extends BaseAction{
 		$this->assign('list',$list);
 		$this->display('./Public/system/client_conf.html');
 	}
+	
+	public function overview(){
+		$client = array();
+		
+		$rs = M("client");
+		$install = $rs->execute('select client_mv from ff_client where client_type = 1 group by client_mv');
+		$uninstall = $rs->execute('select client_mv from ff_client where client_type = 2 group by client_mv');
+		$avlie = $rs->execute('select client_mv from ff_client where client_type = 3 group by client_mv');
+		
+		$client['install'] = $install;
+		$client['uninstall'] = $uninstall;
+		$client['alive'] = $avlie;
+		$this->assign($client);
+		$this->assign('list',$list);
+		$this->display('./Public/system/client_overview.html');
+	}
 }
 ?>
