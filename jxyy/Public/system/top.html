@@ -47,15 +47,22 @@ var Tabs = function(obj,sid){
 <body>
 <div class="logo"><img src="__PUBLIC__/images/admin/top_logo.gif"></div>
 <div class="tabs" id="topmenu">
-    <li><a href="?s=Admin-Admin-Config" target="right" onClick="Tabs(this,0)"><span>系统管理</span></a></li>
-    <li><a href="?s=Admin-Vod-Show" target="right" onClick="Tabs(this,1)"><span>内容管理</span></a></li>
-    <li><a href="?s=Admin-Xml-Show" target="right" onClick="Tabs(this,2)"><span>采集管理</span></a></li>
-    <li><a href="?s=Admin-Cache-Show" target="right" onClick="Tabs(this,3)"><span>扩展工具</span></a></li>
-    <li><a href="?s=Admin-Tpl-Show" target="right" onClick="Tabs(this,4)"><span>模板管理</span></a></li>
-    <li><a href="?s=Admin-Create-Show" target="right" onClick="Tabs(this,5)"><span>静态生成</span></a></li>
-    <li><a href="?s=Admin-Admin-Show" target="right" onClick="Tabs(this,6)"><span>用户管理</span></a></li>
-    <li><a href="?s=Admin-Data-Show" target="right" onClick="Tabs(this,7)"><span>数据库维护</span></a></li>
-    <li><a href="?s=Admin-Client-Overview" target="right" onClick="Tabs(this,8)"><span>客户端统计</span></a></li>
+	<php> 
+	$usertype = explode(',',$_SESSION['admin_ok']);
+	if($usertype[0]) {
+		echo('<li><a href="?s=Admin-Admin-Config" target="right" onClick="Tabs(this,0)"><span>{$Think.MODULE_NAME}系统管理</span></a></li>');
+	    echo('<li><a href="?s=Admin-Vod-Show" target="right" onClick="Tabs(this,1)"><span>内容管理</span></a></li>');
+	    echo('<li><a href="?s=Admin-Xml-Show" target="right" onClick="Tabs(this,2)"><span>采集管理</span></a></li>');
+	    echo('<li><a href="?s=Admin-Cache-Show" target="right" onClick="Tabs(this,3)"><span>扩展工具</span></a></li>');
+	    echo('<li><a href="?s=Admin-Tpl-Show" target="right" onClick="Tabs(this,4)"><span>模板管理</span></a></li>');
+	    echo('<li><a href="?s=Admin-Create-Show" target="right" onClick="Tabs(this,5)"><span>静态生成</span></a></li>');
+	    echo('<li><a href="?s=Admin-Admin-Show" target="right" onClick="Tabs(this,6)"><span>用户管理</span></a></li>');
+	    echo('<li><a href="?s=Admin-Data-Show" target="right" onClick="Tabs(this,7)"><span>数据库维护</span></a></li>');
+	}
+	if($usertype[20]) {
+    	echo('<li><a href="?s=Admin-Client-Overview" target="right" onClick="Tabs(this,8)"><span>客户端统计</span></a></li>');
+    }
+    </php>
 </div>
 <div class="tophr">
 	<div class="left">你好：{@admin_name}，{%ppvod_welcome}</div>

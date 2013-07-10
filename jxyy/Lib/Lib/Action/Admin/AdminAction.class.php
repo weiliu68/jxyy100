@@ -23,7 +23,7 @@ class AdminAction extends BaseAction{
 	//处理权限入库
 	public function _before_insert(){
 		$ok = $_POST['ids'];
-		for($i=0;$i<20;$i++){
+		for($i=0;$i<21;$i++){
 			if($ok[$i]){
 				$rs[$i]=$ok[$i];
 			}else{
