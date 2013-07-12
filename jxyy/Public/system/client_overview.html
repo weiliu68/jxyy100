@@ -10,10 +10,11 @@
 <script language="javascript">
 var data = [<volist name="data" id="data">
 {
-    year: new Date({$data.y}, {$data.m}, {$data.d}),
+    year: new Date({$data.y}, {$data.m} - 1, {$data.d}),
     value: {$data.c}
 },
-</volist>];
+</volist>
+];
 
 var chart;
 var graph;
@@ -21,7 +22,7 @@ var graph;
 // note, some of tada points don't have value field
 var chartData = [
 {
-    year: new Date(2013, 6, 30),
+    year: new Date(2013, 1, 30),
     value: 12
 },
 {
