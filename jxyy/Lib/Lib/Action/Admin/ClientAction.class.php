@@ -34,10 +34,12 @@ class ClientAction extends BaseAction{
 		$install = $rs->execute('select client_mv from ff_client where client_type = 1 group by client_mv');
 		$uninstall = $rs->execute('select client_mv from ff_client where client_type = 2 group by client_mv');
 		$avlie = $rs->execute('select client_mv from ff_client where client_type = 3 group by client_mv');
+		$data = $rs->query("select YEAR(FROM_UNIXTIME(client_addtime)) y,MONTH(FROM_UNIXTIME(client_addtime)) m,DAY(FROM_UNIXTIME(client_addtime)) d,count(distinct client_mv) c from ff_client where client_type = 1 group by DAY(FROM_UNIXTIME(client_addtime)) order by y,m,d");
 		
 		$client['install'] = $install;
 		$client['uninstall'] = $uninstall;
 		$client['alive'] = $avlie;
+		$client['data'] = $data;
 		$this->assign($client);
 		$this->assign('list',$list);
 		$this->display('./Public/system/client_overview.html');
