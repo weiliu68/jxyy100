@@ -6,7 +6,84 @@
 <link rel='stylesheet' type='text/css' href='__PUBLIC__/css/admin-style.css' />
 <script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/js/admin.js"></script>
+<script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/js/amcharts.js"></script>
 <script language="javascript">
+var data = [<volist name="data" id="data">
+{
+    year: new Date({$data.y}, {$data.m}, {$data.d}),
+    value: {$data.c}
+},
+</volist>];
+
+var chart;
+var graph;
+
+// note, some of tada points don't have value field
+var chartData = [
+{
+    year: new Date(2013, 6, 30),
+    value: 12
+},
+{
+    year: new Date(2013, 6, 31),
+    value: 34
+},
+{
+    year: new Date(2013, 7, 1),
+    value: 34
+}
+];
+
+
+AmCharts.ready(function () {
+    // SERIAL CHART
+    chart = new AmCharts.AmSerialChart();
+    chart.pathToImages = "../amcharts/images/";
+    chart.marginTop = 0;
+    chart.marginRight = 0;
+    chart.dataProvider = data;
+    chart.categoryField = "year";
+    chart.zoomOutButton = {
+        backgroundColor: '#000000',
+        backgroundAlpha: 0.15
+    };
+
+    // AXES
+    // category
+    var categoryAxis = chart.categoryAxis;
+    categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
+    categoryAxis.minPeriod = "DD"; // our data is yearly, so we set minPeriod to YYYY
+    categoryAxis.dashLength = 1;
+    categoryAxis.axisColor = "#DADADA";
+
+    // value
+    var valueAxis = new AmCharts.ValueAxis();
+    valueAxis.axisAlpha = 0;
+    valueAxis.dashLength = 10;
+    valueAxis.inside = true;
+    chart.addValueAxis(valueAxis);
+
+    // GRAPH
+    graph = new AmCharts.AmGraph();
+    graph.lineColor = "#b6d278";
+    graph.negativeLineColor = "#487dac"; // this line makes the graph to change color when it drops below 0
+    graph.bullet = "round";
+    graph.bulletSize = 5;
+    graph.connect = false; // this makes the graph not to connect data points if data is missing
+    graph.lineThickness = 2;
+    graph.valueField = "value";
+    chart.addGraph(graph);
+    
+    // CURSOR  
+    var chartCursor = new AmCharts.ChartCursor();
+    chartCursor.cursorAlpha = 0;
+    chartCursor.cursorPosition = "mouse";
+    chartCursor.categoryBalloonDateFormat = "MM月DD日";
+    chart.addChartCursor(chartCursor);
+
+    // WRITE
+    chart.write("chartdiv");
+});
 </script>
 </head>
 <body class="body">
@@ -31,5 +108,6 @@
   </tr>
   </tbody>
 </table>
+<div id="chartdiv" style="width:100%; height:400px;"></div>
 </body>
 </html>
