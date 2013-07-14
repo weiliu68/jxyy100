@@ -1589,4 +1589,12 @@ function ff_ip_location($ip='',$charset='gbk',$file='qqwry.dat'){
 	}
 	return $_ip[$ip];
 }
+
+function showCount($value){
+	if($value>0){
+		return $value;
+	}
+	
+	return 0;
+}
 ?>

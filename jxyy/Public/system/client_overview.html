@@ -7,11 +7,15 @@
 <script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/js/admin.js"></script>
 <script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/js/amcharts.js"></script>
+<script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/js/datapicker/WdatePicker.js"></script>
+<!-- 
+<php>echo json_encode($data);</php>
+ -->
 <script language="javascript">
-var data = [<volist name="data" id="data">
+var data = [<volist name="idata" id="d">
 {
-    year: new Date({$data.y}, {$data.m} - 1, {$data.d}),
-    value: {$data.c}
+    year: new Date({$d.y}, {$d.m} - 1, {$d.d}),
+    value: {$d.c}
 },
 </volist>
 ];
@@ -85,30 +89,55 @@ AmCharts.ready(function () {
     // WRITE
     chart.write("chartdiv");
 });
+
+$(document).ready(function(){
+	$feifeicms.show.table();
+});
 </script>
 </head>
 <body class="body">
+<form action="?s=Admin-Client-Overview" method="post" name="myform" id="myform">
 <table border="0" cellpadding="0" cellspacing="0" class="table">
-<thead><th colspan="2" style="text-align:left"><span><a href="?s=Admin-Client-Show">详细>></a></span>客户端统计信息</th></thead>
+  	<tr>
+		<td class="tr ct" style="height: 40px">
+		<input type="button" value="所有" class="submit" onClick="changeurl('','','','','');">
+		<input type="button" value="最近三天" class="submit" onClick="changeurl('','','','',2);">
+		<input type="button" value="最近一周" class="submit" onClick="changeurl('','','','',1);">
+		<input type="button" id="continu" value="最近一月" class="submit">
+		<input type="text" name="start" value="{$start}" id="start" class="datepicker" onClick="WdatePicker({dateFmt:'yyyyMMdd'})"/>
+		<input type="text" name="end" value="{$end}" id="end" class="datepicker" onClick="WdatePicker({dateFmt:'yyyyMMdd'})"/>
+		<input type="button" value="搜索" class="submit" onClick="post('?s=Admin-Client-Overview');">
+		</td>
+	</tr>
+</table>
+</form>
+<table border="0" cellpadding="0" cellspacing="0" class="table">
+  <thead>
+  	<tr class="ct">
+      <th>日期</th>
+      <th>安装</th>
+      <th>卸载</th>
+      <th>报活</th>
+    </tr>
+  </thead>
+  <volist name="data" id="d" key="k">
   <tbody>
   <tr>
-    <td class="tl">安装总量</td>
-    <td class="tr">{$install}</td>
+    <td class="l pd">{$d.date}</td>
+    <td class="l pd">{$d.ic|showCount}</td>
+    <td class="l pd">{$d.uc|showCount}</td>
+    <td class="l pd">{$d.lc|showCount}</td>
   </tr>
   </tbody>
+  </volist>
   <tbody>
   <tr>
-    <td class="tl">卸载总量</td>
-    <td class="tr">{$uninstall}</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td class="tl">活跃量</td>
-    <td class="tr">{$alive}</td>
+    <td class="l pd">汇总(去重)</td>
+    <td class="l pd">{$install}</td>
+    <td class="l pd">{$uninstall}</td>
+    <td class="l pd">{$alive}</td>
   </tr>
   </tbody>
 </table>
-<div id="chartdiv" style="width:100%; height:400px;"></div>
 </body>
 </html>
