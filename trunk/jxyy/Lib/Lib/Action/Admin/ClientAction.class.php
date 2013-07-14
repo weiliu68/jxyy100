@@ -32,9 +32,11 @@ class ClientAction extends BaseAction{
 
 		$client['start'] = $_POST['start'];
 		$client['end'] = $_POST['end'];
-		
+
 		$start = !empty($_POST['start'])?$_POST['start']:'20130101';
 		$end = !empty($_POST['end'])?$_POST['end']:'20220101';
+
+		$end = date('Ymd',strtotime($end.' + 1 day'));
 
 		$rs = M("client");
 		$install = $rs->execute('select client_mv from ff_client where client_type = 1 and client_addtime > UNIX_TIMESTAMP(\''.$start.'\') and client_addtime < UNIX_TIMESTAMP(\''.$end.'\') group by client_mv');
@@ -58,16 +60,16 @@ class ClientAction extends BaseAction{
 		$data = array();
 
 		foreach ($isdata as $val){
-			$data[$val['y'].'-'.$val['m'].'-'.$val['d']]['ic'] = (int)$val['c'];
-			$data[$val['y'].'-'.$val['m'].'-'.$val['d']]['date'] = $val['y'].'-'.$val['m'].'-'.$val['d'];
+			$data[$val['y'].$val['m'].$val['d']]['ic'] = (int)$val['c'];
+			$data[$val['y'].$val['m'].$val['d']]['date'] = $val['y'].'-'.$val['m'].'-'.$val['d'];
 		}
 		foreach ($uisdata as $val){
-			$data[$val['y'].'-'.$val['m'].'-'.$val['d']]['uc'] = (int)$val['c'];
-			$data[$val['y'].'-'.$val['m'].'-'.$val['d']]['date'] = $val['y'].'-'.$val['m'].'-'.$val['d'];
+			$data[$val['y'].$val['m'].$val['d']]['uc'] = (int)$val['c'];
+			$data[$val['y'].$val['m'].$val['d']]['date'] = $val['y'].'-'.$val['m'].'-'.$val['d'];
 		}
 		foreach ($ldata as $val){
-			$data[$val['y'].'-'.$val['m'].'-'.$val['d']]['lc'] = (int)$val['c'];
-			$data[$val['y'].'-'.$val['m'].'-'.$val['d']]['date'] = $val['y'].'-'.$val['m'].'-'.$val['d'];
+			$data[$val['y'].$val['m'].$val['d']]['lc'] = (int)$val['c'];
+			$data[$val['y'].$val['m'].$val['d']]['date'] = $val['y'].'-'.$val['m'].'-'.$val['d'];
 		}
 		return $data;
 	}
